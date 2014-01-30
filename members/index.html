@@ -1,0 +1,13 @@
+---
+layout: default
+title: Members
+---
+
+<ul>
+{% for member in site.data.members %}
+  <img src="http://gravatar.com/avatar/{{ member.gravatar_md5 }}" style="float: left;" />
+  <h2>{{ member.name }}</h2>
+  <p>Github: <a href="https://github.com/{{ member.github }}">@{{ member.github }}</a></p>
+  <div style="clear: both;"></div>
+{% endfor %}
+</ul>

@@ -1,3 +1,4 @@
 name: Little Weaver Web Collective, LLC
 markdown: redcarpet
 pygments: true
+permalink: /:year/:month/:day/:title/
