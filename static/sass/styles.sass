@@ -1,3 +1,36 @@
 // customize bootstrap variables here:
 @import variables
 @import bootstrap
+
+// Spacing Utilities
+.margin-leader
+	margin-top: $line-height-computed
+
+.margin-trailer
+	margin-bottom: $line-height-computed
+
+.margin-leader-double
+	margin-top: $line-height-computed * 2
+
+.margin-trailer-double
+	margin-bottom: $line-height-computed * 2
+
+// Specific Modules
+
+.small-box
+	margin: $line-height-computed * 2
+	margin-top: 0
+	padding-top: $line-height-computed
+	border-top: 5px solid #222
+	width: 500px
+
+.logotype
+	@extend .margin-trailer-double
+	// old-style image-replacement with a new trick
+	width: 349px
+	height: 103px
+	background: transparent image-url('logotype.png')
+	text-indent: -9999px
+	.svg &
+		// If SVG is supported, use that. Faster download, retina-quality.
+		background: transparent image-url('logotype.svg')
