@@ -23,14 +23,19 @@
 	padding-top: $line-height-computed
 	border-top: 5px solid #222
 	width: 500px
+	@media (screen and max-width: 500px + $line-height-computed * 4)
+		width: auto
 
 .logotype
 	@extend .margin-trailer-double
 	// old-style image-replacement with a new trick
 	width: 349px
 	height: 103px
-	background: transparent image-url('logotype.png')
+	background: transparent image-url('logotype.png') top left no-repeat
 	text-indent: -9999px
 	.svg &
 		// If SVG is supported, use that. Faster download, retina-quality.
-		background: transparent image-url('logotype.svg')
+		background-image: image-url('logotype.svg')
+	@media (screen and max-width: 349px + $line-height-computed * 4)
+		width: 100%
+		background-size: contain

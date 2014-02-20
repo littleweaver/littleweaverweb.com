@@ -7622,15 +7622,28 @@ button.close {
   border-top: 5px solid #222222;
   width: 500px;
 }
+@media (max-width: 580px) {
+  /* line 20, ../sass/styles.sass */
+  .small-box {
+    width: auto;
+  }
+}
 
-/* line 27, ../sass/styles.sass */
+/* line 29, ../sass/styles.sass */
 .logotype {
   width: 349px;
   height: 103px;
-  background: transparent url('../images/logotype.png?1392841433');
+  background: transparent url('../images/logotype.png?1392849725') top left no-repeat;
   text-indent: -9999px;
 }
-/* line 34, ../sass/styles.sass */
+/* line 36, ../sass/styles.sass */
 .svg .logotype {
-  background: transparent url('../images/logotype.svg?1392843672');
+  background-image: url('../images/logotype.svg?1392849725');
+}
+@media (max-width: 429px) {
+  /* line 29, ../sass/styles.sass */
+  .logotype {
+    width: 100%;
+    background-size: contain;
+  }
 }
