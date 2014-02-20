@@ -1,6 +1,20 @@
+// Color scheme
+$yellow: #FFDC40
+$yellow-light: #FEFFF2
+// $blue-dark: #2B3133
+$blue-dark: #314D57
+$blue: #5A8894
+$blue-mid: #8FBFCC
+$blue-light: #E6F9FF
 // customize bootstrap variables here:
+$body-bg: $yellow-light
+$text-color: $blue-dark
+$brand-primary: $blue
+$link-hover-color: $blue-mid
+
 @import variables
 @import bootstrap
+
 
 // Spacing Utilities
 .margin-leader
@@ -17,17 +31,34 @@
 
 // Specific Modules
 
-.small-box
-	margin: $line-height-computed * 2
-	margin-top: 0
-	padding-top: $line-height-computed
-	border-top: 5px solid #222
-	width: 500px
-	@media (screen and max-width: 500px + $line-height-computed * 4)
-		width: auto
+.col-main
+	@extend .col-xs-12 
+	// @extend .col-sm-10 
+	// @extend .col-md-8 
+	// @extend .col-lg-6
+	// @extend .col-sm-offset-1 
+	// @extend .col-md-offset-2
+	// @extend .col-lg-offset-3 
+	@media (screen and min-width: $screen-xs-min)
+		max-width: 600px
+
+
+header
+	@extend .margin-trailer
+	background-color: $blue-mid
+
+.logo
+	width: 103px
+	height: 103px
+	margin-top: 25px
+	margin-right: 20px
+	background: $yellow
+	display: inline-block
+	float: left
 
 .logotype
-	@extend .margin-trailer-double
+	@extend .margin-trailer
+	float: left
 	// old-style image-replacement with a new trick
 	width: 349px
 	height: 103px
@@ -39,3 +70,4 @@
 	@media (screen and max-width: 349px + $line-height-computed * 4)
 		width: 100%
 		background-size: contain
+
