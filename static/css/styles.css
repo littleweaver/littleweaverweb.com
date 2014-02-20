@@ -7614,20 +7614,18 @@ button.close {
   margin-bottom: 50px;
 }
 
-@media (min-width: 480px) {
-  /* line 35, ../sass/styles.sass */
-  .col-main {
-    max-width: 600px;
-  }
+/* line 35, ../sass/styles.sass */
+.col-main {
+  max-width: 600px;
 }
 
-/* line 47, ../sass/styles.sass */
+/* line 40, ../sass/styles.sass */
 header {
   background-color: #8fbfcc;
   color: #243a42;
 }
 
-/* line 52, ../sass/styles.sass */
+/* line 45, ../sass/styles.sass */
 .logo {
   width: 103px;
   height: 103px;
@@ -7638,22 +7636,22 @@ header {
   float: left;
 }
 
-/* line 61, ../sass/styles.sass */
+/* line 54, ../sass/styles.sass */
 .logotype {
   float: left;
-  width: 349px;
-  height: 103px;
-  background: transparent url('../images/logotype.png?1392933809') top left no-repeat;
+  background: transparent url('../images/logotype.png?1392934118') top left no-repeat;
   text-indent: -9999px;
+  width: 100%;
+  background-size: contain;
 }
-/* line 69, ../sass/styles.sass */
+/* line 62, ../sass/styles.sass */
 .svg .logotype {
   background-image: url('../images/logotype.svg?1392933975');
 }
-@media (max-width: 449px) {
-  /* line 61, ../sass/styles.sass */
+@media (min-width: 480px) {
+  /* line 54, ../sass/styles.sass */
   .logotype {
-    width: 100%;
-    background-size: contain;
+    height: 103px;
+    width: 349px;
   }
 }

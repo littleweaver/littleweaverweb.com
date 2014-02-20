@@ -34,14 +34,7 @@ $link-hover-color: $blue-mid
 
 .col-main
 	@extend .col-xs-12 
-	// @extend .col-sm-10 
-	// @extend .col-md-8 
-	// @extend .col-lg-6
-	// @extend .col-sm-offset-1 
-	// @extend .col-md-offset-2
-	// @extend .col-lg-offset-3 
-	@media (screen and min-width: $screen-xs-min)
-		max-width: 600px
+	max-width: 600px
 
 
 header
@@ -62,14 +55,14 @@ header
 	@extend .margin-trailer
 	float: left
 	// old-style image-replacement with a new trick
-	width: 349px
-	height: 103px
 	background: transparent image-url('logotype.png') top left no-repeat
 	text-indent: -9999px
+	width: 100%
+	background-size: contain
 	.svg &
 		// If SVG is supported, use that. Faster download, retina-quality.
 		background-image: image-url('logotype.svg')
-	@media (screen and max-width: 349px + $line-height-computed * 4)
-		width: 100%
-		background-size: contain
+	@media (screen and min-width: $screen-xs-min)
+		height: 103px
+		width: 349px
 
