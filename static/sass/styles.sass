@@ -2,14 +2,14 @@
 @import compass/css3/images
 
 $gray-light: #AAA
-$bright-orange: #F80
-$dark-orange: #C80
+$orange-bright: #F80
+$orange-dark: #C80
 $yellow: #FFCF40
 
 $max-width: 780px
 
 // Bootstrap Overrides
-$link-color: $dark-orange
+$link-color: $orange-dark
 
 @import variables
 @import bootstrap
@@ -25,7 +25,7 @@ body
 		$dbl-band: $band-width * 2
 		content: " "
 		display: block
-		+background(linear-gradient($yellow 0, $yellow $band-width, $bright-orange $band-width, $bright-orange $dbl-band))
+		+background(linear-gradient($yellow 0, $yellow $band-width, $orange-bright $band-width, $orange-bright $dbl-band))
 		background-size: 1px $dbl-band
 		background-repeat: repeat
 		width: 10px
@@ -58,7 +58,7 @@ body
 
 .logotype
 	margin: $line-height-computed 0
-	color: $dark-orange
+	color: $orange-dark
 
 .co-name
 	color: #000
