@@ -6336,26 +6336,16 @@ button.close {
   margin-top: 0;
   padding-top: 20px;
   border-top: 5px solid #222222;
-  width: 500px;
-}
-@media (max-width: 580px) {
-  .small-box {
-    width: auto;
-  }
+  max-width: 500px;
 }
 
 .logotype {
-  width: 349px;
+  max-width: 349px;
   height: 103px;
-  background: transparent url('../images/logotype.png?1392954998') top left no-repeat;
+  background: transparent url('../images/logotype.png?1392955240') top left no-repeat;
+  background-size: contain;
   text-indent: -9999px;
 }
 .svg .logotype {
-  background-image: url('../images/logotype.svg?1392954998');
-}
-@media (max-width: 429px) {
-  .logotype {
-    width: 100%;
-    background-size: contain;
-  }
+  background-image: url('../images/logotype.svg?1392955240');
 }

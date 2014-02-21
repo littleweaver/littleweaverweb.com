@@ -1,3 +1,5 @@
+$accent-1: #C00 
+
 // customize bootstrap variables here:
 @import variables
 @import bootstrap
@@ -22,20 +24,16 @@
 	margin-top: 0
 	padding-top: $line-height-computed
 	border-top: 5px solid #222
-	width: 500px
-	@media (screen and max-width: 500px + $line-height-computed * 4)
-		width: auto
+	max-width: 500px
 
 .logotype
 	@extend .margin-trailer-double
 	// old-style image-replacement with a new trick
-	width: 349px
+	max-width: 349px
 	height: 103px
 	background: transparent image-url('logotype.png') top left no-repeat
+	background-size: contain
 	text-indent: -9999px
 	.svg &
 		// If SVG is supported, use that. Faster download, retina-quality.
 		background-image: image-url('logotype.svg')
-	@media (screen and max-width: 349px + $line-height-computed * 4)
-		width: 100%
-		background-size: contain
