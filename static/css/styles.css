@@ -6319,7 +6319,7 @@ button.close {
   margin-top: 25px;
 }
 
-.margin-trailer, .site-header, .logotype {
+.margin-trailer {
   margin-bottom: 25px;
 }
 
@@ -6334,6 +6334,7 @@ button.close {
 .site-header {
   background-color: #8fbfcc;
   color: #243a42;
+  padding: 25px 50px;
 }
 .site-header:before, .site-header:after {
   content: " ";
@@ -6343,18 +6344,24 @@ button.close {
   clear: both;
 }
 
+.main {
+  max-width: 780px;
+  padding: 25px 50px;
+}
+
 .logo {
   width: 103px;
   height: 103px;
-  margin-top: 25px;
-  margin-right: 20px;
+  margin-right: 25px;
   background: #ffdc40;
   display: inline-block;
-  float: left;
+  vertical-align: middle;
 }
 
 .logotype {
-  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
   background: transparent url('../images/logotype.png?1393009615') top left no-repeat;
   text-indent: -9999px;
   width: 100%;

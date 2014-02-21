@@ -14,6 +14,8 @@ $body-bg: $yellow-light
 $text-color: $blue-dark
 $brand-primary: $blue
 $link-hover-color: $blue-mid
+// max-width
+$max-width: 780px
 
 @import variables
 @import bootstrap
@@ -35,23 +37,27 @@ $link-hover-color: $blue-mid
 // Specific Modules
 
 .site-header
-	@extend .margin-trailer
 	background-color: $blue-mid
 	color: $blue-dark-header
 	+clearfix
+	padding: $line-height-computed #{$line-height-computed * 2}
+
+.main
+	max-width: $max-width
+	padding: $line-height-computed #{$line-height-computed * 2}
 
 .logo
 	width: 103px
 	height: 103px
-	margin-top: 25px
-	margin-right: 20px
+	margin-right: $line-height-computed
 	background: $yellow
 	display: inline-block
-	float: left
+	vertical-align: middle
 
 .logotype
-	@extend .margin-trailer
-	float: left
+	display: inline-block
+	vertical-align: middle
+	margin: 0
 	// old-style image-replacement with a new trick
 	background: transparent image-url('logotype.png') top left no-repeat
 	text-indent: -9999px
