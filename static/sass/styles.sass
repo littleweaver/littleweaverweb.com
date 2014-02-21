@@ -1,20 +1,5 @@
 @import compass/utilities/general/clearfix
 
-// Color scheme
-$yellow: #FFDC40
-$yellow-light: #FEFFF2
-// $blue-dark: #2B3133
-$blue-dark-header: #243A42
-$blue-dark: #314D57
-$blue: #5A8894
-$blue-mid: #8FBFCC
-$blue-light: #E6F9FF
-// customize bootstrap variables here:
-$body-bg: $yellow-light
-$text-color: $blue-dark
-$brand-primary: $blue
-$link-hover-color: $blue-mid
-// max-width
 $max-width: 780px
 
 @import variables
@@ -37,14 +22,12 @@ $max-width: 780px
 // Specific Modules
 
 .site-header
-	background-color: $blue-mid
-	color: $blue-dark-header
 	+clearfix
-	padding: $line-height-computed #{$line-height-computed * 2}
+	padding: 0 #{$line-height-computed * 2}
 
 .main
 	max-width: $max-width
-	padding: $line-height-computed #{$line-height-computed * 2}
+	padding: 0 #{$line-height-computed * 2}
 
 .logotype
-	margin: 0
+	margin: $line-height-computed 0
