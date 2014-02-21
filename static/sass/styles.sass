@@ -1,4 +1,5 @@
-$accent-1: #C00 
+$dark-slate: #2B3133
+$off-white: #F0FCFF
 
 // customize bootstrap variables here:
 @import variables
@@ -20,14 +21,15 @@ $accent-1: #C00
 // Specific Modules
 
 .small-box
-	margin: $line-height-computed * 2
-	margin-top: 0
-	padding-top: $line-height-computed
-	border-top: 5px solid #222
-	max-width: 700px
+	max-width: 780px
+	padding: $line-height-computed #{$line-height-computed * 2}
+
+.site-title
+	padding: $line-height-computed #{$line-height-computed * 2}
+	background: $dark-slate
 
 .logotype
-	@extend .margin-trailer-double
+	margin: 0
 	// old-style image-replacement with a new trick
 	max-width: 349px
 	height: 103px

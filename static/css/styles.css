@@ -328,8 +328,8 @@ body {
   font-family: "Minion Pro", Minion, Palatino, serif;
   font-size: 20px;
   line-height: 1.25;
-  color: #333333;
-  background-color: white;
+  color: #2b3133;
+  background-color: #f0fcff;
 }
 
 input,
@@ -376,7 +376,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.25;
-  background-color: white;
+  background-color: #f0fcff;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -1755,7 +1755,7 @@ th {
   border-top: 2px solid #dddddd;
 }
 .table .table {
-  background-color: white;
+  background-color: #f0fcff;
 }
 
 .table-condensed > thead > tr > th,
@@ -2285,7 +2285,7 @@ select[multiple].input-lg,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #737373;
+  color: #657378;
 }
 
 @media (min-width: 768px) {
@@ -4021,7 +4021,7 @@ input[type="button"].btn-block {
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: white;
+  background-color: #f0fcff;
   border: 1px solid #dddddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -4097,7 +4097,7 @@ input[type="button"].btn-block {
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs-justified > .active > a:focus,
   .nav-tabs.nav-justified > .active > a:focus {
-    border-bottom-color: white;
+    border-bottom-color: #f0fcff;
   }
 }
 
@@ -4864,7 +4864,7 @@ a.list-group-item.active > .badge,
   padding: 4px;
   margin-bottom: 25px;
   line-height: 1.25;
-  background-color: white;
+  background-color: #f0fcff;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -4880,7 +4880,7 @@ a.list-group-item.active > .badge,
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #333333;
+  color: #2b3133;
 }
 
 a.thumbnail:hover,
@@ -6327,19 +6327,22 @@ button.close {
   margin-top: 50px;
 }
 
-.margin-trailer-double, .logotype {
+.margin-trailer-double {
   margin-bottom: 50px;
 }
 
 .small-box {
-  margin: 50px;
-  margin-top: 0;
-  padding-top: 25px;
-  border-top: 5px solid #222222;
-  max-width: 700px;
+  max-width: 780px;
+  padding: 25px 50px;
+}
+
+.site-title {
+  padding: 25px 50px;
+  background: #2b3133;
 }
 
 .logotype {
+  margin: 0;
   max-width: 349px;
   height: 103px;
   background: transparent url('../images/logotype.png?1392955240') top left no-repeat;
@@ -6347,5 +6350,5 @@ button.close {
   text-indent: -9999px;
 }
 .svg .logotype {
-  background-image: url('../images/logotype.svg?1392955240');
+  background-image: url('../images/logotype.svg?1392957044');
 }
