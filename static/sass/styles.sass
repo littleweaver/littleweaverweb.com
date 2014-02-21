@@ -1,6 +1,7 @@
 @import compass/utilities/general/clearfix
 @import compass/css3/images
 
+$gray-light: #AAA
 $bright-orange: #F80
 $dark-orange: #C80
 $yellow: #FFCF40
@@ -15,6 +16,7 @@ html
 
 body
 	min-height: 100%
+	padding: 0 #{$line-height-computed * 2}
 	&::before
 		$band-width: $line-height-computed * 2
 		$dbl-band: $band-width * 2
@@ -46,11 +48,10 @@ body
 
 .site-header
 	+clearfix
-	padding: 0 #{$line-height-computed * 2}
 
 .main
+	@extend .margin-trailer
 	max-width: $max-width
-	padding: 0 #{$line-height-computed * 2}
 
 .logotype
 	margin: $line-height-computed 0
@@ -58,3 +59,6 @@ body
 
 .co-name
 	color: #000
+
+.muted
+	color: $gray-light
