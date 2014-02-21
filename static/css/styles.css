@@ -6375,3 +6375,7 @@ body::before {
   margin: 24px 0;
   color: #cc8800;
 }
+
+.co-name {
+  color: black;
+}
