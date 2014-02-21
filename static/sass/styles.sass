@@ -1,3 +1,5 @@
+@import compass/utilities/general/clearfix
+
 // Color scheme
 $yellow: #FFDC40
 $yellow-light: #FEFFF2
@@ -32,15 +34,11 @@ $link-hover-color: $blue-mid
 
 // Specific Modules
 
-.col-main
-	@extend .col-xs-12 
-	max-width: 600px
-
-
 .site-header
 	@extend .margin-trailer
 	background-color: $blue-mid
 	color: $blue-dark-header
+	+clearfix
 
 .logo
 	width: 103px
