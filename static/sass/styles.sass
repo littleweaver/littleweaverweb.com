@@ -40,7 +40,7 @@ $max-width: 780px
 	background-color: $blue-mid
 	color: $blue-dark-header
 	+clearfix
-	padding: $line-height-computed #{$line-height-computed * 2} 0 #{$line-height-computed * 2}
+	padding: $line-height-computed #{$line-height-computed * 2}
 
 .main
 	max-width: $max-width
@@ -56,18 +56,4 @@ $max-width: 780px
 	margin-bottom: $line-height-computed
 
 .logotype
-	display: inline-block
 	margin: 0
-	margin-bottom: $line-height-computed
-	vertical-align: middle
-	// old-style image-replacement with a new trick
-	background: transparent image-url('logotype.png') top left no-repeat
-	text-indent: -9999px
-	height: 103px
-	width: 349px
-	background-size: contain
-	max-width: 100%
-	.svg &
-		// If SVG is supported, use that. Faster download, retina-quality.
-		background-image: image-url('logotype.svg')
-

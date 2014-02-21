@@ -6334,7 +6334,7 @@ button.close {
 .site-header {
   background-color: #8fbfcc;
   color: #243a42;
-  padding: 25px 50px 0 50px;
+  padding: 25px 50px;
 }
 .site-header:before, .site-header:after {
   content: " ";
@@ -6360,17 +6360,5 @@ button.close {
 }
 
 .logotype {
-  display: inline-block;
   margin: 0;
-  margin-bottom: 25px;
-  vertical-align: middle;
-  background: transparent url('../images/logotype.png?1393009615') top left no-repeat;
-  text-indent: -9999px;
-  height: 103px;
-  width: 349px;
-  background-size: contain;
-  max-width: 100%;
-}
-.svg .logotype {
-  background-image: url('../images/logotype.svg?1393009615');
 }
