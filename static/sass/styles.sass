@@ -1,10 +1,33 @@
 @import compass/utilities/general/clearfix
+@import compass/css3/images
+
+$bright-orange: #F80
+$dark-orange: #C80
+$yellow: #FFCF40
 
 $max-width: 780px
 
 @import variables
 @import bootstrap
 
+html
+	height: 100%
+
+body
+	min-height: 100%
+	&::before
+		$band-width: $line-height-computed * 2
+		$dbl-band: $band-width * 2
+		content: " "
+		display: block
+		+background(linear-gradient($yellow 0, $yellow $band-width, $bright-orange $band-width, $bright-orange $dbl-band))
+		background-size: 1px $dbl-band
+		background-repeat: repeat
+		width: 10px
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
 
 // Spacing Utilities
 .margin-leader
@@ -31,3 +54,4 @@ $max-width: 780px
 
 .logotype
 	margin: $line-height-computed 0
+	color: $dark-orange

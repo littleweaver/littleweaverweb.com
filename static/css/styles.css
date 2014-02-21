@@ -6315,6 +6315,30 @@ button.close {
     display: none !important;
   }
 }
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+body::before {
+  content: " ";
+  display: block;
+  background: -webkit-gradient(linear, 50% 0%, 50% 96, color-stop(0%, #ffcf40), color-stop(50%, #ffcf40), color-stop(50%, #ff8800), color-stop(100%, #ff8800));
+  background: -webkit-linear-gradient(#ffcf40 0%, #ffcf40 48px, #ff8800 48px, #ff8800 96px);
+  background: -moz-linear-gradient(#ffcf40 0%, #ffcf40 48px, #ff8800 48px, #ff8800 96px);
+  background: -o-linear-gradient(#ffcf40 0%, #ffcf40 48px, #ff8800 48px, #ff8800 96px);
+  background: linear-gradient(#ffcf40 0%, #ffcf40 48px, #ff8800 48px, #ff8800 96px);
+  background-size: 1px 96px;
+  background-repeat: repeat;
+  width: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
 .margin-leader {
   margin-top: 24px;
 }
@@ -6349,4 +6373,5 @@ button.close {
 
 .logotype {
   margin: 24px 0;
+  color: #cc8800;
 }
