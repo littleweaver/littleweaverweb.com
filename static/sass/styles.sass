@@ -1,5 +1,11 @@
 $dark-slate: #2B3133
 $off-white: #F0FCFF
+$mid-blue: #8FBFCC
+$red: #C00
+
+@import compass/css3/border-radius
+@import compass/css3/box-shadow
+@import compass/css3/images
 
 // customize bootstrap variables here:
 @import variables
@@ -25,14 +31,30 @@ $off-white: #F0FCFF
 	padding: $line-height-computed #{$line-height-computed * 2}
 
 .site-title
+	$top: lighten($dark-slate, 1%)
+	$middle: lighten($dark-slate, 3%)
+	$bottom: $dark-slate
 	padding: $line-height-computed #{$line-height-computed * 2}
-	background: $dark-slate
+	+background-image(linear-gradient(top, $top 0, $middle 75%, $bottom 100%))
+	+box-shadow(0 1px 0 0 #FFF, 0 -1px 0 0 rgba(0,0,0,.35) inset)
+
+.logo
+	display: inline-block
+	vertical-align: middle
+	width: 103px
+	height: 103px
+	background: #F9FF40
+	+border-radius(50%)
 
 .logotype
+	display: inline-block
+	vertical-align: middle
 	margin: 0
+	margin-left: $line-height-computed
 	// old-style image-replacement with a new trick
 	max-width: 349px
 	height: 103px
+	width: 349px
 	background: transparent image-url('logotype.png') top left no-repeat
 	background-size: contain
 	text-indent: -9999px
