@@ -471,7 +471,7 @@ h6 .small, .h6 small,
 }
 
 h1, .h1 {
-  font-size: 52px;
+  font-size: 50px;
 }
 
 h2, .h2 {
@@ -6347,16 +6347,6 @@ button.close {
 .main {
   max-width: 780px;
   padding: 25px 50px;
-}
-
-.logo {
-  width: 103px;
-  height: 103px;
-  margin-right: 25px;
-  background: #ffdc40;
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: 25px;
 }
 
 .logotype {
