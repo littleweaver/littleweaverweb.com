@@ -1,25 +1,41 @@
 @import compass/utilities/general/clearfix
+@import compass/css3/images
 
-// Color scheme
-$yellow: #FFDC40
-$yellow-light: #FEFFF2
-// $blue-dark: #2B3133
-$blue-dark-header: #243A42
-$blue-dark: #314D57
-$blue: #5A8894
-$blue-mid: #8FBFCC
-$blue-light: #E6F9FF
-// customize bootstrap variables here:
-$body-bg: $yellow-light
-$text-color: $blue-dark
-$brand-primary: $blue
-$link-hover-color: $blue-mid
-// max-width
+$gray-light: #AAA
+$orange-bright: #F80
+$orange-dark: #C80
+$yellow: #FFCF40
+
 $max-width: 780px
+
+// Bootstrap Overrides
+$link-color: $orange-dark
 
 @import variables
 @import bootstrap
 
+html
+	height: 100%
+
+body
+	min-height: 100%
+	padding: 0 #{$line-height-computed * 2}
+	&::before
+		$band-width: $line-height-computed * 2
+		$dbl-band: $band-width * 2
+		content: " "
+		display: block
+		+background(linear-gradient($yellow 0, $yellow $band-width, $orange-bright $band-width, $orange-bright $dbl-band))
+		background-size: 1px $dbl-band
+		background-repeat: repeat
+		width: 10px
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+
+h1
+	font-family: $font-family-serif
 
 // Spacing Utilities
 .margin-leader
@@ -37,37 +53,18 @@ $max-width: 780px
 // Specific Modules
 
 .site-header
-	background-color: $blue-mid
-	color: $blue-dark-header
 	+clearfix
-	padding: $line-height-computed #{$line-height-computed * 2} 0 #{$line-height-computed * 2}
 
 .main
+	@extend .margin-trailer
 	max-width: $max-width
-	padding: $line-height-computed #{$line-height-computed * 2}
-
-.logo
-	width: 103px
-	height: 103px
-	margin-right: $line-height-computed
-	background: $yellow
-	display: inline-block
-	vertical-align: middle
-	margin-bottom: $line-height-computed
 
 .logotype
-	display: inline-block
-	margin: 0
-	margin-bottom: $line-height-computed
-	vertical-align: middle
-	// old-style image-replacement with a new trick
-	background: transparent image-url('logotype.png') top left no-repeat
-	text-indent: -9999px
-	height: 103px
-	width: 349px
-	background-size: contain
-	max-width: 100%
-	.svg &
-		// If SVG is supported, use that. Faster download, retina-quality.
-		background-image: image-url('logotype.svg')
+	margin: $line-height-computed 0
+	color: $orange-dark
 
+.co-name
+	color: #000
+
+.muted
+	color: $gray-light
