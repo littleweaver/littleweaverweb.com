@@ -325,7 +325,7 @@ html {
 }
 
 body {
-  font-family: "museo-slab", Georgia, serif;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 17px;
   line-height: 1.47;
   color: #333333;
@@ -6338,6 +6338,10 @@ body::before {
   top: 0;
   left: 0;
   bottom: 0;
+}
+
+h1 {
+  font-family: "museo-slab", Georgia, serif;
 }
 
 .margin-leader {
