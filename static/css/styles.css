@@ -6322,6 +6322,14 @@ html {
 body {
   min-height: 100%;
   padding: 0 48px;
+  position: relative;
+}
+body:before, body:after {
+  content: " ";
+  display: table;
+}
+body:after {
+  clear: both;
 }
 body::before {
   content: " ";
@@ -6348,7 +6356,7 @@ h1 {
   margin-top: 24px;
 }
 
-.margin-trailer, .main {
+.margin-trailer, .main, .site-footer {
   margin-bottom: 24px;
 }
 
@@ -6360,16 +6368,16 @@ h1 {
   margin-bottom: 48px;
 }
 
+.lw-container {
+  max-width: 780px;
+}
+
 .site-header:before, .site-header:after {
   content: " ";
   display: table;
 }
 .site-header:after {
   clear: both;
-}
-
-.main {
-  max-width: 780px;
 }
 
 .logotype {

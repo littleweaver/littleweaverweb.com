@@ -20,6 +20,9 @@ html
 body
 	min-height: 100%
 	padding: 0 #{$line-height-computed * 2}
+	// Orange Band
+	position: relative
+	+clearfix
 	&::before
 		$band-width: $line-height-computed * 2
 		$dbl-band: $band-width * 2
@@ -50,14 +53,16 @@ h1
 .margin-trailer-double
 	margin-bottom: $line-height-computed * 2
 
+.lw-container
+	max-width: $max-width
+
 // Specific Modules
 
 .site-header
 	+clearfix
 
-.main
+.main, .site-footer
 	@extend .margin-trailer
-	max-width: $max-width
 
 .logotype
 	margin: $line-height-computed 0
