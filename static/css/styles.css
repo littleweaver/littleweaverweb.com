@@ -4031,14 +4031,14 @@ input[type="button"].btn-block {
   float: left;
 }
 .nav-pills > li > a {
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .nav-pills > li + li {
   margin-left: 2px;
 }
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   color: white;
-  background-color: #428bca;
+  background-color: #ff8800;
 }
 
 .nav-stacked > li {
@@ -6372,6 +6372,9 @@ h1 {
   max-width: 780px;
 }
 
+.site-header {
+  padding: 24px 0;
+}
 .site-header:before, .site-header:after {
   content: " ";
   display: table;
@@ -6379,14 +6382,47 @@ h1 {
 .site-header:after {
   clear: both;
 }
+.site-header h1 {
+  margin: 0;
+}
+.site-header h1 > a:hover {
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .site-header h1 {
+    float: left;
+  }
+}
 
 .logotype {
   margin: 24px 0;
   color: #cc8800;
 }
 
+.member-name {
+  text-align: center;
+  font-size: 25.5px;
+  font-weight: bold;
+}
+.member-name > a {
+  color: #333333;
+}
+.member-name > a:hover {
+  text-decoration: none;
+}
+
 .co-name {
   color: black;
+}
+
+.lw-nav > li > a {
+  padding: 5px 10px;
+  margin: 5px 5px;
+}
+@media (min-width: 768px) {
+  .lw-nav {
+    float: right;
+  }
 }
 
 .muted {

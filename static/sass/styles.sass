@@ -60,6 +60,13 @@ h1
 
 .site-header
 	+clearfix
+	padding: $line-height-computed 0
+	h1
+		margin: 0
+		> a:hover
+			text-decoration: none
+		@media (min-width: $screen-sm-min)
+			float: left
 
 .main, .site-footer
 	@extend .margin-trailer
@@ -68,8 +75,25 @@ h1
 	margin: $line-height-computed 0
 	color: $orange-dark
 
+.member-name
+	text-align: center
+	font-size: $font-size-base * 1.5
+	font-weight: bold
+	> a
+		color: #333
+	> a:hover
+		text-decoration: none
+
 .co-name
 	color: #000
+
+.lw-nav
+	> li
+		> a
+			padding: 5px 10px
+			margin: 5px 5px
+	@media (min-width: $screen-sm-min)
+		float: right
 
 .muted
 	color: $gray-light

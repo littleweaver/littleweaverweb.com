@@ -10,18 +10,22 @@
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</head>
 	<body>
-		<header class="site-header">
-			<div class="lw-container">
-				<h1 class="logotype pull-left">Little Weaver</h1>
+		<div class="lw-container">
+			<header class="site-header">
+					<h1 class="logotype"><a href="/">Little Weaver</a></h1>
+					<ul class="nav nav-pills lw-nav">
+						<li{% unless page.title %} class="active"{% endunless %}><a href="/">Who We Are</a></li>
+						<li{% if page.title == "What We Do" %} class="active"{% endif %}><a href="what-we-do.html">What We Do</a></li>
+					</ul>
+			</header>
+			<div class="main">
+				<!-- content start -->
+				{{ content }}
+				<!-- content end -->
 			</div>
-		</header>
-		<div class="lw-container main">
-			<!-- content start -->
-			{{ content }}
-			<!-- content end -->
+			<footer class="site-footer muted">
+				<p>&copy; 2014 Little Weaver Web Collective, LLC. <i class="glyphicon glyphicon-heart-empty"></i> Made with love.</p>
+			</footer>
 		</div>
-		<footer class="site-footer muted">
-			&copy; 2014 Little Weaver Web Collective, LLC. <i class="glyphicon glyphicon-heart-empty"></i> Made with love.
-		</footer>
 	</body>
 </html>
