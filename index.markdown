@@ -14,23 +14,23 @@ Find us at <a href="mailto:hello@littleweaverweb.com">hello@littleweaverweb.com<
 
 <div class="container-fluid margin-leader">
 	<div class="row">
-		<div class="col-sm-4">
-			<img src="/static/images/harris.jpg" class="img-circle img-responsive" />
-			<h2 class="member-name">
-				<a href="https://github.com/harrislapiroff">Harris <br class="hidden-xs" />Lapiroff</a>
-			</h2>
+		<div class="col-xs-4">
+			<a class="unstyled" href="https://github.com/harrislapiroff">
+				<img src="/static/images/harris.jpg" class="img-circle img-responsive" />
+				<h2 class="member-name">Harris<br />Lapiroff</h2>
+			</a>
 		</div>
-		<div class="col-sm-4">
-			<img src="/static/images/stephen.jpg" class="img-circle img-responsive" />
-			<h2 class="member-name">
-				<a href="https://github.com/melinath">Stephen <br class="hidden-xs" />Burrows</a>
-			</h2>
+		<div class="col-xs-4">
+			<a class="unstyled" href="https://github.com/nmorduch">
+				<img src="/static/images/naomi.jpg" class="img-circle img-responsive" />
+				<h2 class="member-name">Naomi <br />Morduch Toubman</h2>
+			</a>
 		</div>
-		<div class="col-sm-4">
-			<img src="/static/images/naomi.jpg" class="img-circle img-responsive" />
-			<h2 class="member-name">
-				<a href="https://github.com/nmorduch">Naomi Morduch <br class="hidden-xs" />Toubman</a>
-			</h2>
+		<div class="col-xs-4">
+			<a class="unstyled" href="https://github.com/melinath">
+				<img src="/static/images/stephen.jpg" class="img-circle img-responsive" />
+				<h2 class="member-name">Stephen<br />Burrows</h2>
+			</a>
 		</div>
 	</div>
 </div>

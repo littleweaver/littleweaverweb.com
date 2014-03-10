@@ -9,7 +9,7 @@ $yellow: #FFCF40
 $max-width: 780px
 
 // Bootstrap Overrides
-$link-color: $orange-dark
+$brand-primary: $orange-dark
 
 @import variables
 @import bootstrap
@@ -39,6 +39,15 @@ body
 
 h1
 	font-family: $font-family-serif
+
+a:hover img
+	opacity: .95
+
+.unstyled //a.unstyled
+	color: inherit
+	&:hover
+		text-decoration: none
+		color: $link-color
 
 // Spacing Utilities
 .margin-leader
@@ -77,12 +86,15 @@ h1
 
 .member-name
 	text-align: center
-	font-size: $font-size-base * 1.5
-	font-weight: bold
-	> a
+	font-size: $font-size-base
+	a &, a:hover &
 		color: #333
-	> a:hover
-		text-decoration: none
+	a:hover &:hover
+		color: #888
+	@media (min-width: $screen-xs-min)
+		font-weight: bold
+		font-size: $font-size-base * 1.2
+
 
 .co-name
 	color: #000
