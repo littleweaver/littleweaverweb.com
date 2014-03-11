@@ -14,6 +14,11 @@ Our collective skills include:
 * Django and Python
 * Debian and Ubuntu server administration
 
+We're still a new company and don't have much public work under our company name, but to see work previously done by our members, check out these projects:
+
+* [Oberlin Oncampus](http://oncampus.oberlin.edu/)
+* [Oberlin College](http://oberlin.edu/)
+
 In addition to our client work, we also produce open-source applications and libraries such as [Django Daguerre](http://django-daguerre.readthedocs.org/en/latest/).
 
 If you're interested in working with us, reach out to <a href="mailto:hello@littleweaverweb.com">hello@littleweaverweb.com</a>.
