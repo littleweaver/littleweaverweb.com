@@ -1,5 +1,6 @@
 @import compass/utilities/general/clearfix
 @import compass/css3/images
+@import compass/css3/transition
 
 $gray-light: #AAA
 $orange-bright: #F80
@@ -9,7 +10,7 @@ $yellow: #FFCF40
 $max-width: 780px
 
 // Bootstrap Overrides
-$link-color: $orange-dark
+$brand-primary: $orange-dark
 
 @import variables
 @import bootstrap
@@ -20,6 +21,9 @@ html
 body
 	min-height: 100%
 	padding: 0 #{$line-height-computed * 2}
+	// Orange Band
+	position: relative
+	+clearfix
 	&::before
 		$band-width: $line-height-computed * 2
 		$dbl-band: $band-width * 2
@@ -37,6 +41,16 @@ body
 h1
 	font-family: $font-family-serif
 
+a:hover img
+	opacity: .95
+	+transition(.1s linear opacity)
+
+.unstyled //a.unstyled
+	color: inherit
+	&:hover
+		text-decoration: none
+		color: $link-color
+
 // Spacing Utilities
 .margin-leader
 	margin-top: $line-height-computed
@@ -50,21 +64,51 @@ h1
 .margin-trailer-double
 	margin-bottom: $line-height-computed * 2
 
+.lw-container
+	max-width: $max-width
+
 // Specific Modules
 
 .site-header
 	+clearfix
+	padding: $line-height-computed 0
+	h1
+		margin: 0
+		> a:hover
+			text-decoration: none
+		@media (min-width: $screen-sm-min)
+			float: left
 
-.main
+.main, .site-footer
 	@extend .margin-trailer
-	max-width: $max-width
 
 .logotype
 	margin: $line-height-computed 0
 	color: $orange-dark
 
+.member-name
+	text-align: center
+	font-size: $font-size-base
+	a &
+		+transition(.05s linear color)
+		color: #333
+	a:hover &
+		color: #666
+	@media (min-width: $screen-xs-min)
+		font-weight: bold
+		font-size: $font-size-base * 1.2
+
+
 .co-name
 	color: #000
+
+.lw-nav
+	> li
+		> a
+			padding: 5px 10px
+			margin: 5px 5px
+	@media (min-width: $screen-sm-min)
+		float: right
 
 .muted
 	color: $gray-light
