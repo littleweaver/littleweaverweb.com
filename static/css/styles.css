@@ -6354,6 +6354,8 @@ h1 {
 
 a:hover img {
   opacity: 0.95;
+  -webkit-transition: 0.1s linear opacity;
+  transition: 0.1s linear opacity;
 }
 
 .unstyled {
@@ -6415,11 +6417,13 @@ a:hover img {
   text-align: center;
   font-size: 17px;
 }
-a .member-name, a:hover .member-name {
+a .member-name {
+  -webkit-transition: 0.05s linear color;
+  transition: 0.05s linear color;
   color: #333333;
 }
-a:hover .member-name:hover {
-  color: #888888;
+a:hover .member-name {
+  color: #666666;
 }
 @media (min-width: 480px) {
   .member-name {

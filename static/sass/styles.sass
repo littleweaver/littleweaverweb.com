@@ -1,5 +1,6 @@
 @import compass/utilities/general/clearfix
 @import compass/css3/images
+@import compass/css3/transition
 
 $gray-light: #AAA
 $orange-bright: #F80
@@ -42,6 +43,7 @@ h1
 
 a:hover img
 	opacity: .95
+	+transition(.1s linear opacity)
 
 .unstyled //a.unstyled
 	color: inherit
@@ -87,10 +89,11 @@ a:hover img
 .member-name
 	text-align: center
 	font-size: $font-size-base
-	a &, a:hover &
+	a &
+		+transition(.05s linear color)
 		color: #333
-	a:hover &:hover
-		color: #888
+	a:hover &
+		color: #666
 	@media (min-width: $screen-xs-min)
 		font-weight: bold
 		font-size: $font-size-base * 1.2
