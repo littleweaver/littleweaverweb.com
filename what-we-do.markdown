@@ -12,7 +12,7 @@ Our collective skills include:
 * CSS with Compass and SASS
 * Javascript with jQuery
 * Django and Python
-* Debian and Ubuntu server administration
+* Debian, Ubuntu, and Red Hat server administration
 
 We're still a new company and don't have much public work under our company name, but to see work previously done by our members, check out these projects:
 
