@@ -1,4 +1,5 @@
-name: Little Weaver Web Collective, LLC
+name: Little Weaver Web Collective
 markdown: redcarpet
 pygments: true
 permalink: /:year/:month/:day/:title/
+url: http://littleweaverweb.com

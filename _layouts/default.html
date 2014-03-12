@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{% if page.title %}{{ page.title }} | {% endif %}Little Weaver Web Collective</title>
+    	
+    	<meta property="og:type" content="website"/>
+    	<meta property="og:site_name" content="{{ site.name }}"/>
+		<meta property="og:image" content="{{ site.url }}/static/images/facebook.gif"/>
+		<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}" />
+		<meta property="og:description" content="Little Weaver Web Collective is a cooperative web development group." />
+
+		<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}</title>
+
 		<link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+
 		<script type="text/javascript" src="/static/javascripts/modernizr.2.7.1.js"></script>
 		<script type="text/javascript" src="//use.typekit.net/kir3awt.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 	</head>
 	<body>
 		<div class="lw-container">
