@@ -6387,7 +6387,8 @@ a:hover img {
 }
 
 .site-header {
-  padding: 24px 0;
+  padding-top: 24px;
+  padding-bottom: 14px;
 }
 .site-header:before, .site-header:after {
   content: " ";
@@ -6411,6 +6412,10 @@ a:hover img {
 .logotype {
   margin: 24px 0;
   color: #cc8800;
+}
+.logotype > img {
+  width: 40px;
+  margin-right: 10px;
 }
 
 .member-name {
@@ -6436,6 +6441,10 @@ a:hover .member-name {
   color: black;
 }
 
+.lw-nav {
+  margin-top: 19px;
+  margin-left: -5px;
+}
 .lw-nav > li > a {
   padding: 5px 10px;
   margin: 5px 5px;

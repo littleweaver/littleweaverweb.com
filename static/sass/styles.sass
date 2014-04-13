@@ -71,7 +71,8 @@ a:hover img
 
 .site-header
 	+clearfix
-	padding: $line-height-computed 0
+	padding-top: $line-height-computed
+	padding-bottom: $line-height-computed - 10px
 	h1
 		margin: 0
 		> a:hover
@@ -85,6 +86,9 @@ a:hover img
 .logotype
 	margin: $line-height-computed 0
 	color: $orange-dark
+	> img
+		width: 40px
+		margin-right: 10px
 
 .member-name
 	text-align: center
@@ -103,6 +107,8 @@ a:hover img
 	color: #000
 
 .lw-nav
+	margin-top: 19px 
+	margin-left: -5px
 	> li
 		> a
 			padding: 5px 10px
