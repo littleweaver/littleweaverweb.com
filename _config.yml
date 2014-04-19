@@ -1,5 +1,5 @@
 name: Little Weaver Web Collective
-markdown: redcarpet
+markdown: kramdown
 pygments: true
-permalink: /:year/:month/:day/:title/
+permalink: blog/:year/:month/:day/:title/
 url: http://littleweaverweb.com

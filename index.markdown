@@ -1,5 +1,6 @@
 ---
 layout: default
+nav: Who We Are
 ---
 
 <strong class="co-name">Little Weaver Web Collective</strong> is a cooperative web development group.

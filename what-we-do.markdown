@@ -1,6 +1,7 @@
 ---
 layout: default
 title: What We Do
+nav: What We Do
 ---
 
 <strong class="co-name">Little Weaver Web Collective</strong> is a full-service web application development group. We do design, HTML, CSS, Javascript, and Django-based backends. We take on both new development projects and maintenance of existing projects.

@@ -6437,6 +6437,14 @@ a:hover .member-name {
   }
 }
 
+.author, .post-title {
+  margin-right: 10px;
+}
+
+.post-title {
+  font-size: 1.25em;
+}
+
 .co-name {
   color: black;
 }
