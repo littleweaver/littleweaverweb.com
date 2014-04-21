@@ -11,7 +11,7 @@ We are committed to making socially responsible choices and encouraging our clie
 
 Our work is built on the work of others; we give back by providing high-quality, reusable, open-source code as a resource for the development of a better internet.
 
-Find us at <a href="mailto:hello@littleweaverweb.com">hello@littleweaverweb.com</a>.
+Find us at [hello@littleweaverweb.com]({{ site.data.links.email }}), or on [Facebook]({{ site.data.links.facebook }}), [Twitter]({{ site.data.links.twitter }}), or [Github]({{ site.data.links.github }}).
 
 <div class="container-fluid margin-leader">
 	<div class="row">
