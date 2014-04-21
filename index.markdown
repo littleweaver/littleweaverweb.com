@@ -1,6 +1,5 @@
 ---
 layout: default
-nav: Who We Are
 ---
 
 <strong class="co-name">Little Weaver Web Collective</strong> is a cooperative web development group.
@@ -12,26 +11,3 @@ We are committed to making socially responsible choices and encouraging our clie
 Our work is built on the work of others; we give back by providing high-quality, reusable, open-source code as a resource for the development of a better internet.
 
 Find us at <a href="mailto:hello@littleweaverweb.com">hello@littleweaverweb.com</a>.
-
-<div class="container-fluid margin-leader">
-	<div class="row">
-		<div class="col-xs-4">
-			<a class="unstyled" href="https://github.com/harrislapiroff">
-				<img src="/static/images/harris.jpg" class="img-circle img-responsive" />
-				<h2 class="member-name">Harris<br />Lapiroff</h2>
-			</a>
-		</div>
-		<div class="col-xs-4">
-			<a class="unstyled" href="https://github.com/nmorduch">
-				<img src="/static/images/naomi.jpg" class="img-circle img-responsive" />
-				<h2 class="member-name">Naomi <br />Morduch Toubman</h2>
-			</a>
-		</div>
-		<div class="col-xs-4">
-			<a class="unstyled" href="https://github.com/melinath">
-				<img src="/static/images/stephen.jpg" class="img-circle img-responsive" />
-				<h2 class="member-name">Stephen<br />Burrows</h2>
-			</a>
-		</div>
-	</div>
-</div>
