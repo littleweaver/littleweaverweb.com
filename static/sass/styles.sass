@@ -1,6 +1,7 @@
 @import compass/utilities/general/clearfix
 @import compass/css3/images
 @import compass/css3/transition
+@import font-awesome/font-awesome
 
 $gray-light: #AAA
 $orange-bright: #F80
@@ -8,6 +9,7 @@ $orange-dark: #C80
 $yellow: #FFCF40
 
 $max-width: 780px
+$screen-xxs-max: 450px
 
 // Bootstrap Overrides
 $brand-primary: $orange-dark
@@ -20,7 +22,9 @@ html
 
 body
 	min-height: 100%
-	padding: 0 #{$line-height-computed * 2}
+	padding: 0 $line-height-computed
+	@media (min-width: $screen-xs-min)
+		padding: 0 #{$line-height-computed * 2}
 	// Orange Band
 	position: relative
 	+clearfix
@@ -77,6 +81,8 @@ a:hover img
 		margin: 0
 		> a:hover
 			text-decoration: none
+		@media (max-width: $screen-xxs-max)
+			font-size: 30px
 		@media (min-width: $screen-sm-min)
 			float: left
 
@@ -119,6 +125,18 @@ a:hover img
 			margin: 5px 5px
 	@media (min-width: $screen-sm-min)
 		float: right
+
+@media (max-width: $screen-xs-max)
+	.media-body > h3
+		margin-top: 5px
+		font-size: 24px
+@media (max-width: $screen-xxs-max)
+	.media-body
+		> h3
+			margin: 0
+			font-size: 20px
+		> p
+			margin-bottom: 0
 
 .muted
 	color: $gray-light

@@ -18,5 +18,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   compass
+  font-awesome-sass
   kramdown
   sass
