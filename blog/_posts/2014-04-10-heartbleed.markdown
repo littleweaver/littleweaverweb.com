@@ -11,9 +11,9 @@ Heartbleed is a SERIOUS SECURITY FLAW. Security expert [Bruce Schneier says][1],
 
 The short version is this: any information you've entered into certain secure websites over the past two years is potentially accessible to someone else and it's more or less impossible to know what information has been compromised.
 
-For a slightly longer but legible explainations, both [NPR][2] and [Vox][3] have pretty good summaries, with Vox providing somewhat more technical detail.
+For a slightly longer but legible explanations, both [NPR][2] and [Vox][3] have pretty good summaries, with Vox providing somewhat more technical detail.
 
-Part of what makes this so devestating is there there's not much we as users can do about it. We have to rely on websites to update their own security before our connections are safe. That should happen pretty quickly. Security folks are pretty freaked out.
+Part of what makes this so devastating is there there's not much we as users can do about it. We have to rely on websites to update their own security before our connections are safe. That should happen pretty quickly. Security folks are pretty freaked out.
 
 Obviously, as with any security flaw, someone would have to know about this flaw and want to exploit your information for something bad to happen to you. Chances are good nothing will happen to you. Still. The level of information that is potentially accessible from this is pretty bad.
 
@@ -21,7 +21,7 @@ My recommendations for what you can do are the following:
 
 1. When a service updates and closes the security flaw (either wait for an announcement from them or use a [service](http://filippo.io/Heartbleed/) or [list][4] to check) change your password. If you change your password before they fix the bug, then your new password could still be compromised.
 2. Be vigilant about your credit/debit card statements. The good news is that credit card holders in the US bear almost no liability for fraud ($50) provided you report it within 60 days. (N.b., Debit cards are a different story. Cardholders bear *extreme* liability for debit card fraud.)
-3. Wherever possible, use Two Factor Authentication to ensure that even if your password is compromised, an attacker cannot access your accounts. http://twofactorauth.org/ TWO FACTOR AUTH IS AMAZING; USE IT. I recommend using it for everything, but having your Facebook, Gmail, or Apple ID accounts compromised could be particularly financially or socially devestating.
+3. Wherever possible, use Two Factor Authentication to ensure that even if your password is compromised, an attacker cannot access your accounts. http://twofactorauth.org/ TWO FACTOR AUTH IS AMAZING; USE IT. I recommend using it for everything, but having your Facebook, Gmail, or Apple ID accounts compromised could be particularly financially or socially devastating.
 
 I personally think we've basically got to assume that intelligence agencies like the NSA have already been using Heartbleed and [other recent major security flaws][5]. There's certainly some [circumstantial evidence][6] for this.
 
