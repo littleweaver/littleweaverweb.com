@@ -2,7 +2,7 @@
 layout: post
 title:  Heartbleed
 date:   2014-04-10 15:38:00
-author: Harris
+author: harris
 ---
 
 I've seen a lot on Facebook recently about the Heartbleed bug with a lot of different information. I imagine some people are having trouble sorting the signal from the noise in this matter. I'm not a security expert, but I am a devoted security amateur, so with that in mind, here is my analysis and recommendations.

@@ -2,12 +2,12 @@
 layout: post
 title:  Dancerfly Beta
 date:   2014-10-24 10:53:00
-author: Stephen
+author: stephen
 ---
 
 We'd like to announce the public beta of Dancerfly, our dance event management platform! Here are some screenshots to celebrate the occasion!
 
-If you're interested in using Dancerfly for *your* event, or if you have any questions, drop us a line here or at <hello@littleweaverweb.com>.
+If you're interested in using Dancerfly for *your* event, or if you have any questions, drop us a line at <hello@littleweaverweb.com>.
 
 Dancerfly supports the following features, with more coming soon:
 
@@ -27,20 +27,20 @@ You can try Dancerfly out now at [dancerfly.com][1]!
 
 [1]: http://dancerfly.com
 
-# Event Listing Page
+### Event Listing Page
 ![](/media/2014/10/24/event_listing.png)
 
-# Event Shop
+### Event Shop
 ![](/media/2014/10/24/shop.png)
 
-# Cart
+### Cart
 ![](/media/2014/10/24/cart.png)
 
-# Attendee management
+### Attendee management
 ![](/media/2014/10/24/attendee.png)
 
-# Requesting housing
+### Requesting housing
 ![](/media/2014/10/24/housing_request.png)
 
-# Admin summary of event
+### Admin summary of event
 ![](/media/2014/10/24/event_summary.png)
