@@ -27,9 +27,20 @@ You can try Dancerfly out now at [dancerfly.com][1]!
 
 [1]: http://dancerfly.com
 
+# Event Listing Page
 ![](/media/2014/10/24/event_listing.png)
+
+# Event Shop
 ![](/media/2014/10/24/shop.png)
-![](/media/2014/10/24/attendee.png)
-![](/media/2014/10/24/housing_request.png)
+
+# Cart
 ![](/media/2014/10/24/cart.png)
+
+# Attendee management
+![](/media/2014/10/24/attendee.png)
+
+# Requesting housing
+![](/media/2014/10/24/housing_request.png)
+
+# Admin summary of event
 ![](/media/2014/10/24/event_summary.png)
