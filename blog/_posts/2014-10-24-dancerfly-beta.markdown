@@ -23,7 +23,9 @@ Dancerfly supports the following features, with more coming soon:
 
 Many thanks to Ma'ayan Plaut for the Demo Event's banner image!
 
-You can try Dancerfly out now at <dancerfly.com>!
+You can try Dancerfly out now at [dancerfly.com][1]!
+
+[1]: http://dancerfly.com
 
 ![](/media/2014/10/24/event_listing.png)
 ![](/media/2014/10/24/shop.png)
