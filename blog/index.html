@@ -7,7 +7,7 @@ title: Blog
 <h2>Blog</h2>
 
 {% for post in site.categories.blog %}
-	<p><a href="{{ post.url }}" class="post-title">{{ post.title }}</a> 	
+	<p><a href="{{ post.url }}" class="post-list--title">{{ post.title }}</a> 	
 	{% for member in site.data.members %}
 		{% if member.shortname == post.author %}
 			<span class="author">{{ member.name }}</span>

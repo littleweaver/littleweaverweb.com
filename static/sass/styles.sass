@@ -49,7 +49,8 @@ a:hover img
 	opacity: .95
 	+transition(.1s linear opacity)
 
-.unstyled //a.unstyled
+// a.unstyled
+.unstyled
 	color: inherit
 	&:hover
 		text-decoration: none
@@ -108,13 +109,15 @@ a:hover img
 		font-weight: bold
 		font-size: $font-size-base * 1.2
 
+h1.post-title
+	font-family: $font-family-sans-serif
 .post img
 	@extend .img-responsive
 	border: 1px solid rgba(black,.1)
 
-.author, .post-title
+.author, .post-list--title
 	margin-right: 10px
-.post-title
+.post-list--title
 	font-size: 1.25em
 
 .co-name
@@ -141,6 +144,9 @@ a:hover img
 			font-size: 20px
 		> p
 			margin-bottom: 0
+@media (min-width: $screen-sm-min)
+	.media-object
+		margin-right: $line-height-computed
 
 .muted
 	color: $gray-light
