@@ -19,6 +19,7 @@ Our collective skills include:
 
 Our recent work includes:
 
+* [WDET 101.9 FM](http://wdet.org), Detroit public radio
 * [Dancerfly](https://dancerfly.com/), a dance registration and ticketing service currently in beta
 * [Django Daguerre](http://django-daguerre.readthedocs.org/en/latest/), an open-source image manipulation library for Django
 * Theming for [Free Period Press](http://www.freeperiodpress.com/) on both Tumblr and Big Cartel
