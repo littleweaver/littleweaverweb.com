@@ -3,17 +3,6 @@
 @import compass/css3/transition
 @import font-awesome/font-awesome
 
-$gray-light: #AAA
-$orange-bright: #F80
-$orange-dark: #C80
-$yellow: #FFCF40
-
-$max-width: 780px
-$screen-xxs-max: 450px
-
-// Bootstrap Overrides
-$brand-primary: $orange-dark
-
 @import variables
 @import bootstrap
 
@@ -25,7 +14,7 @@ body
 	padding: 0 $line-height-computed
 	@media (min-width: $screen-xs-min)
 		padding: 0 #{$line-height-computed * 2}
-	// Orange Band
+	// Dashed Band
 	position: relative
 	+clearfix
 	&::before
@@ -33,7 +22,7 @@ body
 		$dbl-band: $band-width * 2
 		content: " "
 		display: block
-		+background(linear-gradient($yellow 0, $yellow $band-width, $orange-bright $band-width, $orange-bright $dbl-band))
+		+background(linear-gradient($band-light 0, $band-light $band-width, $band-dark $band-width, $band-dark $dbl-band))
 		background-size: 1px $dbl-band
 		background-repeat: repeat
 		width: 10px
@@ -92,9 +81,9 @@ a:hover img
 
 .logotype
 	margin: $line-height-computed 0
-	color: $orange-dark
+	color: $brand-primary
 	> img
-		width: 40px
+		width: 100px
 		margin-right: 10px
 
 .member-name
