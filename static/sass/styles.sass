@@ -74,10 +74,16 @@ a:hover img
 .main, .site-footer
 	@extend .margin-trailer
 
+.site-footer
+	@extend .margin-leader-double
+
 .header-logo
 	float: left
 	width: 100px
 	margin-right: 10px
+	@media (max-width: 780px)
+		width: 95px
+		margin-right: 7px
 	@media (max-width: $screen-xxs-max)
 		margin-right: 5px
 
@@ -95,18 +101,40 @@ a:hover img
 		padding: 4px 8px
 		margin-right: 10px
 		border-radius: 0
+		color: $band-dark
 		&:last-child
 			margin-right: 0
 		&:hover, &:active
 			background: transparent
+			color: darken($band-dark, 10%)
 
 .logotype
 	color: $brand-primary
 	float: left
+	margin-bottom: 0
 	> a:hover
 		text-decoration: none
 	@media (max-width: $screen-xxs-max)
 		font-size: $font-size-h3
+.subhead
+	float: left
+	color: $brand-primary
+	margin-top: 5px
+	min-width: 50%
+	@media (max-width: $screen-xxs-max)
+		font-size: $font-size-h5
+
+.main
+	margin-left: 110px
+	margin-top: -90px
+	@media (max-width: 780px)
+		margin-top: -65px
+		margin-left: 102px
+	@media (max-width: $screen-xxs-max)
+		margin-left: 0
+		margin-top: 0
+	> h2:first-child
+		margin-top: 0
 
 .member-name
 	text-align: center
