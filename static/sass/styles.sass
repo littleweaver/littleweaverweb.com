@@ -3,17 +3,6 @@
 @import compass/css3/transition
 @import font-awesome/font-awesome
 
-$gray-light: #AAA
-$orange-bright: #F80
-$orange-dark: #C80
-$yellow: #FFCF40
-
-$max-width: 780px
-$screen-xxs-max: 450px
-
-// Bootstrap Overrides
-$brand-primary: $orange-dark
-
 @import variables
 @import bootstrap
 
@@ -25,7 +14,7 @@ body
 	padding: 0 $line-height-computed
 	@media (min-width: $screen-xs-min)
 		padding: 0 #{$line-height-computed * 2}
-	// Orange Band
+	// Dashed Band
 	position: relative
 	+clearfix
 	&::before
@@ -33,7 +22,7 @@ body
 		$dbl-band: $band-width * 2
 		content: " "
 		display: block
-		+background(linear-gradient($yellow 0, $yellow $band-width, $orange-bright $band-width, $orange-bright $dbl-band))
+		+background(linear-gradient($band-light 0, $band-light $band-width, $band-dark $band-width, $band-dark $dbl-band))
 		background-size: 1px $dbl-band
 		background-repeat: repeat
 		width: 10px
@@ -44,6 +33,9 @@ body
 
 h1
 	font-family: $font-family-serif
+
+.text-large
+	font-size: 1.25em
 
 a:hover img
 	opacity: .95
@@ -76,26 +68,73 @@ a:hover img
 
 .site-header
 	+clearfix
-	padding-top: $line-height-computed
-	padding-bottom: $line-height-computed - 10px
-	h1
-		margin: 0
-		> a:hover
-			text-decoration: none
-		@media (max-width: $screen-xxs-max)
-			font-size: 30px
-		@media (min-width: $screen-sm-min)
-			float: left
+	padding-bottom: 2*$line-height-computed
+
 
 .main, .site-footer
 	@extend .margin-trailer
 
-.logotype
-	margin: $line-height-computed 0
-	color: $orange-dark
-	> img
-		width: 40px
+.site-footer
+	@extend .margin-leader-double
+
+.header-logo
+	float: left
+	width: 100px
+	margin-right: 10px
+	@media (max-width: 780px)
+		width: 95px
+		margin-right: 7px
+	@media (max-width: $screen-xxs-max)
+		margin-right: 5px
+
+.header-nav
+	+clearfix
+	border-bottom: 3px solid $band-dark
+	margin-bottom: -7px
+	width: 100%
+	
+.lw-nav
+	float: right
+	> li 
+		float: left
+	> li > a
+		padding: 4px 8px
 		margin-right: 10px
+		border-radius: 0
+		color: $band-dark
+		&:last-child
+			margin-right: 0
+		&:hover, &:active
+			background: transparent
+			color: darken($band-dark, 10%)
+
+.logotype
+	color: $brand-primary
+	float: left
+	margin-bottom: 0
+	> a:hover
+		text-decoration: none
+	@media (max-width: $screen-xxs-max)
+		font-size: $font-size-h3
+.subhead
+	float: left
+	color: $brand-primary
+	margin-top: 5px
+	min-width: 50%
+	@media (max-width: $screen-xxs-max)
+		font-size: $font-size-h5
+
+.main
+	margin-left: 110px
+	margin-top: -90px
+	@media (max-width: 780px)
+		margin-top: -65px
+		margin-left: 102px
+	@media (max-width: $screen-xxs-max)
+		margin-left: 0
+		margin-top: 0
+	> h2:first-child, & > h1:first-child
+		margin-top: 0
 
 .member-name
 	text-align: center
@@ -123,15 +162,6 @@ h1.post-title
 .co-name
 	color: #000
 
-.lw-nav
-	margin-top: 19px 
-	margin-left: -5px
-	> li
-		> a
-			padding: 5px 10px
-			margin: 5px 5px
-	@media (min-width: $screen-sm-min)
-		float: right
 
 @media (max-width: $screen-xs-max)
 	.media-body > h3
