@@ -8,7 +8,6 @@ Updating the website requires the following Ruby Gems:
 * [Jekyll][]
 * [Compass](http://compass-style.org/)
 * [Bootstrap-SASS](https://github.com/twbs/bootstrap-sass)
-* [kramdown](http://kramdown.gettalong.org/)
 
 You can install them using Bundler:
 
@@ -20,7 +19,7 @@ bundle install # from the root of the littleweaverweb.com repo
 To generate and test the site locally, we recommend:
 
 ```bash
-jekyll serve --watch
+jekyll serve -w
 ```
 
 To modify the styles, you must use Compass:

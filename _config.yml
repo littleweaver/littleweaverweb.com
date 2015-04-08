@@ -1,5 +1,3 @@
 name: Little Weaver Web Collective
-markdown: kramdown
-highlighter: pygments
 permalink: blog/:year/:month/:day/:title/
 url: http://littleweaverweb.com
