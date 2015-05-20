@@ -4,10 +4,70 @@
 
 {% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
 
-{% block content %}
-    <h1>Welcome to your new Wagtail site!</h1>
+{% block body %}
+	<header class="site-header homepage-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 col-md-2">
+					<img src="{% static "img/logo.svg" %}" class="img-responsive header-logo" />
+				</div>
+				<div class="col-sm-9 col-md-10">
+					<ul class="nav nav-pills lw-nav margin-leader margin-trailer">
+						<li{% if page.nav == "Services" %} class="active"{% endif %}><a href="/services/">Services</a></li>
+						<li{% if page.nav == "Work" %} class="active"{% endif %}><a href="/work/">Work</a></li>
+						<li{% if page.nav == "blog" %} class="active"{% endif %}><a href="/blog/">Blog</a></li>
+						<li{% if page.nav == "About" %} class="active"{% endif %}><a href="/about/">About</a></li>
+					</ul>
+					<h1 class="logotype margin-trailer"><span class="lw-name">Little Weaver Web Collective</span> builds great websites for great organizations.</h1>
+					<div class="margin-trailer">
+						<a href="/work/" class="btn btn-default">See our work</a>
+						<a href="/contact/" class="btn btn-default">Get in touch</a>
+					</div>
+				</div>
+			</div>{# /.row #}
+		</div>{# /.container #}
+	</header>
+	<main>
+		<div class="pane bg-green">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-4 col-md-offset-2">
+						<h2>A fresh design and modern CMS for Detroit&#8217;s radio soul.</h2>
+						<p>See how we built a modern responsive website and custom content management system for Detroit Public Radio.</p>
+						<div class="margin-trailer">
+							<a href="#" class="btn btn-sm btn-white">Read about it</a>
+							<a href="#" class="btn btn-sm btn-white-o">More of our work</a>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="browser margin-trailer-neg margin-leader-neg">
+							<div class="titlebar">
+								<div class="dot"></div>
+								<div class="dot"></div>
+								<div class="dot"></div>
+							</div>
+							<img src="http://placekitten.com/800/500?image=8" class="img-responsive" />
+						</div>
+					</div>
+				</div><!-- /.row -->
+			</div>
+		</div>
 
-    <p>You can access the admin interface <a href="{% url 'wagtailadmin_home' %}">here</a> (make sure you have run "./manage.py createsuperuser" in the console first).
-
-    <p>If you haven't already given the documentation a read, head over to <a href="http://wagtail.readthedocs.org/">http://wagtail.readthedocs.org</a> to start building on Wagtail</p>
+		<div class="container margin-leader-dbl text-center">
+			<div class="row">
+				<div class="col-sm-4">
+					<h3>Responsive Themes</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+				<div class="col-sm-4">
+					<h3>Responsive Themes</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+				<div class="col-sm-4">
+					<h3>Responsive Themes</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</main>
 {% endblock %}
