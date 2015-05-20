@@ -1,1 +1,58 @@
+@import variables
 @import bootstrap
+
+@import modules/browser
+
+// Spacing
+
+.margin-leader
+	margin-top: $line-height-computed
+
+.margin-trailer
+	margin-bottom: $line-height-computed
+
+.margin-leader-dbl
+	margin-top: $line-height-computed * 2
+
+.margin-trailer-dbl
+	margin-bottom: $line-height-computed * 2
+
+.margin-leader-neg
+	margin-top: -$line-height-computed
+
+.margin-trailer-neg
+	margin-bottom: -$line-height-computed
+
+// Colors
+
+.bg-green
+	background-color: $green
+	color: $green-dark
+
+.btn-white
+	background-color: white
+	box-shadow: 0 1px 0 rgba(black, .15)
+	color: #666
+	&:hover
+		background-color: #EEE
+		color: #333
+
+.btn-white-o
+	border-color: rgba(white, .6)
+	color: white
+	text-shadow: 0 1px 0 rgba(black, .15)
+	&:hover
+		color: white
+		background-color: rgba(white, .15)
+
+// Other Stuff
+.header-logo
+	width: 100%
+	margin-top: -20px
+	margin-bottom: -60px
+
+.logotype
+	font-family: $font-family-sans-serif
+	.lw-name
+		color: #444
+		font-family: $font-family-serif
