@@ -13,12 +13,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {% compress css %}
-            
-            <link rel="stylesheet" type="text/x-scss" href="{% static 'css/littleweaverweb.scss' %}">
+
+            <link rel="stylesheet" type="text/x-scss" href="{% static 'css/littleweaverweb.sass' %}">
         {% endcompress %}
 
         {% block extra_css %}
-            
+
         {% endblock %}
     </head>
 
@@ -28,12 +28,12 @@
         {% block content %}{% endblock %}
 
         {% compress js %}
-            
+
             <script type="text/javascript" src="{% static 'js/littleweaverweb.js' %}"></script>
         {% endcompress %}
 
         {% block extra_js %}
-            
+
         {% endblock %}
     </body>
 </html>

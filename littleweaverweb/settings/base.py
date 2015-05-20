@@ -1,13 +1,4 @@
-"""
-Django settings for littleweaverweb project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
-"""
-
+import os
 from os.path import abspath, dirname, join
 
 # Absolute filesystem path to the Django project directory:
@@ -128,6 +119,10 @@ STATICFILES_FINDERS = (
 MEDIA_ROOT = join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 
+
+# Put Bootstrap SASS on the SASS path
+_BOOTSTRAP_SASS_SUBPATH = "/gems/bootstrap-sass-3.3.4.1/assets/stylesheets/"
+STATICFILES_DIRS = [x + _BOOTSTRAP_SASS_SUBPATH for x in os.environ['GEM_PATH'].split(":") if os.path.isdir(x + _BOOTSTRAP_SASS_SUBPATH)]
 
 # Django compressor settings
 # http://django-compressor.readthedocs.org/en/latest/settings/
