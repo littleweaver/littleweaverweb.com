@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static core_tags %}
+{% load static core_tags wagtailimages_tags %}
 
 {% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
 
@@ -41,16 +41,18 @@
 									<a href="{{ work.get_parent.url }}" class="btn btn-sm btn-white-o">More of our work</a>
 								</div>
 							</div>
-							<div class="col-sm-6">
-								<div class="browser margin-trailer-neg margin-leader-neg">
-									<div class="titlebar">
-										<div class="dot"></div>
-										<div class="dot"></div>
-										<div class="dot"></div>
+							{% if work.screenshot %}
+								<div class="col-sm-6">
+									<div class="browser margin-trailer-neg margin-leader-neg">
+										<div class="titlebar">
+											<div class="dot"></div>
+											<div class="dot"></div>
+											<div class="dot"></div>
+										</div>
+										{% image work.screenshot width-900 class="img-responsive" %}
 									</div>
-									<img src="http://placekitten.com/800/500?image=8" class="img-responsive" />
 								</div>
-							</div>
+							{% endif %}
 						</div><!-- /.row -->
 					</div>
 				</div>
