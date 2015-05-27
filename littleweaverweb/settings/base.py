@@ -122,7 +122,7 @@ MEDIA_URL = '/media/'
 
 # Put Bootstrap SASS on the SASS path
 _BOOTSTRAP_SASS_SUBPATH = "/gems/bootstrap-sass-3.3.4.1/assets/stylesheets/"
-STATICFILES_DIRS = [x + _BOOTSTRAP_SASS_SUBPATH for x in os.environ['GEM_PATH'].split(":") if os.path.isdir(x + _BOOTSTRAP_SASS_SUBPATH)]
+STATICFILES_DIRS = [x + _BOOTSTRAP_SASS_SUBPATH for x in os.environ.get('GEM_PATH').split(":") if os.path.isdir(x + _BOOTSTRAP_SASS_SUBPATH)]
 
 # Django compressor settings
 # http://django-compressor.readthedocs.org/en/latest/settings/
