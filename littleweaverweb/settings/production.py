@@ -1,11 +1,14 @@
 from .base import *
-
+import dj_database_url
 
 # Disable debug mode
 
 DEBUG = False
 TEMPLATE_DEBUG = False
 
+DATABASES['default'] =  dj_database_url.config()
+
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # Compress static files offline
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
