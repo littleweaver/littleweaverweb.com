@@ -26,14 +26,19 @@
 
 // Colors
 
-.bg-green
+.background-green-orange
 	background-color: $green
-	color: $green-dark
+	background-image: linear-gradient(135deg, $green-dark, $orange-dark)
+	color: $white
+	text-shadow: 0 1px 0 rgba(black, .15)
 
 .btn-white
 	background-color: white
+	background-image: linear-gradient(0deg, #EEE, #FFF)
 	box-shadow: 0 1px 0 rgba(black, .15)
 	color: #666
+	border: 1px solid #FFF
+	text-shadow: 0 1px 0 #FFF
 	&:hover
 		background-color: #EEE
 		color: #333
@@ -41,7 +46,7 @@
 .btn-white-o
 	border-color: rgba(white, .6)
 	color: white
-	text-shadow: 0 1px 0 rgba(black, .15)
+	text-shadow: 0 1px 0 rgba(black, .15), inset 0 1px 0 rgba(black, .15)
 	&:hover
 		color: white
 		background-color: rgba(white, .15)
