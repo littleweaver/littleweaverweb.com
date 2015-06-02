@@ -15,6 +15,7 @@ The installation instructions below assume you have the following software on yo
 * `Pip <https://pip.readthedocs.org/en/latest/installing.html>`_
 * `virtualenv <http://www.virtualenv.org/en/latest/virtualenv.html#installation>`_ (optional)
 * `virtualenvwrapper <http://virtualenvwrapper.readthedocs.org/en/latest/install.html>`_ (optional)
+* `PostgreSQL <http://www.postgresql.org/>`_
 
 Installation instructions
 -------------------------
