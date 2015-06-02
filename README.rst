@@ -24,7 +24,7 @@ If you are using virtualenv or virtualenvwrapper, create and activate an environ
 
 .. code:: bash
 
-    mkvirtualenv brambling # Using virtualenvwrapper.
+    mkvirtualenv lww # Using virtualenvwrapper.
 
 If you are using RVM, make sure to create an use an appropriate gemset with Ruby 2.2.1. If you are not using RVM, you must set environment variable ``GEM_PATH`` to a colon-separated list of locations where gems are found.
 
@@ -33,7 +33,6 @@ Get it running
 
 .. code:: bash
 
-    cd django-brambling/test_project
     python manage.py migrate           # Create/sync the database.
     python manage.py createsuperuser   # Create an initial user.
     python manage.py runserver         # Run the server!
