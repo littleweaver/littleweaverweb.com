@@ -1,10 +1,5 @@
 Little Weaver's Wagtail-powered website.
 
-Naming
-======
-
-The name of this software is django-brambling. The name for use within the content of the application and for marketing purposes is Dancerfly.
-
 Development
 =============
 
