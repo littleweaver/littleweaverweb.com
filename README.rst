@@ -38,7 +38,6 @@ Then install the requirements:
 .. code:: bash
 
     pip install -r requirements.txt
-    bundle install
 
 Ruby dependencies
 +++++++++++++++++
