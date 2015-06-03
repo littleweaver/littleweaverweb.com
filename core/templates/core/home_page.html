@@ -1,80 +1,56 @@
-{% extends "base.html" %}
+{% extends "core/layouts/big_header.html" %}
 
 {% load static core_tags wagtailimages_tags %}
 
 {% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
 
-{% block body %}
-	<header class="site-header homepage-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3 col-md-2">
-					<img src="{% static "img/logo.svg" %}" class="img-responsive header-logo" />
-				</div>
-				<div class="col-sm-9 col-md-10">
-					<ul class="nav nav--lw margin-leader margin-trailer">
-						<li{% if page.nav == "Services" %} class="active"{% endif %}><a href="/services/">Services</a></li>
-						<li{% if page.nav == "Work" %} class="active"{% endif %}><a href="/work/">Work</a></li>
-						<li{% if page.nav == "blog" %} class="active"{% endif %}><a href="/blog/">Blog</a></li>
-						<li{% if page.nav == "About" %} class="active"{% endif %}><a href="/about/">About</a></li>
-					</ul>
-					<h1 class="logotype margin-trailer"><span class="lw-name">Little Weaver Web Collective</span> builds great websites for great organizations.</h1>
-					<div class="margin-trailer">
-						<a href="/work/" class="btn btn-sm btn-default">See our work</a>
-						<a href="/contact/" class="btn btn-sm btn-default">Get in touch</a>
-					</div>
-				</div>
-			</div>{# /.row #}
-		</div>{# /.container #}
-	</header>
-	<main>
-		{% if self.featured_work %}
-			{% with work=self.featured_work %}
-				<div class="pane background-green-orange">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-6 col-md-4 col-md-offset-2">
-								<h2>{% firstof self.featured_work.teaser_title self.featured_work.title %}</h2>
-								<p>{% firstof self.featured_work.teaser_description self.featured_work.body|truncatewords_html:20 %}</p>
-								<div class="margin-trailer">
-									<a href="{{ work.url }}" class="btn btn-sm btn-white">Read about it</a>
-									<a href="{{ work.get_parent.url }}" class="btn btn-sm btn-white-o">More of our work</a>
+{% block main %}
+	{% if self.featured_work %}
+		{% with work=self.featured_work %}
+			<div class="pane background-green-orange">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6 col-md-4 col-md-offset-2">
+							<h2>{% firstof self.featured_work.teaser_title self.featured_work.title %}</h2>
+							<p>{% firstof self.featured_work.teaser_description self.featured_work.body|truncatewords_html:20 %}</p>
+							<div class="margin-trailer">
+								<a href="{{ work.url }}" class="btn btn-sm btn-white">Read about it</a>
+								<a href="{{ work.get_parent.url }}" class="btn btn-sm btn-white-o">More of our work</a>
+							</div>
+						</div>
+						{% if work.screenshot %}
+							<div class="col-sm-6">
+								<div class="browser margin-trailer-neg margin-leader-neg">
+									<div class="titlebar">
+										<div class="dot"></div>
+										<div class="dot"></div>
+										<div class="dot"></div>
+									</div>
+									{% image work.screenshot width-900 class="img-responsive" %}
 								</div>
 							</div>
-							{% if work.screenshot %}
-								<div class="col-sm-6">
-									<div class="browser margin-trailer-neg margin-leader-neg">
-										<div class="titlebar">
-											<div class="dot"></div>
-											<div class="dot"></div>
-											<div class="dot"></div>
-										</div>
-										{% image work.screenshot width-900 class="img-responsive" %}
-									</div>
-								</div>
-							{% endif %}
-						</div><!-- /.row -->
-					</div>
+						{% endif %}
+					</div><!-- /.row -->
 				</div>
-			{% endwith %}
-		{% endif %}
+			</div>
+		{% endwith %}
+	{% endif %}
 
-		<div class="container margin-leader-dbl text-center">
-			<div class="row">
-				<div class="col-sm-4 margin-trailer-dbl">
-					<h3 class="color-gray-dark">Modern Website Design</h3>
-					<p>From custom themes for services like Tumblr, Shopify, and NationBuilder to elaborate user interfaces, we create responsive, accessible, and beautiful websites.</p>
-				</div>
-				<div class="col-sm-4 margin-trailer-dbl">
-					<h3 class="color-gray-dark">Application Development</h3>
-					<p>Whether for the web or mobile, we build robust, sophisticated applications and content management systems tailored to meet your precise needs.</p>
-				</div>
-				<div class="col-sm-4 margin-trailer-dbl">
-					<h3 class="color-gray-dark">And More</h3>
-					<p>We&#8217;ll work with you to construct exactly the project you need.</p>
-					<a href="#" class="btn btn-default">More about our services</a>
-				</div>
-			</div><!-- /.row -->
-		</div><!-- /.container -->
-	</main>
+	<div class="container margin-leader-dbl text-center">
+		<div class="row">
+			<div class="col-sm-4 margin-trailer-dbl">
+				<h3 class="color-gray-dark">Modern Website Design</h3>
+				<p>From custom themes for services like Tumblr, Shopify, and NationBuilder to elaborate user interfaces, we create responsive, accessible, and beautiful websites.</p>
+			</div>
+			<div class="col-sm-4 margin-trailer-dbl">
+				<h3 class="color-gray-dark">Application Development</h3>
+				<p>Whether for the web or mobile, we build robust, sophisticated applications and content management systems tailored to meet your precise needs.</p>
+			</div>
+			<div class="col-sm-4 margin-trailer-dbl">
+				<h3 class="color-gray-dark">And More</h3>
+				<p>We&#8217;ll work with you to construct exactly the project you need.</p>
+				<a href="#" class="btn btn-default">More about our services</a>
+			</div>
+		</div><!-- /.row -->
+	</div><!-- /.container -->
 {% endblock %}

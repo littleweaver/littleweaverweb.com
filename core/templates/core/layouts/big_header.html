@@ -1,0 +1,33 @@
+{% extends "core/layouts/base.html" %}
+
+{% load static %}
+
+{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
+
+{% block body %}
+	<header class="site-header homepage-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 col-md-2">
+					<img src="{% static "img/logo.svg" %}" class="img-responsive header-logo" />
+				</div>
+				<div class="col-sm-9 col-md-10">
+					<ul class="nav nav--lw margin-leader margin-trailer">
+						<li{% if page.nav == "Services" %} class="active"{% endif %}><a href="/services/">Services</a></li>
+						<li{% if page.nav == "Work" %} class="active"{% endif %}><a href="/work/">Work</a></li>
+						<li{% if page.nav == "blog" %} class="active"{% endif %}><a href="/blog/">Blog</a></li>
+						<li{% if page.nav == "About" %} class="active"{% endif %}><a href="/about/">About</a></li>
+					</ul>
+					<h1 class="logotype margin-trailer"><span class="lw-name">Little Weaver Web Collective</span> builds great websites for great organizations.</h1>
+					<div class="margin-trailer">
+						<a href="/work/" class="btn btn-sm btn-default">See our work</a>
+						<a href="/contact/" class="btn btn-sm btn-default">Get in touch</a>
+					</div>
+				</div>
+			</div>{# /.row #}
+		</div>{# /.container #}
+	</header>
+	<main>
+		{% block main %}{% endblock %}
+	</main>
+{% endblock %}
