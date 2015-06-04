@@ -14,6 +14,8 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
 
 COMPRESS_OFFLINE = True
+COMPRESS_ENABLED = True
+COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 AWS_STORAGE_BUCKET_NAME = os.environ.get("S3_BUCKET_NAME")
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
