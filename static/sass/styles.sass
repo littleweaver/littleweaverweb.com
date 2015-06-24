@@ -150,9 +150,18 @@ a:hover img
 
 h1.post-title
 	font-family: $font-family-sans-serif
+
 .post img
 	@extend .img-responsive
 	border: 1px solid rgba(black,.1)
+
+.post figure
+	margin-bottom: $font-size-base
+
+	figcaption
+		@extend .text-muted
+		text-align: center
+	
 
 .author, .post-list--title
 	margin-right: 10px
