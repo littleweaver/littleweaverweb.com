@@ -13,7 +13,7 @@ Once you accept "Alt Blues" as a term, there's an ambiguity problem. You can eas
 
 Knowing exactly what you're getting into can be especially relevent if you're thinking about a larger investment, like attending a workshop / exchange / recess weekend. This is essentially why, when we launched [Dancerfly](https://dancerfly.com) in fall 2014, we provided "Trad Blues", "Alt Blues", and "Fusion" among the list of dance styles organizers could choose for their events.
 
-But here's the thing. The definition of blues dance *isn't* arbitrary. This isn't just an intellectual argument about aesthetic. To paraphrase [Damon Stone](http://damonstone.dance/articles/appreciation-versus-appropriation/), blues dance is a touchstone of African-American culture – a Black dance idiom done to Black music rooted in African movement and rhythms and in the struggles and pains of Black Americans.
+But here's the thing: the definition of blues dance *isn't* arbitrary. This isn't just an intellectual argument about aesthetic. To paraphrase [Damon Stone](http://damonstone.dance/articles/appreciation-versus-appropriation/), blues dance is a touchstone of African-American culture – a Black dance idiom done to Black music rooted in African movement and rhythms and in the struggles and pains of Black Americans.
 
 By using a term like "Alt Blues" to refer to a dance which is not danced to blues music and which is not at all derived from the blues dance form, we ignore and erase a long (and ongoing) tradition. And we do it, frankly, primarily for the pleasure and enjoyment of non-Black dancers, as part of a pattern of appropriation that's pervaded American culture for a long, long, time.
 
