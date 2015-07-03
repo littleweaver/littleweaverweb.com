@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Why we provided "Trad Blues" and "Alt Blues" options – and why we've stopped
-date:   2015-07-04 01:00:00
+date:   2015-07-03 12:00:00
 author: stephen
 ---
 
