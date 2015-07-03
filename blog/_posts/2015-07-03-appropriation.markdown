@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Why we provided "Trad Blues" and "Alt Blues" options – and why we've stopped
-date:   2015-07-03 01:00:00
+date:   2015-07-04 01:00:00
 author: stephen
 ---
 
@@ -23,6 +23,6 @@ So moving forward, we've removed "Alt Blues" and "Trad Blues" as options, replac
 
 I want to be very clear about one thing: this framing of "Alt / Trad" as a cultural appropriation issue is not new. It's not new to the world, and it's not new to us. We were aware of it when we launched Dancerfly, and we *chose* to weight it lower than it warranted. We try to hold ourselves to a higher standard on issues like this, and to help our clients to do the same, and in this case **we made a mistake**.
 
-We'd like to thank Jonathan Polin, an organizer who called us out on this subject and caused us to re-examine our policy.
+We'd like to thank Jonathan Polin, the organizer who [called us out on this subject](https://github.com/littleweaver/django-brambling/pull/547) and caused us to re-examine our policy.
 
 *If you'd like to use Dancerfly for a dance event you organize, send us an email at <hello@littleweaverweb.com>.*
