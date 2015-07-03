@@ -8,7 +8,7 @@
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="{{ site.name }}"/>
 		<meta property="og:image" content="{{ site.url }}/static/images/facebook.gif"/>
-		<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}" />
+		<meta property="og:title" content="{% if page.title %}{{ page.title|escape }} | {% endif %}{{ site.name }}" />
 		<meta property="og:description" content="Little Weaver Web Collective is a cooperative web development group." />
 
 		<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}</title>
