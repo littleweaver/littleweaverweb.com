@@ -35,6 +35,7 @@ One thing about using TeeSpring was that we didn't actually know who had ordered
     <img src="/media/2015/2015-07-08-shirts-9.jpg" style="height:400px;">
     <img src="/media/2015/2015-07-08-shirts-10.jpg" style="height:400px;">
     <img src="/media/2015/2015-07-08-shirts-11.png" style="height:400px;">
+    <img src="/media/2015/2015-07-08-shirts-12.png" style="height:400px;">
 </div>
 
 <br/>
