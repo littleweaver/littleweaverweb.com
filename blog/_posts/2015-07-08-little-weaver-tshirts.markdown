@@ -48,6 +48,7 @@ _PS: If you're sad that you didn't get a shirt the first time around, send us an
             nav: true,
             navText: ["&nbsp;&lt;&nbsp;","&nbsp;&gt;&nbsp;"],
             dots: false,
+            center:true,
         });
     });
 </script>
