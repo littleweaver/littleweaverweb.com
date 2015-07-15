@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Little Weaver T-Shirts"
-date: "2015-07-08"
+title: "Little Weaver Shirts"
+date: "2015-07-15"
 author: naomi
 ---
 
@@ -17,18 +17,18 @@ One thing about using [TeeSpring](http://teespring.com/) to sell out shirts was 
 <br/>
 
 <div id="shirts-photos" class="owl-carousel">
-    <img src="/media/2015/2015-07-08-shirts-1.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-2.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-3.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-4.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-5.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-6.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-7.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-8.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-9.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-10.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-11.png" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-08-shirts-12.png" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-1.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-2.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-3.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-4.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-5.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-6.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-7.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-8.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-9.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-10.jpg" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-11.png" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-12.png" style="height:400px;width:auto;">
 </div>
 
 <br/>
