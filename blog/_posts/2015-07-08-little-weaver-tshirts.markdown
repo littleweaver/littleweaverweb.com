@@ -33,7 +33,9 @@ One thing about using [TeeSpring](http://teespring.com/) to sell out shirts was 
 
 <br/>
 
-_PS: If you're sad that you didn't get a shirt the first time around, send us an email at [hello@littleweaverweb.com](mailto:hello@littleweaverweb.com) and we can sell more of them._
+If you bought a shirt but didn't yet send us a photo, you're welcome to send one to [hello@littleweaverweb.com](mailto:hello@littleweaverweb.com) and we can add it to this post!
+
+If you're sad that you didn't get a shirt the first time around, send us an email at [hello@littleweaverweb.com](mailto:hello@littleweaverweb.com) and we can sell more of them.
 
 
 <!--  jQuery 1.7+  -->
