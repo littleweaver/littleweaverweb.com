@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Little Weaver Shirts"
+title: "Little Weaver Shirt Photos"
 date: "2015-07-15"
 author: naomi
 ---
