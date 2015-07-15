@@ -322,7 +322,7 @@
 		filter: [ 'width', 'items', 'settings' ],
 		run: function() {
 			var i, n, width = (this.width() / this.settings.items).toFixed(3), css = {
-				'width': Math.abs(this._coordinates[this._coordinates.length - 1]) + (this.settings.stagePadding * 2),
+				'width': Math.abs(this._coordinates[this._coordinates.length - 1]) + (this.settings.stagePadding * 2) + 10,
 				'padding-left': this.settings.stagePadding || '',
 				'padding-right': this.settings.stagePadding || ''
 			};

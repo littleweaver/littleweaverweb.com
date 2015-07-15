@@ -92,10 +92,10 @@ a:hover img
 	border-bottom: 3px solid $band-dark
 	margin-bottom: -7px
 	width: 100%
-	
+
 .lw-nav
 	float: right
-	> li 
+	> li
 		float: left
 	> li > a
 		padding: 4px 8px
@@ -161,7 +161,7 @@ h1.post-title
 	figcaption
 		@extend .text-muted
 		text-align: center
-	
+
 
 .author, .post-list--title
 	margin-right: 10px
@@ -189,3 +189,9 @@ h1.post-title
 
 .muted
 	color: $gray-light
+
+.owl-carousel .owl-item .owl-carousel-image
+	width: auto
+	height: 80vmin
+	@media (min-width: $screen-sm-min)
+		height: 400px

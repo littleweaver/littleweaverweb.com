@@ -17,18 +17,18 @@ One thing about using [TeeSpring](http://teespring.com/) to sell out shirts was 
 <br/>
 
 <div id="shirts-photos" class="owl-carousel">
-    <img src="/media/2015/2015-07-15-shirts-1.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-2.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-3.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-4.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-5.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-6.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-7.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-8.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-9.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-10.jpg" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-11.png" style="height:400px;width:auto;">
-    <img src="/media/2015/2015-07-15-shirts-12.png" style="height:400px;width:auto;">
+    <img src="/media/2015/2015-07-15-shirts-1.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-2.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-3.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-4.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-5.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-6.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-7.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-8.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-9.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-10.jpg" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-11.png" class="owl-carousel-image">
+    <img src="/media/2015/2015-07-15-shirts-12.png" class="owl-carousel-image">
 </div>
 
 <br/>
@@ -40,17 +40,21 @@ If you're sad that you didn't get a shirt the first time around, send us an emai
 
 <!--  jQuery 1.7+  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="/static/owl-carousel/owl.carousel.min.js"></script>
+<script src="/static/owl-carousel/owl.carousel.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $("#shirts-photos").owlCarousel({
-            autoWidth: true,
-            margin: 10,
             loop: true,
             nav: true,
             navText: ["&nbsp;&lt;&nbsp;","&nbsp;&gt;&nbsp;"],
             dots: false,
             center:true,
+            autoWidth: true,
+            responsive: {
+                781:{
+                    margin: 10,
+                }
+            }
         });
     });
 </script>
