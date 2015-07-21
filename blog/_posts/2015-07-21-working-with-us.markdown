@@ -5,7 +5,9 @@ date: "2015-07-21"
 author: naomi
 ---
 
-We're a small worker cooperative looking for people who do any of the following, for prospective part- or full-time membership.
+{% include image.html src="/media/2015/2015-07-21-lw.jpg" caption="Your potential coworkers!" %}
+
+**Are you interested in working with us?** We're a small worker cooperative looking for people who do any of the following, for prospective part- or full-time membership, or contract work.
 
 * Graphic design, illustration, production
 * QA and testing
