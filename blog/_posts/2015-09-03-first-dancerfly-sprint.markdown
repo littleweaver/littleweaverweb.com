@@ -5,6 +5,8 @@ date: "2015-09-03"
 author: harris
 ---
 
+{% include image.html src="/media/2015/2015-09-03-dancerfly-sprint-poster.png" %}
+
 We're hosting the first ever **Dancerfly Sprint** on **September 12, 2015**. We will be working all day to make Dancerfly better. If you like dance events and the web, we'd love to have you join us! There's lots to do. This will be a great time for:
 
 * **dance organizers and attendees** to give us feedback, suggestions, and ideas in _real-time as we code_.
