@@ -24,7 +24,7 @@ Do it to make the world better, to sharpen your skills, and to gain fame and glo
 
 ## What is a sprint?
 
-What is a sprint? A sprint is an excuse for us to focus our undivided attention on improving Dancerfly and we're inviting you to join us! Anybody who has any experience with dance events can contribute: ideas, feedback, design, and code.
+A sprint is an excuse for us to focus our undivided attention on improving Dancerfly and we're inviting you to join us! Anybody who has any experience with dance events can contribute: ideas, feedback, design, and code.
 
 It's a great opportunity to make Dancerfly better, to get your name in an open-source project, and to get experience working on a software project with the support of experienced developers. It's also going to be a lot of fun.
 
