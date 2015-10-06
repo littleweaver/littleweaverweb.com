@@ -9,7 +9,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3 col-md-2">
-					<img src="{% static "img/logo.svg" %}" class="img-responsive header-logo" />
+					<div class="header-logo">
+						<img src="{% static "img/logo.svg" %}" class="header-logo--img" />
+					</div>
 				</div>
 				<div class="col-sm-9 col-md-10">
 					<ul class="nav nav--lw margin-leader margin-trailer">
@@ -23,6 +25,7 @@
 						<a href="/work/" class="btn btn-sm btn-default">See our work</a>
 						<a href="/contact/" class="btn btn-sm btn-default">Get in touch</a>
 					</div>
+					{% block top %}{% endblock %}
 				</div>
 			</div>{# /.row #}
 		</div>{# /.container #}

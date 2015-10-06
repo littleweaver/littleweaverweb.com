@@ -1,1 +1,57 @@
 {% extends "core/layouts/small_header.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block main %}
+	<div class="image-pane margin-trailer-dbl" style="background-image:url(https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/10448567_317116061777867_4833500892439864728_o.jpg);background-position:top center;">
+		<h1 class="pane-header color-black">Who We Are</h1>
+	</div>
+
+	<div class="container">
+		<div class="lead">
+			{{ self.body|richtext }}
+		</div>
+		<div class="row">
+			<div class="col-sm-10 col-md-8">
+				<h2>Staff</h3>
+				<div class="row margin-trailer-dbl">
+					<div class="col-xs-3">
+						<img src="http://placehold.it/500x500" class="img-responsive" />
+					</div>
+					<div class="col-xs-9">
+						<h3 class="margin-leader-0">Naomi Morduch Toubman</h3>
+						<p>Naomi is a skilled user interface designer and frontend developer based in Connecticut. She architects efficient and maintainable CSS structures and HTML templates.</p>
+						<p>
+							<a href="#">Github</a>, <a href="#">Personal Portfolio</a>
+						</p>
+					</div>
+				</div>
+				<div class="row margin-trailer-dbl">
+					<div class="col-xs-3">
+						<img src="http://placehold.it/500x500" class="img-responsive" />
+					</div>
+					<div class="col-xs-9">
+						<h3 class="margin-leader-0">Naomi Morduch Toubman</h3>
+						<p>Naomi is a skilled user interface designer and frontend developer based in Connecticut. She architects efficient and maintainable CSS structures and HTML templates.</p>
+						<p>
+							<a href="#">Github</a>, <a href="#">Personal Portfolio</a>
+						</p>
+					</div>
+				</div>
+				<div class="row margin-trailer-dbl">
+					<div class="col-xs-3">
+						<img src="http://placehold.it/500x500" class="img-responsive" />
+					</div>
+					<div class="col-xs-9">
+						<h3 class="margin-leader-0">Naomi Morduch Toubman</h3>
+						<p>Naomi is a skilled user interface designer and frontend developer based in Connecticut. She architects efficient and maintainable CSS structures and HTML templates.</p>
+						<p>
+							<a href="#">Github</a>, <a href="#">Personal Portfolio</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

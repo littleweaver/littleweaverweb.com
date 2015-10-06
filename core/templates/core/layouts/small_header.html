@@ -9,16 +9,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3 col-md-2">
-					<img src="{% static "img/logo.svg" %}" class="img-responsive header-logo" />
+					<div class="header-logo">
+						<img src="{% static "img/logo.svg" %}" class="header-logo--img" />
+					</div>
 				</div>
 				<div class="col-sm-9 col-md-10">
 					<ul class="nav nav--lw margin-leader margin-trailer">
-						<li><a href="/">Little Weaver Web Collective</a></li>
+						<li><a href="/" class="lw-name">Little Weaver Web Collective</a></li>
 						<li{% if page.nav == "Services" %} class="active"{% endif %}><a href="/services/">Services</a></li>
 						<li{% if page.nav == "Work" %} class="active"{% endif %}><a href="/work/">Work</a></li>
 						<li{% if page.nav == "blog" %} class="active"{% endif %}><a href="/blog/">Blog</a></li>
 						<li{% if page.nav == "About" %} class="active"{% endif %}><a href="/about/">About</a></li>
 					</ul>
+				{% block top %}{% endblock %}
 				</div>
 			</div>{# /.row #}
 		</div>{# /.container #}

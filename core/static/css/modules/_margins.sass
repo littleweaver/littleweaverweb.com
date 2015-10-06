@@ -1,0 +1,19 @@
+=margin($side, $factor: 1)
+	margin-#{$side}: $line-height-computed * $factor
+
+$margin-map: ('0': 0, 'tiny': 0.2, 'half': 0.5, 'dbl': 2, 'quad': 4, 'neg': -1)
+
+@each $margin-name, $margin-size in $margin-map
+	.margin-leader-#{$margin-name}
+		+margin('top',$margin-size)
+	.margin-trailer-#{$margin-name}
+		+margin('bottom',$margin-size)
+
+.margin-0
+	margin: 0
+
+.margin-leader
+	+margin('top')
+
+.margin-trailer
+	+margin('bottom')
