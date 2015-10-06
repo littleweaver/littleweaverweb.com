@@ -13,7 +13,6 @@ class SimplePage(Page):
         FieldPanel('body', classname="full"),
     ]
 
-
 class HomePage(Page):
     featured_work = models.ForeignKey('WorkPage', null=True, blank=True,
                                       on_delete=models.SET_NULL)
@@ -59,4 +58,11 @@ class WorkPage(Page):
             FieldPanel('teaser_title'),
             FieldPanel('teaser_description')
         ], "Teaser Details"),
+    ]
+
+class AboutPage(Page):
+    body = RichTextField()
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body', classname="full"),
     ]
