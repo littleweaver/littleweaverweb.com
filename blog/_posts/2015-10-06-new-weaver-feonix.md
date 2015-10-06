@@ -5,7 +5,7 @@ date: "2015-10-2015"
 author: harris
 ---
 
-{% include image.html src="/media/2015/2015-09-03-dancerfly-sprint-poster.png" %}
+<!-- TODO: include Feonix's header image -->
 
 _**A note from Harris:** Little Weaver recently had the opportunity to add two new people to our team. This week Feonix is introducing herself in her own words and next week we'll hear from Cameron._
 
@@ -23,3 +23,5 @@ It seems to me that our work is so successful because we care at that deep, big-
 I can’t tell you how thrilled and grateful I feel to be a new Weaver.
 
 — Feonix
+
+<!-- TODO: include a photo of Feonix? -->
