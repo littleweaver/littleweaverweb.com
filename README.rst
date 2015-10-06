@@ -9,7 +9,7 @@ Prerequisites
 The installation instructions below assume you have the following software on your machine:
 
 * `Python 2.7.x <http://www.python.org/download/releases/2.7.6/>`_
-* `Ruby 2.2.1 <https://www.ruby-lang.org/en/installation/>`_
+* `Ruby 2.2.3 <https://www.ruby-lang.org/en/installation/>`_
 * `RVM <https://rvm.io/>`_
 * `Bundler <http://bundler.io/>`_
 * `Pip <https://pip.readthedocs.org/en/latest/installing.html>`_
@@ -42,11 +42,11 @@ Then install the requirements:
 Ruby dependencies
 +++++++++++++++++
 
-If you are using RVM, make sure to create an use an appropriate gemset with Ruby 2.2.1.
+If you are using RVM, make sure to create an use an appropriate gemset with Ruby 2.2.3.
 
 .. code:: bash
 
-    rvm use 2.2.1@lww --create
+    rvm use 2.2.3@lww --create
 
 Then install the bundle requirements:
 
@@ -74,7 +74,7 @@ If you are using virtualenv and RVM, ensure that you are on the appropriate virt
 .. code:: bash
 
     workon lww                         # Switch virtualenv.
-    rvm use 2.2.1@lww                  # Switch Gemset.
+    rvm use 2.2.3@lww                  # Switch Gemset.
     python manage.py runserver         # Run the server!
 
 Then, navigate to ``http://127.0.0.1:8000/`` in your favorite web browser to view the site! Navigate to ``http://127.0.0.1:8000/admin/`` to edit pages.
