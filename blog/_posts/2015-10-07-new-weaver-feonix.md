@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Feonix Fawkes is a Little Weaver"
-date: "2015-10-2015"
+date: "2015-10-07"
 author: harris
 ---
 
-<!-- TODO: include Feonix's header image -->
+{% include image.html src="/media/2015/2015-10-07-newhire.jpg" %}
 
 _**A note from Harris:** Little Weaver recently had the opportunity to add two new people to our team. This week Feonix is introducing herself in her own words and next week we'll hear from Cameron._
 
@@ -24,4 +24,4 @@ I can’t tell you how thrilled and grateful I feel to be a new Weaver.
 
 — Feonix
 
-<!-- TODO: include a photo of Feonix? -->
+{% include image.html src="/media/2015/2015-10-07-blowyourmind.gif" %}
