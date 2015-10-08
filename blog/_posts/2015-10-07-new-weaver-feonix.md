@@ -3,6 +3,7 @@ layout: post
 title: "Feonix Fawkes is a Little Weaver"
 date: "2015-10-07"
 author: harris
+image: /media/2015/2015-10-07-newhire.jpg
 ---
 
 {% include image.html src="/media/2015/2015-10-07-newhire.jpg" %}

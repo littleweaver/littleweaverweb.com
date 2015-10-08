@@ -4,10 +4,10 @@
 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="{{ site.name }}"/>
-		<meta property="og:image" content="{{ site.url }}/static/images/facebook.gif"/>
+		<meta property="og:image" content="{% if page.image %}{{ site.url }}{{ page.image }}{% else %}{{ site.url }}/static/images/facebook.gif{% endif %}"/>
 		<meta property="og:title" content="{% if page.title %}{{ page.title|escape }} | {% endif %}{{ site.name }}" />
 		<meta property="og:description" content="Little Weaver Web Collective is a cooperative web development group." />
 
@@ -34,7 +34,7 @@
 				<h1 class="logotype"><a href="/">
 					Little Weaver <br class="visible-xs">Web Collective
 				</a></h1>
-				<h4 class="subhead">Design &amp; Development</h4>	
+				<h4 class="subhead">Design &amp; Development</h4>
 			</header>
 			<div class="main">
 				<!-- content start -->
