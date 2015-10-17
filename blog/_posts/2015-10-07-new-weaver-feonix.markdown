@@ -8,7 +8,7 @@ image: /media/2015/2015-10-07-newhire.jpg
 
 {% include image.html src="/media/2015/2015-10-07-newhire.jpg" %}
 
-_**A note from Harris:** Little Weaver recently had the opportunity to add two new people to our team. This week Feonix is introducing herself in her own words and next week we'll hear from Cameron._
+_**A note from Harris:** Little Weaver recently had the opportunity to add two new people to our team. This week Feonix is introducing herself in her own words and next week we'll [hear from Cameron]({% post_url 2015-10-17-new-weaver-cameron %})._
 
 Little Weaver has been having such a banner year (thanks to [Naomi, Harris and Stephen](/who-we-are.html)’s hard work) that two months ago they announced they were looking to hire one or two more members. Enter Cameron and myself.
 
