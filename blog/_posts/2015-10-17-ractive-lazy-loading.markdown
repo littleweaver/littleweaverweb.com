@@ -10,19 +10,9 @@ We at Little Weaver have been using [Ractive](http://www.ractivejs.org/) and lov
 {% highlight php %}
 <!-- /ractive-json.php -->
 <?php
-
-ob_start();
-include "./ractive.inc";
-$out = array('template' => ob_get_contents());
-ob_end_clean();
-
+$out = array('template' => "<div {{#if loaded}}class='loaded'{{/if}}>Super cool template!</div>");
 echo sprintf("%s(%s)", $_GET['callback'], json_encode($out));
 ?>
-{% endhighlight %}
-
-{% highlight html+handlebars %}
-<!-- /ractive.inc -->
-<div {{#if loaded}}class='loaded'{{/if}}>Super cool template!</div>
 {% endhighlight %}
 
 {% highlight js %}
@@ -42,7 +32,7 @@ $.ajax({
             // ... any additional methods
         });
 
-        // ... any calls that require the ractive object
+        // ... any setup that requires the ractive object
         // i.e. calls to ractive.on() or ractive.observe()
     }
 });
