@@ -10,7 +10,7 @@
 			<div class="pane background-green-orange">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-6 col-md-4 col-md-offset-2">
+						<div class="col-sm-6 col-md-4 col-md-offset-2 margin-leader">
 							<h2>{% firstof self.featured_work.teaser_title self.featured_work.title %}</h2>
 							<p>{% firstof self.featured_work.teaser_description self.featured_work.body|truncatewords_html:20 %}</p>
 							<div class="margin-trailer">
@@ -49,7 +49,7 @@
 			<div class="col-sm-4 margin-trailer-dbl">
 				<h3 class="color-gray-dark">And More</h3>
 				<p>We&#8217;ll work with you to construct exactly the project you need.</p>
-				<a href="#" class="btn btn-default">More about our services</a>
+				<a href="#" class="btn btn-secondary">More about our services</a>
 			</div>
 		</div><!-- /.row -->
 	</div><!-- /.container -->

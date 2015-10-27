@@ -1,5 +1,12 @@
 @import variables
-@import bootstrap
+@import bootstrap/bootstrap
+
+// Define bootstrap vars that were lost between Bootstrap 3 and 4
+$line-height-computed: $font-size-base * $line-height
+$screen-sm-min: map_get($grid-breakpoints, 'sm')
+$screen-md-min: map_get($grid-breakpoints, 'md')
+$screen-lg-min: map_get($grid-breakpoints, 'lg')
+$screen-xl-min: map_get($grid-breakpoints, 'xl')
 
 @import utilities/colors
 @import utilities/margins

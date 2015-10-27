@@ -14,12 +14,12 @@
 					</div>
 				</div>
 				<div class="col-sm-9 col-md-10">
-					<ul class="nav nav--lw margin-leader margin-trailer">
-						<li><a href="/" class="lw-name">Little Weaver Web Collective</a></li>
-						<li{% if page.nav == "Services" %} class="active"{% endif %}><a href="/services/">Services</a></li>
-						<li{% if page.nav == "Work" %} class="active"{% endif %}><a href="/work/">Work</a></li>
-						<li{% if page.nav == "blog" %} class="active"{% endif %}><a href="/blog/">Blog</a></li>
-						<li{% if page.nav == "About" %} class="active"{% endif %}><a href="/about/">About</a></li>
+					<ul class="nav nav-pills nav--lw margin-leader margin-trailer">
+						<li class="nav-item"><a href="/" class="lw-name nav-link">Little Weaver Web Collective</a></li>
+						<li class="nav-item {% if page.nav == "Services" %} active{% endif %}"><a class="nav-link" href="/services/">Services</a></li>
+						<li class="nav-item {% if page.nav == "Work" %} active{% endif %}"><a class="nav-link" href="/work/">Work</a></li>
+						<li class="nav-item {% if page.nav == "blog" %} active{% endif %}"><a class="nav-link" href="/blog/">Blog</a></li>
+						<li class="nav-item {% if page.nav == "About" %} active{% endif %}"><a class="nav-link" href="/about/">About</a></li>
 					</ul>
 				{% block top %}{% endblock %}
 				</div>
