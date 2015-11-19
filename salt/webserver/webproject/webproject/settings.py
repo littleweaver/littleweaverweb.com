@@ -82,17 +82,17 @@ LOGGING = {
     },
     'loggers': {
         'littleweaverweb': {
-            'handlers': ['file', 'mail_admins'],
+            'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': False,
         },
         'django.request': {
-            'handlers': ['file', 'mail_admins'],
+            'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': False,
         },
         'django.security': {
-            'handlers': ['file', 'mail_admins'],
+            'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': False,
         },
