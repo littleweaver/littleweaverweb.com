@@ -22,11 +22,13 @@ def bootstrap_salt(env='production'):
 def bootstrap_project(target='wagtail'):
     put("pillar/deploy_rsa", "/root/.ssh/id_rsa",
         use_sudo=True, mode=0400)
-    with cd("/root/"):
-        if not exists('/root/littleweaverweb.com'):
+    with cd("/var/www/"):
+        if not exists('/var/www/littleweaverweb.com'):
             sudo("git clone git@github.com:littleweaver/littleweaverweb.com.git")
         with cd('littleweaverweb.com'):
             sudo('git fetch')
+            sudo('git stash')
+            sudo('git checkout {}'.format(target))
             sudo('git reset --hard origin/{}'.format(target))
             if not exists('/srv/salt'):
                 sudo('mkdir /srv/salt')
