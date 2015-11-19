@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
+from littleweaverweb.settings.production import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -26,62 +28,6 @@ SECRET_KEY = '{{ pillar["deploy"]["secret_key"] }}'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = {% if pillar['deploy']['debug'] %}True{% else %}False{% endif %}
 
-TEMPLATE_DEBUG = DEBUG
-
-ALLOWED_HOSTS = ['*']
-
-
-# Application definition
-
-INSTALLED_APPS = (
-    'brambling',
-    'grappelli',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.humanize',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'zenaida',
-    'zenaida.contrib.hints',
-    'talkback',
-    'floppyforms',
-    'django_filters',
-    'daguerre',
-    'djrill',
-    'compressor',
-)
-
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'talkback.middleware.TalkbackMiddleware',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.contrib.messages.context_processors.messages",
-    "django.core.context_processors.request",
-    "brambling.context_processors.google_analytics",
-    'brambling.context_processors.current_site',
-)
-
-ROOT_URLCONF = 'webproject.urls'
-
-WSGI_APPLICATION = 'webproject.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
@@ -96,70 +42,14 @@ DATABASES = {
     }
 }
 
-# Internationalization
-# https://docs.djangoproject.com/en/dev/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-
-# Media files (Uploaded)
 MEDIA_ROOT = '{{ pillar["files"]["media_dir"] }}'
 MEDIA_URL = '/media/'
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/dev/howto/static-files/
-STATIC_ROOT = '{{ pillar["files"]["static_dir"] }}'
-STATIC_URL = '/static/'
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
-    'compressor.finders.CompressorFinder',
-)
-
-_BOOTSTRAP_SASS_SUBPATH = "/gems/bootstrap-sass-3.3.4.1/assets/stylesheets/"
-STATICFILES_DIRS = [x + _BOOTSTRAP_SASS_SUBPATH for x in os.environ.get('GEM_PATH', '').split(":") if os.path.isdir(x + _BOOTSTRAP_SASS_SUBPATH)]
-
-COMPRESS_PRECOMPILERS = (
-    ('text/sass', 'django_libsass.SassCompiler'),
-)
-
-from django.core.urlresolvers import reverse_lazy
-
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = reverse_lazy('login')
-
-AUTH_USER_MODEL = 'brambling.Person'
-
-STRIPE_APPLICATION_ID = '{{ pillar["deploy"]["stripe_application_id"] }}'
-STRIPE_PUBLISHABLE_KEY = '{{ pillar["deploy"]["stripe_pk"] }}'
-STRIPE_SECRET_KEY = '{{ pillar["deploy"]["stripe_sk"] }}'
-STRIPE_TEST_APPLICATION_ID = '{{ pillar["deploy"]["stripe_test_application_id"] }}'
-STRIPE_TEST_PUBLISHABLE_KEY = '{{ pillar["deploy"]["stripe_test_pk"] }}'
-STRIPE_TEST_SECRET_KEY = '{{ pillar["deploy"]["stripe_test_sk"] }}'
-
-DWOLLA_APPLICATION_KEY = '{{ pillar["deploy"]["dwolla_application_key"] }}'
-DWOLLA_APPLICATION_SECRET = '{{ pillar["deploy"]["dwolla_application_secret"] }}'
-DWOLLA_TEST_APPLICATION_KEY = '{{ pillar["deploy"]["dwolla_test_application_key"] }}'
-DWOLLA_TEST_APPLICATION_SECRET = '{{ pillar["deploy"]["dwolla_test_application_secret"] }}'
-
 DEFAULT_FROM_EMAIL = '{{ pillar["deploy"]["default_from_email"] }}'
 SERVER_EMAIL = '{{ pillar["deploy"]["server_email"] }}'
-MANDRILL_API_KEY = '{{ pillar["deploy"]["mandrill_api_key"] }}'
-EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
 
-GOOGLE_ANALYTICS_UA = 'UA-52154832-1'
-GOOGLE_ANALYTICS_DOMAIN = 'dancerfly.com'
+GOOGLE_ANALYTICS_UA = 'UA-52154832-3'
+GOOGLE_ANALYTICS_DOMAIN = 'littleweaverweb.com'
 
 LOGGING = {
     'version': 1,
@@ -186,7 +76,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'brambling': {
+        'littleweaverweb': {
             'handlers': ['file', 'mail_admins'],
             'level': 'DEBUG',
             'propagate': False,
