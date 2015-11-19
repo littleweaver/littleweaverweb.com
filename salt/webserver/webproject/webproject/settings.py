@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 ADMINS = (
-    ('Dancerfly Support', 'support@dancerfly.com'),
+    ('Little Weaver', 'hello@littleweaverweb.com'),
 )
 
 # Quick-start development settings - unsuitable for production
@@ -42,9 +42,6 @@ DATABASES = {
         'PORT': '{{ pillar["connections"]["db"]["port"] }}',
     }
 }
-
-MEDIA_ROOT = '{{ pillar["files"]["media_dir"] }}'
-MEDIA_URL = '/media/'
 
 DEFAULT_FROM_EMAIL = '{{ pillar["deploy"]["default_from_email"] }}'
 SERVER_EMAIL = '{{ pillar["deploy"]["server_email"] }}'
