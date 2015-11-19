@@ -28,18 +28,21 @@ def bootstrap_project(target='wagtail'):
         with cd('littleweaverweb.com'):
             sudo('git fetch')
             sudo('git reset --hard origin/{}'.format(target))
-            sudo("cp -R salt/* /srv/")
+            if not exists('/srv/salt'):
+                sudo('mkdir /srv/salt')
+            sudo("cp -R salt/* /srv/salt")
 
 
 @task
 def put_pillar():
-    sudo('mkdir /srv/pillar')
-    put("pillar", "/srv/pillar", use_sudo=True)
+    if not exists('/srv/pillar'):
+        sudo('mkdir /srv/pillar')
+    put("pillar/*", "/srv/pillar", use_sudo=True)
 
 
 @task
 def get_pillar():
-    get("/srv/pillar", "pillar", use_sudo=True)
+    get("/srv/pillar/*", "pillar/")
 
 
 @task
