@@ -52,7 +52,7 @@ SERVER_EMAIL = '{{ pillar["deploy"]["server_email"] }}'
 GOOGLE_ANALYTICS_UA = 'UA-52154832-3'
 GOOGLE_ANALYTICS_DOMAIN = 'littleweaverweb.com'
 
-AWS_STORAGE_BUCKET_NAME = "{{ pillar['deploy']['s3_bucket_name'] }} "
+AWS_STORAGE_BUCKET_NAME = "{{ pillar['deploy']['s3_bucket_name'] }}"
 AWS_ACCESS_KEY_ID = "{{ pillar['deploy']['aws_access_key_id'] }}"
 AWS_SECRET_ACCESS_KEY = "{{ pillar['deploy']['aws_secret_access_key'] }}"
 
