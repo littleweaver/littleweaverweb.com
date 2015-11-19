@@ -190,3 +190,14 @@ migrate:
     - require:
       - postgres_database: webproject_db
       - user: webproject_user
+
+compress:
+  cmd.wait:
+    - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py compress
+    - user: webproject
+    - watch:
+      - file: webproject_project
+      - virtualenv: webproject_env
+      - pip: project
+    - require:
+      - user: webproject_user
