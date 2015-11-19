@@ -30,6 +30,7 @@ def bootstrap_project(target='wagtail'):
             sudo('git stash')
             sudo('git checkout {}'.format(target))
             sudo('git reset --hard origin/{}'.format(target))
+            sudo('chmod -R a+rw /var/www/littleweaverweb.com')
             if not exists('/srv/salt'):
                 sudo('mkdir /srv/salt')
             sudo("cp -R salt/* /srv/salt")
