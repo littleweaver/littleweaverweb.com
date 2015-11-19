@@ -54,8 +54,7 @@ webproject_env:
 
 project:
   pip.installed:
-    - name: {{ pillar['files']['clone_dir'] }}
-    - editable: true
+    - editable: {{ pillar['files']['clone_dir'] }}
     - bin_env: {{ pillar['files']['env_dir'] }}
     - user: webproject
     - require:
