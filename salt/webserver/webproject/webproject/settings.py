@@ -52,6 +52,9 @@ GOOGLE_ANALYTICS_DOMAIN = 'littleweaverweb.com'
 AWS_STORAGE_BUCKET_NAME = "{{ pillar['deploy']['s3_bucket_name'] }}"
 AWS_ACCESS_KEY_ID = "{{ pillar['deploy']['aws_access_key_id'] }}"
 AWS_SECRET_ACCESS_KEY = "{{ pillar['deploy']['aws_secret_access_key'] }}"
+AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 LOGGING = {
     'version': 1,
