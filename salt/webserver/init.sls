@@ -182,7 +182,7 @@ migrate:
       - user: webproject_user
 
 dwolla_update_tokens:
-  cron.present:
+  cron.absent:
     - user: webproject
     - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py update_tokens --days=15
     - hour: 6
