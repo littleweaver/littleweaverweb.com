@@ -60,6 +60,14 @@ project:
     - require:
       - virtualenv: webproject_env
 
+newrelic_pip:
+  pip.installed:
+    - name: newrelic==2.54.0.41
+    - bin_env: {{ pillar['files']['env_dir'] }}
+    - user: webproject
+    - require:
+      - virtualenv: webproject_env
+
 django_log_dir:
   file.directory:
     - name: {{ pillar['files']['logs']['django_dir'] }}
@@ -77,6 +85,8 @@ webproject_project:
     - require:
       - file: django_log_dir
       - virtualenv: {{ pillar['files']['env_dir'] }}
+      - pip: project
+      - pip: newrelic_pip
       - service: postgresql
 
 nginx:
