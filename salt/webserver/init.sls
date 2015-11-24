@@ -170,7 +170,7 @@ gunicorn_circus_start:
 
 
 collectstatic:
-  cmd.wait:
+  cmd.run:
     - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py collectstatic --noinput
     - user: webproject
     - watch:
@@ -181,7 +181,7 @@ collectstatic:
       - user: webproject_user
 
 migrate:
-  cmd.wait:
+  cmd.run:
     - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py migrate --noinput
     - user: webproject
     - watch:
@@ -192,7 +192,7 @@ migrate:
       - user: webproject_user
 
 compress:
-  cmd.wait:
+  cmd.run:
     - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py compress
     - user: webproject
     - watch:
