@@ -173,10 +173,9 @@ collectstatic:
   cmd.run:
     - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py collectstatic --noinput
     - user: webproject
-    - watch:
+    - require:
       - file: webproject_project
       - virtualenv: webproject_env
-    - require:
       - postgres_database: webproject_db
       - user: webproject_user
 
@@ -184,10 +183,9 @@ migrate:
   cmd.run:
     - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py migrate --noinput
     - user: webproject
-    - watch:
+    - require:
       - file: webproject_project
       - virtualenv: webproject_env
-    - require:
       - postgres_database: webproject_db
       - user: webproject_user
 
@@ -195,9 +193,8 @@ compress:
   cmd.run:
     - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py compress
     - user: webproject
-    - watch:
+    - require:
+      - user: webproject_user
       - file: webproject_project
       - virtualenv: webproject_env
       - pip: project
-    - require:
-      - user: webproject_user
