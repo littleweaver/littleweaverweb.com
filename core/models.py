@@ -6,6 +6,8 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, PageChooserPanel, StreamFieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
+from wagtail.wagtailsnippets.models import register_snippet
 
 
 class SimplePage(Page):
@@ -85,7 +87,7 @@ class QuoteBlock(blocks.TextBlock):
 
 
 class BlogPage(Page):
-
+    author = models.ForeignKey('core.AuthorProfile')
     publication_date = models.DateField(
         help_text="Past or future date of publication")
     summary = models.TextField(help_text="Intro or short summary of post")
@@ -98,6 +100,7 @@ class BlogPage(Page):
     ])
 
     content_panels = Page.content_panels + [
+        SnippetChooserPanel('author'),
         FieldPanel('publication_date'),
         FieldPanel('summary'),
         StreamFieldPanel('body'),
@@ -123,3 +126,17 @@ class BlogIndexPage(Page):
         # Add extra variables and return the updated context
         context['blog_entries'] = BlogPage.objects.child_of(self).live()
         return context
+
+
+@register_snippet
+class AuthorProfile(models.Model):
+    name = models.CharField(max_length=100)
+    twitter_username = models.CharField(max_length=15, null=True, blank=True)
+
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('twitter_username'),
+    ]
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
