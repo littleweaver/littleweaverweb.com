@@ -87,7 +87,8 @@ class QuoteBlock(blocks.TextBlock):
 
 
 class BlogPage(Page):
-    author = models.ForeignKey('core.AuthorProfile')
+    author = models.ForeignKey('core.AuthorProfile', null=True, blank=True,
+                               on_delete=models.SET_NULL,)
     publication_date = models.DateField(
         help_text="Past or future date of publication")
     summary = models.TextField(help_text="Intro or short summary of post")
