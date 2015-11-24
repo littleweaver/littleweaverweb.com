@@ -1,1 +1,16 @@
 {% extends "core/layouts/small_header.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block main %}
+	<div class='container'>
+		<div class='row'>
+			<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2'>
+				<h1>{{ self.teaser_title }}</h1>
+				<h2>{{ self.client_name }}</h2>
+
+				{{ page.body|richtext }}
+			</div>
+		</div>
+	</div>
+{% endblock %}
