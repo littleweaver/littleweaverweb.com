@@ -1,5 +1,8 @@
 from django.db import models
 
+from modelcluster.fields import ParentalKey
+from modelcluster.contrib.taggit import ClusterTaggableManager
+from taggit.models import TaggedItemBase
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page
@@ -88,6 +91,10 @@ class QuoteBlock(blocks.TextBlock):
         label = 'Quote'
 
 
+class BlogPageTag(TaggedItemBase):
+    content_object = ParentalKey('core.BlogPage', related_name='tagged_items')
+
+
 class BlogPage(Page):
     author = models.ForeignKey('core.AuthorProfile', null=True, blank=True,
                                on_delete=models.SET_NULL,)
@@ -101,6 +108,7 @@ class BlogPage(Page):
         ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
         ('image', ImageChooserBlock()),
     ])
+    tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 
     content_panels = Page.content_panels + [
         SnippetChooserPanel('author'),
@@ -109,6 +117,14 @@ class BlogPage(Page):
         StreamFieldPanel('body'),
     ]
     parent_page_types = ['BlogIndexPage']
+    promote_panels = [
+        FieldPanel('tags'),
+    ]
+
+    def get_context(self, request):
+        context = super(BlogPage, self).get_context(request)
+        context['blog_index'] = BlogIndexPage.objects.first()
+        return context
 
 
 class BlogIndexPage(Page):
