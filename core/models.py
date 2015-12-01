@@ -17,6 +17,7 @@ class SimplePage(Page):
         FieldPanel('body', classname="full"),
     ]
 
+
 class HomePage(Page):
     featured_work = models.ForeignKey('WorkPage', null=True, blank=True,
                                       on_delete=models.SET_NULL)
@@ -28,7 +29,7 @@ class HomePage(Page):
 
 class WorkListPage(Page):
     body = RichTextField()
-    subpage_types = ['core.WorkPage',]
+    subpage_types = ['core.WorkPage']
 
     content_panels = Page.content_panels  + [FieldPanel('body', classname="full")]
 
@@ -46,7 +47,7 @@ class WorkPage(Page):
     teaser_title = models.CharField(max_length=255, blank=True)
     teaser_description = RichTextField(blank=True)
 
-    parent_page_types = ['core.WorkListPage',]
+    parent_page_types = ['core.WorkListPage']
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
@@ -63,6 +64,7 @@ class WorkPage(Page):
             FieldPanel('teaser_description')
         ], "Teaser Details"),
     ]
+
 
 class AboutPage(Page):
     body = RichTextField()
@@ -107,7 +109,6 @@ class BlogPage(Page):
         StreamFieldPanel('body'),
     ]
     parent_page_types = ['BlogIndexPage']
-
 
 
 class BlogIndexPage(Page):
