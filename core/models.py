@@ -117,7 +117,7 @@ class BlogPage(Page):
         StreamFieldPanel('body'),
     ]
     parent_page_types = ['BlogIndexPage']
-    promote_panels = [
+    promote_panels = Page.promote_panels + [
         FieldPanel('tags'),
     ]
 
