@@ -126,9 +126,6 @@ class BlogPage(Page):
         context['blog_index'] = BlogIndexPage.objects.first()
         return context
 
-    class Meta:
-        ordering = ('-publication_date',)
-
 
 class BlogIndexPage(Page):
     intro = StreamField([
@@ -145,7 +142,7 @@ class BlogIndexPage(Page):
     def get_context(self, request):
         context = super(BlogIndexPage, self).get_context(request)
 
-        entries = BlogPage.objects.child_of(self).live()
+        entries = BlogPage.objects.child_of(self).live().order_by('-publication_date')
         tag = request.GET.get('tag')
         if tag:
             entries = entries.filter(tags__name=tag)
