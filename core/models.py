@@ -126,6 +126,9 @@ class BlogPage(Page):
         context['blog_index'] = BlogIndexPage.objects.first()
         return context
 
+    class Meta:
+        ordering = ('-publication_date',)
+
 
 class BlogIndexPage(Page):
     intro = StreamField([
