@@ -150,23 +150,15 @@ gunicorn_circus:
       - virtualenv: webproject_env
     - watch_in:
       - service: circusd
-  cmd.wait:
-    - name: circusctl restart gunicorn
-    - watch:
-      - file: webproject_project
-      - file: gunicorn_circus
-      - virtualenv: webproject_env
-    - require:
-      - service: circusd
 
-gunicorn_circus_start:
+gunicorn_circus_restart:
   cmd.run:
-    - name: circusctl start gunicorn
+    - name: circusctl restart gunicorn
     - require:
       - file: webproject_project
       - file: gunicorn_circus
       - virtualenv: webproject_env
-    - onlyif: "[ `circusctl status gunicorn` == 'stopped' ]"
+      - service: circusd
 
 
 collectstatic:
