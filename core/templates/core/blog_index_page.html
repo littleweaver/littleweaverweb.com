@@ -12,12 +12,13 @@
 		{{ page.intro }}
 
 		{% for entry in blog_entries %}
-		
+
 		<a href="{{entry.url}}">{{ entry.title }}</a>
+		{{ entry.publication_date }}
 		<br>
 		{{entry.summary}}
 		<hr>
-		{% endfor %}		
+		{% endfor %}
 	</div>
 </div>
 {% endblock %}

@@ -9,15 +9,18 @@
 
 <div class="container">
 	<div class="lead">
-		{% if page.author %}
-			{% if page.author.twitter_username %}
-				<a href="https://twitter.com/{{ page.author.twitter_username }}">{{ page.author.name }}</a>
-			{% else %}
-				{{ page.author.name }}
-			{% endif %}
-		{% endif %}
-		{{ page.summary }}
-		{{ page.publication_date }}
+		<ul class='list-inline'>
+			<li>
+				{% if page.author %}
+					{% if page.author.twitter_username %}
+						<a href="https://twitter.com/{{ page.author.twitter_username }}">{{ page.author.name }}</a>
+					{% else %}
+						{{ page.author.name }}
+					{% endif %}
+				{% endif %}
+			</li>
+			<li>{{ page.publication_date }}</li>
+		</ul>
 
 		{{ page.body }}
 	</div>
