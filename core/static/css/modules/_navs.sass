@@ -3,9 +3,14 @@
 	margin-left: -15px
 	> li
 		float: left
-		> a
-			color: $gray-mid
-			transition: .15s linear color
-		> a:hover
+	.nav-link
+		color: $gray-mid
+		transition: .15s linear color
+		&:hover
 			background: transparent
 			color: $gray-dark
+	.nav-link-special
+		color: $gray-dark
+		font-weight: 500
+		&:hover
+			color: $black

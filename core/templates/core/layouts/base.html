@@ -18,7 +18,7 @@
 		<title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
 
 		{% compress css %}
-			<link rel="stylesheet" type="text/x-scss" href="{% static 'css/littleweaverweb.sass' %}">
+			<link rel="stylesheet" type="text/x-sass" href="{% static 'css/littleweaverweb.sass' %}">
 		{% endcompress %}
 
 		<script type="text/javascript" src="//use.typekit.net/kir3awt.js"></script>
