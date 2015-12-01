@@ -20,6 +20,11 @@
 				{% endif %}
 			</li>
 			<li>{{ page.publication_date }}</li>
+			<li>
+				{% for tag in page.tags.all %}
+					<a href="{% pageurl blog_index %}?tag={{ tag }}">{{ tag }}</a>
+				{% endfor %}
+			</li>
 		</ul>
 
 		{{ page.body }}

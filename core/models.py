@@ -142,8 +142,13 @@ class BlogIndexPage(Page):
     def get_context(self, request):
         context = super(BlogIndexPage, self).get_context(request)
 
+        entries = BlogPage.objects.child_of(self).live()
+        tag = request.GET.get('tag')
+        if tag:
+            entries = entries.filter(tags__name=tag)
+
         # Add extra variables and return the updated context
-        context['blog_entries'] = BlogPage.objects.child_of(self).live()
+        context['blog_entries'] = entries
         return context
 
 
