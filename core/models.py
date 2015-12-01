@@ -120,6 +120,7 @@ class BlogIndexPage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('intro'),
     ]
+    subpage_types = ['BlogPage']
 
     def get_context(self, request):
         context = super(BlogIndexPage, self).get_context(request)
