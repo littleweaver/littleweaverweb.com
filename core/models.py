@@ -12,7 +12,7 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
-from blocks import CodeBlock, QuoteBlock
+from blocks import CodeBlock, QuoteBlock, MarkdownBlock
 
 class SimplePage(Page):
     body = RichTextField()
@@ -92,6 +92,7 @@ class BlogPage(Page):
         ('rich_text', blocks.RichTextBlock(icon='doc-full', label='Rich Text')),
         ('code', CodeBlock(icon='code')),
         ('quote', QuoteBlock(icon='openquote')),
+        ('markdown', MarkdownBlock()),
         ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
         ('image', ImageChooserBlock()),
     ])

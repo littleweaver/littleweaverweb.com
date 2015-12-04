@@ -1,5 +1,6 @@
 from django.utils.safestring import mark_safe
 
+from markdown import markdown
 from pygments import highlight
 from pygments.formatters import get_formatter_by_name
 from pygments.lexers import get_lexer_by_name
@@ -46,3 +47,18 @@ class QuoteBlock(blocks.TextBlock):
         template = 'core/blocks/quote.html'
         icon = 'openquote'
         label = 'Quote'
+
+
+class MarkdownBlock(blocks.TextBlock):
+    class Meta:
+        icon = 'code'
+
+    def render_basic(self, value):
+        md = markdown(
+            value,
+            [
+                'markdown.extensions.fenced_code',
+                'codehilite',
+            ],
+        )
+        return mark_safe(md)
