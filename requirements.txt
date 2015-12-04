@@ -16,6 +16,7 @@ html5lib==0.999
 libsass==0.8.1
 Pillow==3.0.0
 psycopg2==2.5.1
+pygments>=2.0,<3.0
 pytz==2015.7
 requests==2.7.0
 six==1.10.0
