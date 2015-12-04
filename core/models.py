@@ -12,6 +12,7 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
+from blocks import CodeBlock, QuoteBlock
 
 class SimplePage(Page):
     body = RichTextField()
@@ -75,20 +76,6 @@ class AboutPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
     ]
-
-
-class CodeBlock(blocks.TextBlock):
-    class Meta:
-        template = 'core/blocks/code.html'
-        icon = 'code'
-        label = 'Code'
-
-
-class QuoteBlock(blocks.TextBlock):
-    class Meta:
-        template = 'core/blocks/quote.html'
-        icon = 'openquote'
-        label = 'Quote'
 
 
 class BlogPageTag(TaggedItemBase):
