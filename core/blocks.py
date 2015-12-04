@@ -39,11 +39,6 @@ class CodeBlock(blocks.StructBlock):
             noclasses=False,
         )
         return mark_safe(highlight(src, lexer, formatter))
-# class CodeBlock(blocks.TextBlock):
-#     class Meta:
-#         template = 'core/blocks/code.html'
-#         icon = 'code'
-#         label = 'Code'
 
 
 class QuoteBlock(blocks.TextBlock):
