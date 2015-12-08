@@ -45,7 +45,7 @@ def put_pillar():
 
 @task
 def get_pillar():
-    get("/srv/pillar/*", "pillar/")
+    get("/srv/pillar/*", "pillar/%(path)s")
 
 
 @task
