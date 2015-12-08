@@ -77,6 +77,11 @@ class AboutPage(Page):
         FieldPanel('body', classname="full"),
     ]
 
+    def get_context(self, request):
+        context = super(AboutPage, self).get_context(request)
+        context['profiles'] = AuthorProfile.objects.all()
+        return context
+
 
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('core.BlogPage', related_name='tagged_items')
