@@ -14,6 +14,7 @@ from wagtail.wagtailsnippets.models import register_snippet
 
 from blocks import CodeBlock, QuoteBlock, MarkdownBlock
 
+
 class SimplePage(Page):
     body = RichTextField()
 
@@ -79,7 +80,7 @@ class AboutPage(Page):
 
     def get_context(self, request):
         context = super(AboutPage, self).get_context(request)
-        context['profiles'] = AuthorProfile.objects.all()
+        context['members'] = AuthorProfile.objects.filter(is_member=True).order_by('?')
         return context
 
 
@@ -148,11 +149,20 @@ class BlogIndexPage(Page):
 @register_snippet
 class AuthorProfile(models.Model):
     name = models.CharField(max_length=100)
-    twitter_username = models.CharField(max_length=15, null=True, blank=True)
+    picture = models.ForeignKey("wagtailimages.Image", blank=True, null=True,
+                                on_delete=models.SET_NULL, related_name='+')
+    bio = RichTextField(blank=True)
+    is_member = models.BooleanField(default=False)
+    twitter_username = models.CharField(max_length=15, blank=True)
+    github_username = models.CharField(max_length=30, blank=True)
 
     panels = [
         FieldPanel('name'),
+        ImageChooserPanel('picture'),
+        FieldPanel('bio'),
+        FieldPanel('is_member'),
         FieldPanel('twitter_username'),
+        FieldPanel('github_username'),
     ]
 
     def __str__(self):              # __unicode__ on Python 2
