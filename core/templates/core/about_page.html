@@ -3,7 +3,8 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block main %}
-	<div class="image-pane margin-trailer-dbl" style="background-image:url(https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/10448567_317116061777867_4833500892439864728_o.jpg);background-position:top center;">
+	{% image page.banner_image fit-1100x330 as banner_image %}
+	<div class="image-pane margin-trailer-dbl" style="background-image:url({{ banner_image.url }});background-position:top center;">
 		<h1 class="pane-header color-black">Who We Are</h1>
 	</div>
 

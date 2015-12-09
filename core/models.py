@@ -17,9 +17,12 @@ from blocks import CodeBlock, QuoteBlock, MarkdownBlock
 
 class SimplePage(Page):
     body = RichTextField()
+    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                                     on_delete=models.SET_NULL, related_name="+")
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
+        ImageChooserPanel('banner_image'),
     ]
 
 
@@ -73,9 +76,12 @@ class WorkPage(Page):
 
 class AboutPage(Page):
     body = RichTextField()
+    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                                     on_delete=models.SET_NULL, related_name="+")
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
+        ImageChooserPanel('banner_image'),
     ]
 
     def get_context(self, request):
