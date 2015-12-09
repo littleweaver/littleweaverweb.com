@@ -1,6 +1,6 @@
 {% extends "core/layouts/small_header.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block main %}
 	<div class="image-pane margin-trailer-dbl" style="background-image:url(https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/10448567_317116061777867_4833500892439864728_o.jpg);background-position:top center;">
@@ -18,7 +18,7 @@
 				{% for member in members %}
 					<div class="row margin-trailer-dbl">
 						<div class="col-xs-3">
-							{% if member.picture %}<img src="{{ member.picture }}" class="img-responsive" />{% endif %}
+							{% if member.picture %}{% image member.picture fill-500x500 class="img-responsive" %}{% endif %}
 						</div>
 						<div class="col-xs-9">
 							<h3 class="margin-leader-0">{{ member.name }}</h3>
