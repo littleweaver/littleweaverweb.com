@@ -19,7 +19,9 @@
 					{% endif %}
 				{% endif %}
 			</li>
-			<li>{{ page.publication_date }}</li>
+			<li>
+				<time datetime="{{ page.publication_date|date:"c" }}">{{ page.publication_date|date:"N n, Y" }}</time>
+			</li>
 			<li>
 				{% for tag in page.tags.all %}
 					<a href="{% pageurl blog_index %}?tag={{ tag }}">{{ tag }}</a>
