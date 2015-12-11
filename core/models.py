@@ -29,7 +29,7 @@ class SimplePage(Page):
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('banner_image'),
-        FieldPanel('body', classname="full"),
+        StreamFieldPanel('body'),
     ]
 
 
@@ -75,7 +75,7 @@ class WorkPage(Page):
             FieldPanel('teaser_title'),
             FieldPanel('teaser_description')
         ], "Teaser Details"),
-        FieldPanel('body', classname="full"),
+        StreamFieldPanel('body'),
         MultiFieldPanel([
             ImageChooserPanel('screenshot'),
             FieldPanel('client_name'),
