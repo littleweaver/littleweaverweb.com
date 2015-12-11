@@ -16,7 +16,14 @@ from blocks import CodeBlock, QuoteBlock, MarkdownBlock
 
 
 class SimplePage(Page):
-    body = RichTextField()
+    body = StreamField([
+        ('rich_text', blocks.RichTextBlock(icon='doc-full', label='Rich Text')),
+        ('code', CodeBlock(icon='code')),
+        ('quote', QuoteBlock(icon='openquote')),
+        ('markdown', MarkdownBlock()),
+        ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
+        ('image', ImageChooserBlock()),
+    ])
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
                                      on_delete=models.SET_NULL, related_name="+")
 
@@ -43,8 +50,14 @@ class WorkListPage(Page):
 
 
 class WorkPage(Page):
-
-    body = RichTextField()
+    body = StreamField([
+        ('rich_text', blocks.RichTextBlock(icon='doc-full', label='Rich Text')),
+        ('code', CodeBlock(icon='code')),
+        ('quote', QuoteBlock(icon='openquote')),
+        ('markdown', MarkdownBlock()),
+        ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
+        ('image', ImageChooserBlock()),
+    ])
     screenshot = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
                                    on_delete=models.SET_NULL, related_name="+")
     client_name = models.CharField(max_length=255)
@@ -58,19 +71,16 @@ class WorkPage(Page):
     parent_page_types = ['core.WorkListPage']
 
     content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            FieldPanel('teaser_title'),
+            FieldPanel('teaser_description')
+        ], "Teaser Details"),
         FieldPanel('body', classname="full"),
         MultiFieldPanel([
             ImageChooserPanel('screenshot'),
             FieldPanel('client_name'),
             FieldPanel('project_date'),
         ], "Project Details")
-    ]
-
-    promote_panels = Page.promote_panels + [
-        MultiFieldPanel([
-            FieldPanel('teaser_title'),
-            FieldPanel('teaser_description')
-        ], "Teaser Details"),
     ]
 
 
