@@ -1,1 +1,16 @@
 {% extends "core/layouts/small_header.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block main %}
+	{% image page.banner_image fill-1100x330 as banner_image %}
+	<div class="image-pane margin-trailer-dbl" style="background-image:url({{ banner_image.url }});background-position:top center;">
+		<h1 class="pane-header color-black">{{ page.title }}</h1>
+	</div>
+
+	<div class="container">
+		<div class="lead">
+			{{ self.body|richtext }}
+		</div>
+	</div>
+{% endblock %}
