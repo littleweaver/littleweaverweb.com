@@ -28,8 +28,8 @@ class SimplePage(Page):
                                      on_delete=models.SET_NULL, related_name="+")
 
     content_panels = Page.content_panels + [
-        FieldPanel('body', classname="full"),
         ImageChooserPanel('banner_image'),
+        FieldPanel('body', classname="full"),
     ]
 
 
