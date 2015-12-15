@@ -50,7 +50,7 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 	color: #444
 	font-family: $font-family-serif
 
-.image-pane
+.banner-image
 	height: 50vh
 	width: 100%
 	background-size: cover
@@ -65,13 +65,14 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 		height: 100px
 		background-image: linear-gradient(rgba(0,0,0,0),rgba($green-dark,.5))
 
-.pane-header
-	@extend .container
-	position: absolute
-	bottom: 0
-	left: 0
-	right: 0
-	z-index: 5
+	.container
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		z-index: 5
+
+.banner-image-header
 	color: white
 
 .blog-post header
@@ -101,15 +102,12 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 	padding: .5em
 	margin-bottom: 1em
 
-.block-image > img
+.block-image img
+	@extend .margin-trailer
 	max-width: 100%
 	height: auto
-	margin: 0 auto
-
-.blog-content
-	.block-rich_text, .block-markdown, .block-code
-		max-width:600px
-		margin: 0 auto
+	margin-left: auto
+	margin-right: auto
 
 .site-footer
 	text-align: center

@@ -3,34 +3,54 @@
 {% load wagtailcore_tags %}
 
 {% block main %}
-<div class="image-pane margin-trailer-dbl" style="background-image:url(https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/10448567_317116061777867_4833500892439864728_o.jpg);background-position:top center;">
-	<h1 class="pane-header color-black">{{ page.title }}</h1>
+<div class="banner-image margin-trailer-dbl" style="background-image:url(https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/10448567_317116061777867_4833500892439864728_o.jpg);background-position:top center;">
+	<div class='container'>
+		<div class='row'>
+			<div class='col-lg-6 col-lg-offset-3'>
+				<h1 class="banner-image-header color-black">{{ page.title }}</h1>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="container">
-	<div class="lead">
-		<ul class='list-inline'>
-			<li>
-				{% if page.author %}
-					{% if page.author.twitter_username %}
-						<a href="https://twitter.com/{{ page.author.twitter_username }}">{{ page.author.name }}</a>
-					{% else %}
-						{{ page.author.name }}
+	<div class="lead row">
+		<div class='col-lg-6 col-lg-offset-3'>
+			<ul class='list-inline'>
+				<li>
+					{% if page.author %}
+						{% if page.author.twitter_username %}
+							<a href="https://twitter.com/{{ page.author.twitter_username }}">{{ page.author.name }}</a>
+						{% else %}
+							{{ page.author.name }}
+						{% endif %}
 					{% endif %}
-				{% endif %}
-			</li>
-			<li>
-				<time datetime="{{ page.publication_date|date:"c" }}">{{ page.publication_date|date:"N n, Y" }}</time>
-			</li>
-			<li>
-				{% for tag in page.tags.all %}
-					<a href="{% pageurl blog_index %}?tag={{ tag }}">{{ tag }}</a>
-				{% endfor %}
-			</li>
-		</ul>
+				</li>
+				<li>
+					<time datetime="{{ page.publication_date|date:"c" }}">{{ page.publication_date|date:"N n, Y" }}</time>
+				</li>
+				<li>
+					{% for tag in page.tags.all %}
+						<a href="{% pageurl blog_index %}?tag={{ tag }}">{{ tag }}</a>
+					{% endfor %}
+				</li>
+			</ul>
+		</div>
 	</div>
 	<div class='blog-content'>
-		{{ page.body }}
+		{% for block in page.body %}
+			<div class='row block-{{ block.block_type }}'>
+				{% if block.block_type == 'image' %}
+					<div class='col-xs-12'>
+						{{ block }}
+					</div>
+				{% else %}
+					<div class='col-lg-6 col-lg-offset-3'>
+						{{ block }}
+					</div>
+				{% endif %}
+			</div>
+		{% endfor %}
 	</div>
 </div>
 {% endblock %}
