@@ -16,9 +16,9 @@
 			{% for entry in blog_entries %}
 				<article class="blog-post">
 					<header class="blog-post-header">
-						<h1 class="entry-title">
+						<h2 class="entry-title">
 							<a href="{{ entry.url }}">{{ entry.title }}</a>
-						</h1>
+						</h2>
 						{% if entry.author %}
 							<p class="entry-byline">
 								by {{ entry.author }}
