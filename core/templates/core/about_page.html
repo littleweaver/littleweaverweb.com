@@ -11,29 +11,26 @@
 	</div>
 
 	<div class="container">
-		<div class="lead">
+		<div class="lead margin-trailer-dbl">
 			{{ self.body|richtext }}
 		</div>
+	</div>
 
-		<div class="row">
-			<div class="col-sm-10 col-md-8">
-				<h2>Members</h2>
-				{% for member in members %}
-					<div class="row margin-trailer-dbl">
-						<div class="col-xs-3">
-							{% if member.picture %}{% image member.picture fill-500x500 class="img-fluid" %}{% endif %}
+	<div class="pane--light-gray padded">
+		<div class="container">
+			<div class="row">
+				<h1 class="text-center margin-trailer">Our Team</h1>
+				<div class="grid-md-3 grid-sm-2">
+					{% for member in members %}
+						<div class="grid-item margin-trailer">
+							{% if member.picture %}{% image member.picture fill-500x500 class="img-fluid img-circle" %}{% endif %}
+							<h3 class="text-center margin-leader-half">{{ member.name }}</h3>
 						</div>
-						<div class="col-xs-9">
-							<h3 class="margin-leader-0">{{ member.name }}</h3>
-							{% if member.bio %}<p>{{ member.bio|richtext }}</p>{% endif %}
-							<ul class='list-inline'>
-								{% if member.github_username %}<li><a href='https://github.com/{{ member.github_username }}'><i class='fa fa-github'></i> Github</a></li>{% endif %}
-								{% if member.twitter_username %}<li><a href='https://twitter.com/{{ member.twitter_username }}'><i class='fa fa-twitter'></i> Twitter</a></li>{% endif %}
-							</ul>
-						</div>
-					</div>
-				{% endfor %}
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 	</div>
+
+
 {% endblock %}

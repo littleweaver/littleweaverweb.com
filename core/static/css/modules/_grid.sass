@@ -1,0 +1,28 @@
+=grid-container
+	margin-left: -$grid-gutter-width/2
+	margin-right: -$grid-gutter-width/2
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	justify-content: center
+	> .grid-item
+		flex-grow: 0
+		flex-shrink: 0
+		padding: 0 #{$grid-gutter-width/2}
+
+
++media-breakpoint-up(md)
+	.grid-md-3
+		+grid-container
+		> .grid-item
+			width: 33.333%
+			> img
+				display: block
+				width: 80%
+				margin: 0 auto
+
++media-breakpoint-up(sm)
+	.grid-sm-2
+		+grid-container
+		> .grid-item
+			width: 50%
