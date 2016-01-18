@@ -13,7 +13,7 @@
 
 			{% for entry in blog_entries %}
 				<article class="blog-post">
-					<header>
+					<header class="blog-post-header">
 						<h1 class="entry-title">
 							<a href="{{ entry.url }}">{{ entry.title }}</a>
 						</h1>
@@ -35,7 +35,6 @@
 						</p>
 					</footer>
 				</article>
-				<hr class="blog-post-separator">
 			{% endfor %}
 		</div>
 	</div>

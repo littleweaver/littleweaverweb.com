@@ -4,9 +4,13 @@ $black: black
 $gray-light: #E5E5E5
 $gray-dark: #444
 $gray-mid: #888
-$green: #77b766
-$green-dark: darken($green, 40%)
+$green-light: #cee18d
+$green: #A4C16F
+$green-mid: saturate(darken($green, 15),5)
+$green-dark: saturate(#4E5C34, 5)
+$green-darker: #20371a
 $orange-dark: #a88714
+$yellow-light: #f0d26b
 
 //$font-size-base: 16px
 $font-family-sans-serif: "museo-sans", "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -24,5 +28,8 @@ $btn-secondary-border: $gray-light
 
 // BS Overrides
 $body-color: $gray-mid
-$brand-primary: $orange-dark
+$brand-primary: $green-mid
+$brand-secondary: $yellow-light
+
+$link-hover-color: $green
 $btn-font-weight: $normal
