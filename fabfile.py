@@ -64,3 +64,8 @@ def full_deploy(env, target='master'):
     bootstrap_salt(env)
     bootstrap_project(target)
     salt_call()
+
+
+@task
+def restart_gunicorn():
+    sudo('circusctl restart gunicorn')
