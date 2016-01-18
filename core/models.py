@@ -124,6 +124,8 @@ class BlogPage(Page):
         ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
         ('image', ImageChooserBlock()),
     ])
+    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                                     on_delete=models.SET_NULL, related_name="+")
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 
     content_panels = Page.content_panels + [
@@ -131,6 +133,7 @@ class BlogPage(Page):
         FieldPanel('publication_date'),
         FieldPanel('summary'),
         StreamFieldPanel('body'),
+        ImageChooserPanel('banner_image'),
     ]
     parent_page_types = ['BlogIndexPage']
     promote_panels = Page.promote_panels + [
@@ -144,6 +147,8 @@ class BlogPage(Page):
 
 
 class BlogIndexPage(Page):
+    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                                     on_delete=models.SET_NULL, related_name="+")
     intro = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
@@ -151,6 +156,7 @@ class BlogIndexPage(Page):
     ])
 
     content_panels = Page.content_panels + [
+        ImageChooserPanel('banner_image'),
         StreamFieldPanel('intro'),
     ]
     subpage_types = ['BlogPage']
