@@ -10,6 +10,11 @@
 		flex-shrink: 0
 		padding: 0 #{$grid-gutter-width/2}
 
++media-breakpoint-up(sm)
+	.grid-sm-2
+		+grid-container
+		> .grid-item
+			width: 50%
 
 +media-breakpoint-up(md)
 	.grid-md-3
@@ -20,9 +25,3 @@
 				display: block
 				width: 80%
 				margin: 0 auto
-
-+media-breakpoint-up(sm)
-	.grid-sm-2
-		+grid-container
-		> .grid-item
-			width: 50%
