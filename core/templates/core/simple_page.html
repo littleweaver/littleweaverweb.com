@@ -5,7 +5,9 @@
 {% block main %}
 	{% image page.banner_image fill-1100x330 as banner_image %}
 	<div class="banner-image margin-trailer-dbl" style="background-image:url({{ banner_image.url }});background-position:top center;">
-		<h1 class="banner-image-header color-black">{{ page.title }}</h1>
+		<div class="container banner-image-text">
+			<h1 class="color-white">{{ page.title }}</h1>
+		</div>
 	</div>
 
 	<div class="container">

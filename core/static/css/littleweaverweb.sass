@@ -52,7 +52,7 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 	font-family: $font-family-serif
 
 .banner-image
-	height: 50vh
+	height: 20rem
 	width: 100%
 	background-size: cover
 	background-position: center
@@ -65,16 +65,13 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 		bottom: 0
 		height: 100px
 		background-image: linear-gradient(rgba(0,0,0,0),rgba(desaturate($green-dark,10),0.5))
-
-	.container
-		position: absolute
-		bottom: 0
-		left: 0
-		right: 0
-		z-index: 5
-
-.banner-image-header
-	color: white
+.banner-image-text
+	height: 100%
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	position: relative
+	z-index: 10
 
 .blog-post
 	padding-bottom: 2rem
