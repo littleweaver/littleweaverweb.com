@@ -22,7 +22,11 @@
 					{% for field in form %}
 						<div class='form-group{% if field.errors %} has-error{% endif %}'>
 							<label class='control-label' for="{{ field|id }}">{{ field.label }}{% if not field.field.required %} <small>(Optional)</small>{% endif %}</label>
-							<input class='form-control' id="{{ field|id }}" name="{{ field.name }}" value="{{ field|get_value }}">
+							{% if field|is_textarea %}
+								<textarea class='form-control' id="{{ field|id }}" name="{{ field.name }}">{{ field|get_value }}</textarea>
+							{% else %}
+								<input class='form-control' id="{{ field|id }}" name="{{ field.name }}" value="{{ field|get_value }}">
+							{% endif %}
 							{% for error in field.errors %}
 								<p class='help-block'>{{ error }}</p>
 							{% endfor %}

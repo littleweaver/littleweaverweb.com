@@ -1,5 +1,5 @@
 from django import template
-from django.forms.widgets import CheckboxInput
+from django.forms.widgets import CheckboxInput, Textarea
 
 
 register = template.Library()
@@ -13,6 +13,11 @@ def get_value(bound_field):
 @register.filter
 def is_checkbox(bound_field):
     return isinstance(bound_field.field.widget, CheckboxInput)
+
+
+@register.filter
+def is_textarea(bound_field):
+    return isinstance(bound_field.field.widget, Textarea)
 
 
 @register.filter
