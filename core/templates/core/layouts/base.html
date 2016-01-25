@@ -33,8 +33,28 @@
 
 		{% block body %}{% endblock %}
 
-		<footer class="site-footer muted container margin-leader-dbl">
-			<p>&copy; 2015 Little Weaver Web Collective, LLC. <i class="fa fa-heart-o"></i> Made with love.</p>
+		<footer class="site-footer padded-dbl">
+			<div class="muted container">
+				<div class="row">
+					<div class="col-md-4">
+						<p>
+							Drop us a line:<br />
+							<a href="mailto:hello@littleweaverweb.com">hello@littleweaverweb.com</a><br />
+							<a href="http://twitter.com/littleweaverweb" class="color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-twitter"></i> <span class="sr-only">Twitter</span></a>
+							<a href="http://facebook.com/littleweaverwebcollective" class="color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-facebook-square"></i> <span class="sr-only">Facebook</span></a>
+							<a href="http://github.com/littleweaver" class="color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-github"></i> <span class="sr-only">GitHub</span></a>
+						</p>
+					</div>
+					<div class="col-md-4"></div>
+					<div class="col-md-4 col-md-offset-4 text-right">
+						<p>
+							&copy; 2015 Little Weaver Web Collective, LLC.
+							<br /><br />
+							<i class="fa fa-heart-o"></i> Made with love.
+						</p>
+					</div>
+				</div>
+			</div>
 		</footer>
 
 		{% wagtailuserbar %}
