@@ -1,9 +1,10 @@
 {% extends "core/layouts/small_header.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block main %}
-	<div class="banner-image margin-trailer-dbl" style="background-image:url(https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/10448567_317116061777867_4833500892439864728_o.jpg);background-position:top center;">
+	{% image page.banner_image fill-1650x500 as banner_image %}
+	<div class="banner-image margin-trailer-dbl" style="background-image:url({{ banner_image.url }});">
 		<div class="container banner-image-text">
 			<h1 class="color-white">{{ page.title }}</h1>
 		</div>
