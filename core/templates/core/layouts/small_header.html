@@ -10,12 +10,14 @@
 			<div class="row">
 				<div class="col-xs-2 col-sm-3 col-md-2">
 					<div class="header-logo">
-						<img src="{% static "img/logo.svg" %}" class="header-logo--img" />
+						<a href="/">
+							<img src="{% static "img/logo.svg" %}" class="header-logo--img" />
+						</a>
 					</div>
 				</div>
 				<div class="col-xs-10 col-sm-9 col-md-10">
 					<div class='margin-leader-tiny margin-trailer-tiny'>
-						{% include 'core/_nav.html' with show_lw_link=1 %}
+						{% include 'core/_nav.html' with show_lw_link=1 extra_classes="nav--white" %}
 					</div>
 				{% block top %}{% endblock %}
 				</div>

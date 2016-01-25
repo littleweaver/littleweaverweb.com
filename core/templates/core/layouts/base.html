@@ -29,7 +29,7 @@
 		{% endcompress %}
 
 	</head>
-	<body>
+	<body class="{% if not page.banner_image %}no-banner{% endif %}">
 
 		{% block body %}{% endblock %}
 

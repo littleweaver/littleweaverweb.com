@@ -1,4 +1,4 @@
-<ul class="nav nav-pills nav--lw">
+<ul class="nav nav-pills nav--lw {{ extra_classes }}">
 	{% if show_lw_link %}<li class="nav-item"><a href="/" class="nav-link nav-link-special">Little Weaver Web Collective</a></li>{% endif %}
 	{% with page_url=page.url %}
 		<li class="nav-item{% if page_url == '/services/' %} active{% endif %}"><a class="nav-link" href="/services/">Services</a></li>

@@ -23,6 +23,7 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 @import modules/navs
 @import modules/pane
 @import modules/pygments
+@import modules/site-header
 
 
 // Colors
@@ -51,6 +52,7 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 
 .logotype
 	font-family: $font-family-sans-serif
+
 .lw-name
 	color: #444
 	font-family: $font-family-serif
@@ -61,21 +63,20 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 	background-size: cover
 	background-position: center
 	position: relative
-	&::after
-		content: ""
-		position: absolute
-		left: 0
-		right: 0
-		bottom: 0
-		height: 100px
-		background-image: linear-gradient(rgba(0,0,0,0),rgba(desaturate($green-dark,10),0.5))
+	background-color: #444
+
 .banner-image-text
-	height: 100%
-	display: flex
-	flex-direction: column
-	justify-content: flex-end
-	position: relative
-	z-index: 10
+	// Centered within .banner-image
+	margin-top: 2.25rem // offset from navbar
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate3d(-50%, -50%, 0)
+	text-transform: uppercase
+	letter-spacing: .1em
+
+.no-banner
+	margin-top: 4.25rem // clear navbar
 
 .blog-post
 	padding-bottom: 2rem
