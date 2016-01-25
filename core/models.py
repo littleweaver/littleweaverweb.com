@@ -7,6 +7,7 @@ from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, PageChooserPanel, StreamFieldPanel, InlinePanel
+from wagtail.wagtailforms.models import AbstractEmailForm, AbstractFormField
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
@@ -25,7 +26,7 @@ class SimplePage(Page):
         ('image', ImageChooserBlock()),
     ])
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
-                                     on_delete=models.SET_NULL, related_name="+")
+                                     on_delete=models.SET_NULL)
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('banner_image'),
@@ -59,7 +60,7 @@ class WorkPage(Page):
         ('image', ImageChooserBlock()),
     ])
     screenshot = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
-                                   on_delete=models.SET_NULL, related_name="+")
+                                   on_delete=models.SET_NULL)
     client_name = models.CharField(max_length=255)
     project_date = models.DateField(blank=True, null=True,
                             help_text="Approximate date of project completion.")
@@ -93,7 +94,7 @@ class WorkPage(Page):
 class AboutPage(Page):
     body = RichTextField()
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
-                                     on_delete=models.SET_NULL, related_name="+")
+                                     on_delete=models.SET_NULL)
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
@@ -125,7 +126,7 @@ class BlogPage(Page):
         ('image', ImageChooserBlock()),
     ])
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
-                                     on_delete=models.SET_NULL, related_name="+")
+                                     on_delete=models.SET_NULL)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 
     content_panels = Page.content_panels + [
@@ -148,7 +149,7 @@ class BlogPage(Page):
 
 class BlogIndexPage(Page):
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
-                                     on_delete=models.SET_NULL, related_name="+")
+                                     on_delete=models.SET_NULL)
     intro = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
@@ -195,3 +196,26 @@ class AuthorProfile(models.Model):
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
+
+
+class EmailFormField(AbstractFormField):
+    page = ParentalKey('EmailFormPage', related_name='form_fields')
+
+
+class EmailFormPage(AbstractEmailForm):
+    intro = RichTextField(blank=True)
+    thank_you_text = RichTextField(blank=True)
+    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                                     on_delete=models.SET_NULL)
+
+    content_panels = AbstractEmailForm.content_panels + [
+        FieldPanel('intro', classname="full"),
+        ImageChooserPanel('banner_image'),
+        InlinePanel('form_fields', label="Form fields"),
+        FieldPanel('thank_you_text', classname="full"),
+        MultiFieldPanel([
+            FieldPanel('to_address', classname="full"),
+            FieldPanel('from_address', classname="full"),
+            FieldPanel('subject', classname="full"),
+        ], "Email")
+    ]

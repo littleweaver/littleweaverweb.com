@@ -1,0 +1,18 @@
+{% extends "core/layouts/small_header.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block main %}
+	{% image page.banner_image fill-1650x500 as banner_image %}
+	<div class="banner-image margin-trailer-dbl" style="background-image:url({{ banner_image.url }});background-position:top center;">
+		<div class="container banner-image-text">
+			<h1 class="color-white">{{ page.title }}</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="lead">
+			{{ self.thank_you_text|richtext }}
+		</div>
+	</div>
+{% endblock %}

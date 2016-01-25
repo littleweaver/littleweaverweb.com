@@ -1,0 +1,36 @@
+{% extends "core/layouts/small_header.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags form_tags %}
+
+{% block main %}
+	{% image page.banner_image fill-1650x500 as banner_image %}
+	<div class="banner-image margin-trailer-dbl" style="background-image:url({{ banner_image.url }});background-position:top center;">
+		<div class="container banner-image-text">
+			<h1 class="color-white">{{ page.title }}</h1>
+		</div>
+	</div>
+
+	<div class="container margin-trailer">
+		<div class="lead">
+			{{ self.intro|richtext }}
+		</div>
+
+		<div class='row'>
+			<div class='col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+				<form action="{% pageurl page %}" method="POST">
+					{% csrf_token %}
+					{% for field in form %}
+						<div class='form-group'>
+							<label class='control-label' for="{{ field|id }}">{{ field.label }}{% if not field.field.required %} <small>(Optional)</small>{% endif %}</label>
+							<input class='form-control' id="{{ field|id }}" name="{{ field.name }}" value="{{ field|get_value }}">
+						</div>
+					{% endfor %}
+					<button type="submit" class='btn btn-primary'>
+						<i class='fa fa-fw fa-paper-plane'></i>
+						Send
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
