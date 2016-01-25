@@ -16,8 +16,11 @@
 					</div>
 				</div>
 				<div class="col-xs-10 col-sm-9 col-md-10">
-					<div class='margin-leader-tiny margin-trailer-tiny'>
-						{% include 'core/_nav.html' with show_lw_link=1 extra_classes="nav--white" %}
+					<div class='margin-leader-tiny margin-trailer-tiny clearfix'>
+						<ul class="nav nav-pills nav--lw nav--white pull-left">
+							<li class="nav-item"><a href="/" class="nav-link nav-link-special">Little Weaver Web Collective</a></li>
+						</ul>
+						{% include 'core/_nav.html' with extra_classes="nav--white pull-right" %}
 					</div>
 				{% block top %}{% endblock %}
 				</div>
