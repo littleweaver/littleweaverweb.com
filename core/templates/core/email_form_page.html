@@ -20,9 +20,12 @@
 				<form action="{% pageurl page %}" method="POST">
 					{% csrf_token %}
 					{% for field in form %}
-						<div class='form-group'>
+						<div class='form-group{% if field.errors %} has-error{% endif %}'>
 							<label class='control-label' for="{{ field|id }}">{{ field.label }}{% if not field.field.required %} <small>(Optional)</small>{% endif %}</label>
 							<input class='form-control' id="{{ field|id }}" name="{{ field.name }}" value="{{ field|get_value }}">
+							{% for error in field.errors %}
+								<p class='help-block'>{{ error }}</p>
+							{% endfor %}
 						</div>
 					{% endfor %}
 					<button type="submit" class='btn btn-primary'>
