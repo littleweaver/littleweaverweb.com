@@ -1,7 +1,9 @@
 .compact-header
-	position: absolute
-	top: 0
-	left: 0
-	right: 0
-	z-index: 1
-	background-color: rgba(#000, .35)
+	background-color: $black-almost
+	+media-breakpoint-up(sm)
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		z-index: 1
+		background-color: rgba($black-almost, .35)

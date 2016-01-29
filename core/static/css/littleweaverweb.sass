@@ -29,6 +29,16 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 @import modules/site-header
 
 
+.container
+	max-width: none
+	@extend .container-fluid
+	+media-breakpoint-up(md)
+		max-width: 720px
+	+media-breakpoint-up(lg)
+		max-width: 940px
+	+media-breakpoint-up(xl)
+		max-width: 1140px
+
 // Colors
 
 .background-green-orange
@@ -55,13 +65,19 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 
 .logotype
 	font-family: $font-family-sans-serif
+	+media-breakpoint-down(sm)
+		font-size: 6.5vw
 
 .lw-name
 	color: #444
 	font-family: $font-family-serif
 
 .banner-image
-	height: 20rem
+	height: 10rem
+	+media-breakpoint-up(sm)
+		height: 40vw
+	+media-breakpoint-up(md)
+		height: 20rem
 	width: 100%
 	background-size: cover
 	background-position: center
@@ -69,11 +85,16 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 	background-color: #444
 
 .banner-image--large
-	height: 30rem
+	@extend .banner-image
+	+media-breakpoint-up(sm)
+		height: 30rem
 
 .banner-image-text
 	// Centered within .banner-image
-	margin-top: 2.25rem // offset from navbar
+	+media-breakpoint-up(sm)
+		margin-top: 3rem // offset from navbar
+	+media-breakpoint-up(md)
+		margin-top: 2.25rem // offset from navbar
 	position: absolute
 	top: 50%
 	left: 50%
