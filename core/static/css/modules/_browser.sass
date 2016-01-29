@@ -2,10 +2,6 @@
 	box-shadow: 0 3px 5px 0 rgba(#000, .25)
 	border-radius: 5px 5px 0 0
 	overflow: hidden
-	+media-breakpoint-down(xs)
-		margin-top: $spacer-y
-	+media-breakpoint-up(lg)
-		margin: -2*$spacer-y 0
 	> .titlebar
 		height: $spacer * 1.25
 		background-color: #DDD
@@ -21,3 +17,9 @@
 			border-radius: 50%
 			background: #999
 			float: left
+
+.browser--home-page
+	+media-breakpoint-down(xs)
+		margin-top: $spacer-y
+	+media-breakpoint-up(lg)
+		margin: -2*$spacer-y 0
