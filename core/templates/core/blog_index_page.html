@@ -22,7 +22,7 @@
 
 	<div class="container">
 		{% for entry in blog_entries %}
-			<article class="blog-post {% if forloop.counter == 1 %}blog-post--large{% endif %} margin-leader">
+			<article class="pane--outline p-t-2 p-b-2 {% if forloop.counter == 1 %}blog-post--large{% endif %}">
 				<header class="blog-post-header margin-trailer-0">
 					<h2 class="blog-post-title">
 						<a href="{{ entry.url }}">{{ entry.title }}</a>
@@ -42,9 +42,7 @@
 					{{ entry.summary }}
 				</div>
 				<footer>
-					<p>
-						<a href="{{ entry.url }}" class="btn btn-sm btn-secondary margin-leader-tiny">Read <i class="fa fa-fw fa-chevron-right"></i></a>
-					</p>
+					<a href="{{ entry.url }}" class="btn btn-sm btn-secondary margin-leader-tiny">Read <i class="fa fa-fw fa-chevron-right"></i></a>
 				</footer>
 			</article>
 		{% endfor %}
