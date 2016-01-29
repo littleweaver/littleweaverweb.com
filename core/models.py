@@ -107,6 +107,39 @@ class AboutPage(Page):
         return context
 
 
+class ServicesPage(Page):
+    body = StreamField([
+        ('rich_text', blocks.RichTextBlock(icon='doc-full', label='Rich Text')),
+        ('code', CodeBlock(icon='code')),
+        ('quote', QuoteBlock(icon='openquote')),
+        ('markdown', MarkdownBlock()),
+        ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
+        ('image', ImageChooserBlock()),
+    ])
+    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                                     on_delete=models.SET_NULL)
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
+        ImageChooserPanel('banner_image'),
+        InlinePanel('services', label="Services")
+    ]
+
+
+class Service(models.Model):
+    page = ParentalKey(ServicesPage, related_name='services')
+    image = models.ForeignKey('wagtailimages.Image', null=True, blank=True,
+                              on_delete=models.SET_NULL)
+    title = models.CharField(max_length=255, blank=True)
+    body = models.TextField()
+
+    panels = [
+        ImageChooserPanel('image'),
+        FieldPanel('title'),
+        FieldPanel('body')
+    ]
+
+
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('core.BlogPage', related_name='tagged_items')
 

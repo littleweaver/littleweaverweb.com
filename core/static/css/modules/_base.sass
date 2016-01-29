@@ -4,3 +4,18 @@ body
 
 h1, h2, h3, h4, h5, h6
 	font-weight: $normal
+
+// Sticky Footer (https://getbootstrap.com/examples/sticky-footer/)
+html
+	position: relative
+	min-height: 100%
+
+body
+	margin-bottom: 9.5rem // height of footer
+	+media-breakpoint-down(sm)
+		margin-bottom: 15rem
+
+.site-footer
+	position: absolute
+	bottom: 0
+	width: 100%
