@@ -47,13 +47,14 @@
 .nav--lw--links
 	+media-breakpoint-down(xs)
 		width: 100%
+		margin-bottom: 0.85rem
 		> .nav-item
 			margin: 0 !important
 			box-sizing: border-box
 			width: 50%
-		.big-header & .nav-link
-			padding-top: 0.25rem
-			padding-bottom: 0.25rem
+			> .nav-link
+				padding-top: 0.25rem
+				padding-bottom: 0.25rem
 	.compact-header &
 		+media-breakpoint-up(sm)
 			margin-left: 3*$spacer-x
