@@ -2,18 +2,35 @@
 	@extend .clearfix
 	margin-left: -15px
 	margin-right: -15px
-	> .nav-item
-		float: left
 
-		&.active
-			+media-breakpoint-up(sm)
-				border-bottom: 0.375rem solid $white
-				margin-bottom: -0.375rem
-			+media-breakpoint-up(md)
-				border-bottom: 0
-				margin-bottom: 0
-				border-top: 0.5rem solid $white
-				margin-top: -0.5rem
+	> li > .nav-link
+		float: left
+		padding-top: .875rem
+		padding-bottom: .875rem
+		position: relative
+		&::after
+			content: ""
+			display: block
+			position: absolute
+			top: 0
+			right: 0
+			left: auto
+			background-color: $white
+			height: .375rem
+			width: 0
+			transition: width .25s ease-in-out
+			+media-breakpoint-down(sm)
+				bottom: 0
+				top: auto
+
+	> li.active > .nav-link, & > li > .nav-link:hover
+		&::after
+			right: auto
+			left: 0
+			height: .375rem
+			width: 100%
+			+media-breakpoint-down(xs)
+				display: none
 
 	.nav-link
 		color: $gray-mid
