@@ -4,41 +4,49 @@
 
 {% block main %}
 	{% image page.banner_image fill-1650x500 as banner_image %}
-	<div class="banner-image margin-trailer-dbl" style="background-image:url({{ banner_image.url }});">
+	<div class="banner-image" style="background-image:url({{ banner_image.url }});">
 		<div class="container banner-image-text">
 			<h1 class="color-white">{{ page.title }}</h1>
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="lead">
-			{{ page.intro }}
-
-			{% for entry in blog_entries %}
-				<article class="blog-post">
-					<header class="blog-post-header">
-						<h2 class="entry-title">
-							<a href="{{ entry.url }}">{{ entry.title }}</a>
-						</h2>
-						{% if entry.author %}
-							<p class="entry-byline">
-								by {{ entry.author }}
-							</p>
-						{% endif %}
-						<div class="blog-post-meta">
-							<time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"N n, Y" }}</time>
-						</div>
-					</header>
-					<div class="entry-summary">
-						{{ entry.summary }}
-					</div>
-					<footer>
-						<p>
-							<a href="{{ entry.url }}">Continue reading &ldquo;{{ entry.title }}&rdquo;</a>
-						</p>
-					</footer>
-				</article>
-			{% endfor %}
+	{% if page.intro %}
+		<div class="pane--light-gray padded">
+			<div class="container">
+				{% for block in page.intro %}
+					{{ block }}
+				{% endfor %}
+			</div>
 		</div>
+	{% endif %}
+
+	<div class="container">
+		{% for entry in blog_entries %}
+			<article class="blog-post {% if forloop.counter == 1 %}blog-post--large{% endif %} margin-leader">
+				<header class="blog-post-header margin-trailer-0">
+					<h2 class="blog-post-title">
+						<a href="{{ entry.url }}">{{ entry.title }}</a>
+					</h2>
+					<div class="blog-post-byline-dateline margin-trailer-tiny">
+						<span class="color-black-almost">
+							{% if entry.author %}
+								{{ entry.author.name }}
+							{% endif %}
+						</span>
+						<span class="dateline">
+							<time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"N n, Y" }}</time>
+						</span>
+					</div>
+				</header>
+				<div class="entry-summary">
+					{{ entry.summary }}
+				</div>
+				<footer>
+					<p>
+						<a href="{{ entry.url }}" class="btn btn-sm btn-secondary margin-leader-tiny">Read <i class="fa fa-fw fa-chevron-right"></i></a>
+					</p>
+				</footer>
+			</article>
+		{% endfor %}
 	</div>
 {% endblock %}

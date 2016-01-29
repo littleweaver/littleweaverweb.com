@@ -16,6 +16,7 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 @import modules/base
 
 // Alphabetical order, unless otherwise necessary:
+@import modules/blog
 @import modules/browser
 @import modules/buttons
 @import modules/grid
@@ -82,30 +83,6 @@ $screen-xl-min: map_get($grid-breakpoints, 'xl')
 
 .no-banner
 	margin-top: 4.25rem // clear navbar
-
-.blog-post
-	padding-bottom: 2rem
-	border-bottom: 0.5rem solid lighten($brand-secondary, 5)
-	margin-bottom: 2rem
-	&:last-child
-		border-width: 0
-		margin-bottom: 0
-
-.blog-post-header
-	position: relative
-	padding-top: 30px
-	margin-bottom: 40px
-
-.blog-post-meta
-	font-size: 80%
-	text-transform: uppercase
-	position: absolute
-	left: 0px
-	top: 0px
-	right: 0px
-
-.blog-post footer
-	margin-top: 1.5em
 
 .codehilite
 	border: solid 1px #ccc
