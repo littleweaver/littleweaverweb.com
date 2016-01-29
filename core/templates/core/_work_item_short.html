@@ -1,0 +1,21 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="row">
+	<div class="col-md-6 col-lg-5">
+		<div class="browser m-b-1">
+			<div class="titlebar">
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+			</div>
+			{% image item.screenshot width-900 class="img-fluid" %}
+		</div>
+	</div>
+	<div class="col-md-6 col-lg-7">
+		<h1><a href="{% pageurl item %}" class="color-black">{{ item.teaser_title }}</a></h1>
+		<div class="margin-trailer-tiny">
+			{{ item.teaser_description|richtext }}
+		</div>
+		<a href="{% pageurl item %}" class="btn btn-sm btn-secondary">See Work <i class="fa fa-chevron-right"></i></a>
+	</div>
+</div>
