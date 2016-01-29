@@ -10,20 +10,20 @@
 {% block main %}
 	{% if self.featured_work %}
 		{% with work=self.featured_work %}
-			<div class="pane background-green-orange">
+			<div class="pane p-y-1 background-green-orange">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-6 col-md-4 col-md-offset-2 margin-leader">
+						<div class="col-sm-6 col-xl-4 col-xl-offset-2">
 							<h2>{% firstof self.featured_work.teaser_title self.featured_work.title %}</h2>
 							<p>{% firstof self.featured_work.teaser_description|richtext self.featured_work.body|richtext|truncatewords_html:20 %}</p>
-							<div class="margin-trailer">
+							<div class="text-nowrap">
 								<a href="{{ work.url }}" class="btn btn-sm btn-white">Read about it</a>
 								<a href="{{ work.get_parent.url }}" class="btn btn-sm btn-white-o">More of our work</a>
 							</div>
 						</div>
 						{% if work.screenshot %}
 							<div class="col-sm-6">
-								<div class="browser margin-trailer-neg margin-leader-neg">
+								<div class="browser">
 									<div class="titlebar">
 										<div class="dot"></div>
 										<div class="dot"></div>
