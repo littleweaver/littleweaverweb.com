@@ -24,7 +24,7 @@
 						{% if services.image %}
 							{% image services.image fit-600x600 class="img-fluid" %}
 						{% endif %}
-						<h2 class="color-black-almost">{{ service.title }}</h2>
+						<h2>{{ service.title }}</h2>
 						{{ service.body|richtext }}
 					</div>
 					{% if forloop.counter|divisibleby:"2" %}

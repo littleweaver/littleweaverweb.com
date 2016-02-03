@@ -19,12 +19,12 @@
 	<div class="pane--light-gray padded-dbl">
 		<div class="container">
 			<div class="row">
-				<h1 class="text-center margin-trailer-dbl color-gray-dark">Our Team</h1>
+				<h1 class="text-center margin-trailer-dbl">Our Team</h1>
 				<div class="grid-md-3 grid-sm-2">
 					{% for member in members %}
 						<div class="grid-item margin-trailer-dbl">
 							{% if member.picture %}{% image member.picture fill-500x500 class="img-fluid img-circle" %}{% endif %}
-							<h3 class="text-center margin-leader">{{ member.name }}</h3>
+							<h3 class="text-center margin-leader color-gray">{{ member.name }}</h3>
 						</div>
 					{% endfor %}
 				</div>
