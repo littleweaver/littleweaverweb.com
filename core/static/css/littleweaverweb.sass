@@ -46,16 +46,31 @@
 	width: 100%
 	height: 40px
 	position: relative
-.header-logo--img
-	position: absolute
-	left: -40%
-	right: 0
-	top: -20%
+
+.header-logo-img
+	// Pull a bit of wing off the left margin
+	position: relative
 	width: 160%
-	z-index: 10
+	left: -40%
+	top: -20%
 	+media-breakpoint-up(sm)
 		left: 0
 		width: 100%
+
+.header-logo-img--compact
+	position: absolute
+	top: auto
+	// This amount ensures a bit of wing sticks over the edge on sm
+	bottom: -7.5rem
+	// Show up higher than the banner headings
+	z-index: 1
+	+media-breakpoint-up(sm)
+		position: relative
+		left: 0
+		bottom: auto
+		top: -20%
+
+
 
 .logotype
 	font-family: $font-family-sans-serif
