@@ -11,7 +11,7 @@
 	</div>
 
 	{% if page.intro %}
-		<div class="p-t-2 p-b-2">
+		<div class="m-t-3 m-b-3">
 			<div class="container">
 				{% for block in page.intro %}
 					{{ block }}
@@ -21,7 +21,7 @@
 	{% endif %}
 
 	<div class="container">
-		{% include "core/_blog_summary.html" with extra_classes="blog-post--large" entry=blog_entries.0 %}
+		{% include "core/_blog_summary.html" with extra_classes="blog-post--large m-t-3" entry=blog_entries.0 %}
 		<div class="row">
 			{% for entry in blog_entries|slice:"1:" %}
 				<div class="col-md-6 col-lg-4">
