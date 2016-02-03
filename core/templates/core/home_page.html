@@ -14,7 +14,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6 col-xl-4 col-xl-offset-2">
-							<h2>{% firstof self.featured_work.teaser_title self.featured_work.title %}</h2>
+							<h2 class="color-white">{% firstof self.featured_work.teaser_title self.featured_work.title %}</h2>
 							<p>{% firstof self.featured_work.teaser_description|richtext self.featured_work.body|richtext|truncatewords_html:20 %}</p>
 							<div class="text-nowrap">
 								<a href="{{ work.url }}" class="btn btn-sm btn-white">Read about it</a>
