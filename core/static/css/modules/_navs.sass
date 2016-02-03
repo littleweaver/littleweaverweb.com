@@ -15,13 +15,10 @@
 			top: 0
 			right: 0
 			left: auto
-			background-color: $white
-			height: .375rem
-			width: 0
-			transition: width .25s ease-in-out
-			+media-breakpoint-down(sm)
-				bottom: 0
-				top: auto
+			background-color: rgba(white, .5)
+			height: 0
+			width: 100%
+			transition: height .25s ease-in-out
 
 	> li.active > .nav-link, & > li > .nav-link:hover
 		&::after
@@ -31,6 +28,9 @@
 			width: 100%
 			+media-breakpoint-down(xs)
 				display: none
+
+	> li.active > .nav-link::after
+		background-color: $white
 
 	.nav-link
 		color: $gray-mid
