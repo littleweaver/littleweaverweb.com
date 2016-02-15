@@ -39,26 +39,26 @@
 		{% endwith %}
 	{% endif %}
 
-	<div class="container m-t-3 p-t-2 text-center">
+	<div class="container m-t-3 p-t-3 text-center">
 		<div class="row">
-			<div class="col-sm-4 margin-trailer-dbl">
+			<div class="col-sm-4 m-b-3">
 				{% static "img/computer.svg" as computer_image %}
 				{% include "core/_home_page_narrow_image.html" with image=computer_image %}
 				<h3 class="color-gray-dark">Modern Website Design</h3>
 				<p>From custom themes for services like Tumblr, Shopify, and NationBuilder to elaborate user interfaces, we create responsive, accessible, and beautiful websites.</p>
 			</div>
-			<div class="col-sm-4 margin-trailer-dbl">
+			<div class="col-sm-4 m-b-2">
 				{% static "img/tablet.svg" as tablet_image %}
 				{% include "core/_home_page_narrow_image.html" with image=tablet_image %}
 				<h3 class="color-gray-dark">Application Development</h3>
 				<p>Whether for the web or mobile, we build robust, sophisticated applications and content management systems tailored to meet your precise needs.</p>
 			</div>
-			<div class="col-sm-4 margin-trailer-dbl">
+			<div class="col-sm-4 m-b-2">
 				{% static "img/custom.svg" as custom_image %}
 				{% include "core/_home_page_narrow_image.html" with image=custom_image %}
 				<h3 class="color-gray-dark">And More</h3>
 				<p>We&#8217;ll work with you to construct exactly the project you need.</p>
-				<a href="#" class="btn btn-secondary">More about our services</a>
+				<a href="{{ site.url }}/services" class="btn btn-secondary">More about our services</a>
 			</div>
 		</div><!-- /.row -->
 	</div><!-- /.container -->
