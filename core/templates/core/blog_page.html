@@ -33,7 +33,11 @@
 		<main class='blog-content margin-trailer-dbl'>
 			{% for block in page.body %}
 				<div class='row block-{{ block.block_type }}'>
-					{% if block.block_type == 'image' or block.block_type == 'code' %}
+					{% if block.block_type == 'image' %}
+						<div class='col-xs-12 text-center'>
+							{{ block }}
+						</div>
+					{% elif block.block_type == 'code' %}
 						<div class='col-xs-12'>
 							{{ block }}
 						</div>
