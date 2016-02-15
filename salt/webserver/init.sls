@@ -13,6 +13,7 @@ app-pkgs:
       - libpq-dev
       - ruby
       - ruby-dev
+      - imagemagick
 
 bootstrap_sass:
   gem.installed:
