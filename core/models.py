@@ -47,7 +47,7 @@ class WorkListPage(Page):
     body = RichTextField()
     subpage_types = ['core.WorkPage']
 
-    content_panels = Page.content_panels  + [FieldPanel('body', classname="full")]
+    content_panels = Page.content_panels + [FieldPanel('body', classname="full")]
 
 
 class WorkPage(Page):
