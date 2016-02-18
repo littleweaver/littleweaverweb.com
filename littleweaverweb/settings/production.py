@@ -3,8 +3,8 @@ import dj_database_url
 
 # Disable debug mode
 
-DEBUG = True
-TEMPLATE_DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = False
 
 DATABASES['default'] =  dj_database_url.config()
 
