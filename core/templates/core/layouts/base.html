@@ -12,10 +12,10 @@
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="Little Weaver Web Collective"/>
 		<meta property="og:image" content="{{ site.url }}/static/images/facebook.gif"/>
-		<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}Little Weaver Web Collective" />
+		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
 		<meta property="og:description" content="Little Weaver Web Collective is a cooperative web development group." />
 
-		<title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
+		<title>{% include "core/_page_title.html" %}</title>
 
 		{% compress css %}
 			<link rel="stylesheet" type="text/x-sass" href="{% static 'css/littleweaverweb.sass' %}">
