@@ -10,7 +10,8 @@
 {% block main %}
 	{% if self.featured_work %}
 		{% with work=self.featured_work %}
-			<div class="pane p-y-1 background-green-dark">
+			{% image work.background_photo width-1500 as background_photo %}
+			<div class="pane p-y-1 background-green-dark background-image-cover" {% if background_photo %}style="background-image: url({{ background_photo.url }})"{% endif %}>
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6 col-xl-4 col-xl-offset-2">

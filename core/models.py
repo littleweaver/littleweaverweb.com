@@ -60,7 +60,11 @@ class WorkPage(Page):
         ('image', ImageChooserBlock()),
     ])
     screenshot = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
-                                   on_delete=models.SET_NULL)
+                                   on_delete=models.SET_NULL, related_name="+")
+    background_photo = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                           on_delete=models.SET_NULL,
+                           help_text="Background image for homepage stripe. Should be blurred or low entropy for light text to be legible on it.",
+                           related_name="+")
     client_name = models.CharField(max_length=255)
     project_date = models.DateField(blank=True, null=True,
                             help_text="Approximate date of project completion.")
@@ -75,10 +79,6 @@ class WorkPage(Page):
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
-            FieldPanel('teaser_title'),
-            FieldPanel('teaser_description')
-        ], "Teaser Details"),
-        MultiFieldPanel([
             FieldPanel('testimonial'),
             FieldPanel('testimonial_credit'),
         ], "Testimonial"),
@@ -88,6 +88,14 @@ class WorkPage(Page):
             FieldPanel('client_name'),
             FieldPanel('project_date'),
         ], "Project Details")
+    ]
+
+    promote_panels = Page.promote_panels + [
+        MultiFieldPanel([
+            FieldPanel('teaser_title'),
+            FieldPanel('teaser_description'),
+            ImageChooserPanel('background_photo'),
+        ], "Teaser Details"),
     ]
 
 
