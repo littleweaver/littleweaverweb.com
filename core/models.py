@@ -66,6 +66,9 @@ class WorkPage(Page):
                            help_text="Background image for homepage stripe. Should be blurred or low entropy for light text to be legible on it.",
                            related_name="+")
     client_name = models.CharField(max_length=255)
+    client_external_url = models.CharField(max_length=255, null=True, blank=True,
+                            help_text="External URL of the project.",
+                            verbose_name="Client External URL")
     project_date = models.DateField(blank=True, null=True,
                             help_text="Approximate date of project completion.")
     testimonial = RichTextField(blank=True)
@@ -86,6 +89,7 @@ class WorkPage(Page):
         MultiFieldPanel([
             ImageChooserPanel('screenshot'),
             FieldPanel('client_name'),
+            FieldPanel('client_external_url'),
             FieldPanel('project_date'),
         ], "Project Details")
     ]
