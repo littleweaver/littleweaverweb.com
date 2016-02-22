@@ -30,6 +30,12 @@
 				{% endif %}
 				<div class="margin-trailer-dbl">
 					{{ page.body }}
+
+					{% if self.client_external_url %}
+					<a href="{{ self.client_external_url }}" target="_blank" class="btn btn-sm btn-secondary">
+						See Work <i class="fa fa-chevron-right"></i>
+					</a>
+					{% endif %}
 				</div>
 			</div>
 		</div>
