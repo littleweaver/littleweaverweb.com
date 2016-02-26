@@ -76,10 +76,6 @@ class WorkPage(Page):
     parent_page_types = ['core.WorkListPage']
 
     content_panels = Page.content_panels + [
-        MultiFieldPanel([
-            FieldPanel('testimonial'),
-            FieldPanel('testimonial_credit'),
-        ], "Testimonial"),
         StreamFieldPanel('body'),
         MultiFieldPanel([
             ImageChooserPanel('screenshot'),
