@@ -13,7 +13,7 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
-from blocks import CodeBlock, QuoteBlock, MarkdownBlock
+from blocks import CodeBlock, QuoteBlock, MarkdownBlock, CaptionedImageBlock
 
 
 class SimplePage(Page):
@@ -57,7 +57,7 @@ class WorkPage(Page):
         ('quote', QuoteBlock(icon='openquote')),
         ('markdown', MarkdownBlock()),
         ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
-        ('image', ImageChooserBlock()),
+        ('image', CaptionedImageBlock()),
     ])
     screenshot = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
                                    on_delete=models.SET_NULL, related_name="+")
