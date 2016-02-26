@@ -6,16 +6,16 @@
 
 {% block main %}
 	<div class='container'>
-		<div class='row'>
+		<div class='row m-b-1'>
 			<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
 				<h1 class="margin-leader margin-trailer">
 					<span class="color-black">{{ self.teaser_title }}</span>
-					<small>{{ self.client_name }}</small>
 				</h1>
+				<h2>{{ self.client_name }}</h2>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row m-b-2">
 			<div class='col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
 
 				{% if page.screenshot %}
@@ -28,9 +28,7 @@
 						{% image page.screenshot width-1500 class="img-fluid" %}
 					</div>
 				{% endif %}
-				<div class="margin-trailer-dbl">
-					{{ page.body }}
-				</div>
+				{{ page.body }}
 			</div>
 		</div>
 	</div>
