@@ -70,6 +70,7 @@ class WorkPage(Page):
                             help_text="Approximate date of project completion.")
     testimonial = RichTextField(blank=True)
     testimonial_credit = models.CharField(max_length=255, blank=True)
+    link = models.CharField(max_length=255, blank=True)
 
     # Details for teasers on other pages:
     teaser_title = models.CharField(max_length=255, blank=True)
@@ -84,6 +85,7 @@ class WorkPage(Page):
         ], "Testimonial"),
         StreamFieldPanel('body'),
         MultiFieldPanel([
+            FieldPanel('link'),
             ImageChooserPanel('screenshot'),
             FieldPanel('client_name'),
             FieldPanel('project_date'),
