@@ -50,31 +50,24 @@
 			{% endfor %}
 		</main>
 
-		{% if page.author and page.author.picture %}
+		{% if page.author %}
 			<div class="row m-b-3">
 				<div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8">
-					<div class="row">
-						<div class="col-xs-3">
-							{% if page.author.picture %}{% image page.author.picture fill-400x400 class="img-fluid img-circle" %}{% endif %}
-						</div>
-						<div class="col-xs-9">
-							<h3>
-								{{ page.author.name }}
-
-							</h3>
-							{% if page.author.bio %}
-								{{ page.author.bio|richtext }}
-							{% endif %}
-							<h4>
-								{% if page.author.github_username %}
-									<a href="http://github.com/{{ page.author.github_username }}" class="link-no-underline fa fa-fw fa-github" title="Github profile"></a>
+					{% if page.author.picture %}
+						<div class="media">
+							<div class="media-left p-r-1">
+								{% if page.author.picture %}
+									{% image page.author.picture fill-150x150 as author_image %}
+									<img src="{{ author_image.url }}" alt="{{ page.author.picture.title }}" width=100 height=100 class="media-object img-fluid img-circle"/>
 								{% endif %}
-								{% if page.author.twitter_username %}
-									<a href="http://twitter.com/{{ page.author.twitter_username }}" class="link-no-underline fa fa-fw fa-twitter" title="Twitter profile"></a>
-								{% endif %}
-							</h4>
+							</div>
+							<div class="media-body">
+								{% include "core/_blog_author_bio.html" %}
+							</div>
 						</div>
-					</div>
+					{% else %}
+						{% include "core/_blog_author_bio.html" %}
+					{% endif %}
 				</div>
 			</div>
 		{% endif %}
