@@ -21,7 +21,7 @@
 	{% endif %}
 
 	<div class="container">
-		{% include "core/_blog_summary.html" with extra_classes="blog-post--large m-t-3" entry=blog_entries.0 %}
+		{% include "core/_blog_summary_first.html" with extra_classes="blog-post--large m-t-3" entry=blog_entries.0 %}
 		<div class="row">
 			{% for entry in blog_entries|slice:"1:" %}
 				<div class="col-md-6 col-lg-4">
