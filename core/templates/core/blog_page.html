@@ -10,13 +10,13 @@
 		<div class="banner-image--large margin-trailer" style="background-image:url({{ banner_image.url }});"></div>
 	{% endif %}
 
-	<div class="container">
-		<div class="row">
+	<div class="container m-b-3">
+		<div class="row m-t-2 m-b-3">
 			<div class='col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
-				<h1 class="color-black-almost margin-leader">{{ page.title }}</h1>
+				<h1 class="color-black-almost">{{ page.title }}</h1>
 
 				{# byline and dateline #}
-				<div class="margin-trailer">
+				<div>
 					<span class="color-black-almost">
 						{% if page.author %}
 							{{ page.author.name }}
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 
-		<main class='blog-content margin-trailer-dbl'>
+		<main class='blog-content m-b-3'>
 			{% for block in page.body %}
 				<div class='row block-{{ block.block_type }}'>
 					{% if block.block_type == 'image' %}
@@ -49,5 +49,36 @@
 				</div>
 			{% endfor %}
 		</main>
+
+		{% if page.author and page.author.picture %}
+			<div class="row m-b-3">
+				<div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8">
+					<div class="row">
+						<div class="col-sm-3 col-md-4">
+							{% if page.author.picture %}{% image page.author.picture fill-400x400 class="img-fluid img-circle" %}{% endif %}
+						</div>
+						<div class="col-sm-9 col-md-8">
+							<h3>
+								{{ page.author.name }}
+
+							</h3>
+							{% if page.author.bio %}
+								{{ page.author.bio|richtext }}
+							{% endif %}
+							<h4>
+								{% if page.author.github_username %}
+									<a href="http://github.com/{{ page.author.github_username }}" class="link-no-underline fa fa-fw fa-github" title="Github profile"></a>
+								{% endif %}
+								{% if page.author.twitter_username %}
+									<a href="http://twitter.com/{{ page.author.twitter_username }}" class="link-no-underline link-no-underwear fa fa-fw fa-twitter"   title="Twitter profile"></a>
+								{% endif %}
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+
 	</div>
 {% endblock %}
