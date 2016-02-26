@@ -1,13 +1,23 @@
 {% load wagtailimages_tags %}
 
-{% image value.image width-400 %}
-
-{{ self.caption }}
-
-<p>
-{% if self.is_screenshot %}
-    it's a screenshot
-{% else %}
-    not a screenshot, sorry to disappoint you.
-{% endif %}
-</p>
+<div class="m-b-2">
+    {% if self.is_screenshot %}
+        <div class="browser m-b-1">
+            <div class="titlebar">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            {% image value.image width-1300 class="m-b-0" %}
+        </div>
+    {% else %}
+        {% image value.image width-1300 %}
+    {% endif %}
+    {% if self.caption %}
+        <div class="row">
+            <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6 text-left">
+                <small>{{ self.caption }}</small>
+            </div>
+        </div>
+    {% endif %}
+</div>

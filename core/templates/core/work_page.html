@@ -17,7 +17,6 @@
 
 		<div class="row">
 			<div class='col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
-
 				{% if page.screenshot %}
 					<div class="browser margin-trailer-dbl">
 						<div class="titlebar">
@@ -25,12 +24,28 @@
 							<div class="dot"></div>
 							<div class="dot"></div>
 						</div>
-						{% image page.screenshot width-1500 class="img-fluid" %}
+						{% image page.screenshot width-885 class="img-fluid" %}
 					</div>
 				{% endif %}
-				<div class="margin-trailer-dbl">
-					{{ page.body }}
-				</div>
+			</div>
+			<div class="m-b-2">
+				{% for block in page.body %}
+					<div class='block-{{ block.block_type }}'>
+						{% if block.block_type == 'image' %}
+							<div class='col-xs-12 text-center'>
+								{{ block }}
+							</div>
+						{% elif block.block_type == 'code' %}
+							<div class='col-xs-12 col-md-10 col-md-offset-1'>
+								{{ block }}
+							</div>
+						{% else %}
+							<div class='col-xs-12 col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
+								{{ block }}
+							</div>
+						{% endif %}
+					</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
