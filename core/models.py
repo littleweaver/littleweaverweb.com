@@ -68,8 +68,6 @@ class WorkPage(Page):
     client_name = models.CharField(max_length=255)
     project_date = models.DateField(blank=True, null=True,
                             help_text="Approximate date of project completion.")
-    testimonial = RichTextField(blank=True)
-    testimonial_credit = models.CharField(max_length=255, blank=True)
 
     # Details for teasers on other pages:
     teaser_title = models.CharField(max_length=255, blank=True)
