@@ -42,7 +42,11 @@ class CodeBlock(blocks.StructBlock):
         return mark_safe(highlight(src, lexer, formatter))
 
 
-class QuoteBlock(blocks.TextBlock):
+class QuoteBlock(blocks.StructBlock):
+
+    quote = blocks.RichTextBlock()
+    credit = blocks.RichTextBlock()
+
     class Meta:
         template = 'core/blocks/quote.html'
         icon = 'openquote'
