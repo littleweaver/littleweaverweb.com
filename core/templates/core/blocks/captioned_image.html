@@ -1,0 +1,13 @@
+{% load wagtailimages_tags %}
+
+{% image value.image width-400 %}
+
+{{ self.caption }}
+
+<p>
+{% if self.is_screenshot %}
+    it's a screenshot
+{% else %}
+    not a screenshot, sorry to disappoint you.
+{% endif %}
+</p>
