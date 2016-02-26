@@ -158,7 +158,7 @@ class BlogPage(Page):
         ('quote', QuoteBlock(icon='openquote')),
         ('markdown', MarkdownBlock()),
         ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
-        ('image', ImageChooserBlock()),
+        ('image', CaptionedImageBlock()),
     ])
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
                                      on_delete=models.SET_NULL)
