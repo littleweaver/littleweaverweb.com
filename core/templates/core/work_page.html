@@ -28,20 +28,26 @@
 						{% image page.screenshot width-1500 class="img-fluid" %}
 					</div>
 				{% endif %}
-				<div class="m-b-3">
-					<blockquote class="lead">
-						{{ self.testimonial|richtext }}
-					</blockquote>
-					<p class="p-l-2">
-						<em>{{ self.testimonial_credit }}</em>
-					</p>
-				</div>
+
+				{% if self.testimonial and self.testimonial_credit %}
+					<div class="m-b-3">
+						<blockquote class="lead">
+							{{ self.testimonial|richtext }}
+						</blockquote>
+						<p class="p-l-2">
+							<em>{{ self.testimonial_credit }}</em>
+						</p>
+					</div>
+				{% endif %}
+
 				{{ page.body }}
+
 				{% if self.link %}
 					<a href="{{ self.link }}" class="btn btn-wrap btn-lg btn-primary text-uppercase col-xs-12  m-t-1 p-y-2 h3">
 						See {{ page.title }} for yourself <i class="fa fa-fw fa-external-link"></i>
 					</a>
 				{% endif %}
+				
 			</div>
 		</div>
 	</div>
