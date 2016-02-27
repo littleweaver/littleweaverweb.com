@@ -1,23 +1,8 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
 <article class="m-b-3 {{ extra_classes }}">
-	<header class="blog-post-header margin-trailer-0">
-		<h2 class="blog-post-title card-title">
-			<a href="{{ entry.url }}" class="color-black-almost">{{ entry.title }}</a>
-		</h2>
-		<div class="blog-post-byline-dateline margin-trailer-tiny">
-			<span class="color-black-almost">
-				{% if entry.author %}
-					{{ entry.author.name }}
-				{% endif %}
-			</span>
-			<span class="dateline">
-				<time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"N n, Y" }}</time>
-			</span>
-		</div>
-	</header>
-	<div class="entry-summary">
-		{{ entry.summary }}
-	</div>
-	<footer>
-		<a href="{{ entry.url }}" class="btn btn-sm btn-secondary margin-leader-tiny">Read <i class="fa fa-fw fa-chevron-right"></i></a>
-	</footer>
+	{# {% if entry.teaser_image %}#}
+		{# {% image entry.teaser_image fill-500x250 class="img-fluid m-b-2" %}#}
+	{# {% endif %}#}
+	{% include "core/_blog_summary_text.html" %}
 </article>

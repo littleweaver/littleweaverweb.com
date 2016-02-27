@@ -173,6 +173,10 @@ class BlogPage(Page):
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
                                      on_delete=models.SET_NULL)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
+    teaser_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                           on_delete=models.SET_NULL,
+                           help_text="Image to display on the blog index page",
+                           related_name="+")
 
     content_panels = Page.content_panels + [
         SnippetChooserPanel('author'),
@@ -183,6 +187,9 @@ class BlogPage(Page):
     ]
     parent_page_types = ['BlogIndexPage']
     promote_panels = Page.promote_panels + [
+        MultiFieldPanel([
+            ImageChooserPanel('teaser_image'),
+        ], "Teaser Details"),
         FieldPanel('tags'),
     ]
 
