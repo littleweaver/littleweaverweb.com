@@ -10,13 +10,13 @@
 		<div class="banner-image--large margin-trailer" style="background-image:url({{ banner_image.url }});"></div>
 	{% endif %}
 
-	<div class="container">
-		<div class="row">
+	<div class="container m-b-3">
+		<div class="row m-t-2 m-b-2">
 			<div class='col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
-				<h1 class="color-black-almost margin-leader">{{ page.title }}</h1>
+				<h1 class="color-black-almost">{{ page.title }}</h1>
 
 				{# byline and dateline #}
-				<div class="margin-trailer">
+				<div>
 					<span class="color-black-almost">
 						{% if page.author %}
 							{{ page.author.name }}
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 
-		<main class='blog-content margin-trailer-dbl'>
+		<main class='blog-content m-b-3'>
 			{% for block in page.body %}
 				<div class='row block-{{ block.block_type }}'>
 					{% if block.block_type == 'image' %}
@@ -49,5 +49,29 @@
 				</div>
 			{% endfor %}
 		</main>
+
+		{% if page.author %}
+			<div class="row m-b-3">
+				<div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8">
+					{% if page.author.picture %}
+						<div class="media">
+							<div class="media-left p-r-1">
+								{% if page.author.picture %}
+									{% image page.author.picture fill-150x150 as author_image %}
+									<img src="{{ author_image.url }}" alt="{{ page.author.picture.title }}" width=100 height=100 class="media-object img-fluid img-circle"/>
+								{% endif %}
+							</div>
+							<div class="media-body">
+								{% include "core/_blog_author_bio.html" %}
+							</div>
+						</div>
+					{% else %}
+						{% include "core/_blog_author_bio.html" %}
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+
+
 	</div>
 {% endblock %}
