@@ -70,7 +70,7 @@ class WorkPage(Page):
                             help_text="Approximate date of project completion.")
     testimonial = RichTextField(blank=True)
     testimonial_credit = models.CharField(max_length=255, blank=True)
-    link = models.CharField(max_length=255, null=True, blank=True,
+    link = models.URLField(max_length=255, null=True, blank=True,
                             help_text="External URL of the project.",
                             verbose_name="Client External URL")
 
