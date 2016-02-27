@@ -133,3 +133,13 @@
 .site-footer
 	color: $gray-light
 	background: $black-almost
+
+	.social-link
+		line-height: 3rem
+
+	+media-breakpoint-down(sm)
+		text-align: center
+		line-height: 2.5
+
+		.row > div:not(:last-child)
+			margin-bottom: $spacer
