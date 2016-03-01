@@ -24,9 +24,6 @@
 
 		<script type="text/javascript" src="//use.typekit.net/kir3awt.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		{% compress js %}
-			<script type="text/javascript" src="{% static 'js/littleweaverweb.js' %}"></script>
-		{% endcompress %}
 
 		{# Generated using http://realfavicongenerator.net/ #}
 		<link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicons/apple-touch-icon-57x57.png' %}">
@@ -71,6 +68,9 @@
 
 		{% wagtailuserbar %}
 
+		{% compress js %}
+			<script type="text/javascript" src="{% static 'js/littleweaverweb.js' %}"></script>
+		{% endcompress %}
 		{% block extra_js %}{% endblock %}
 
 	</body>
