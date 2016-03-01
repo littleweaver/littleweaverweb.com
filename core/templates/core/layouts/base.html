@@ -7,13 +7,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="description" content="Little Weaver Web Collective is a cooperative web development group." />
+		<meta name="description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="Little Weaver Web Collective"/>
-		<meta property="og:image" content="{{ site.url }}/static/images/facebook.gif"/>
+		<meta property="og:image" content="{{ site.url }}{{ settings.core.OpenGraphAndMetaSettings.open_graph_image_path }}"/>
 		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
-		<meta property="og:description" content="Little Weaver Web Collective is a cooperative web development group." />
+		<meta property="og:description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
 		<title>{% include "core/_page_title.html" %}</title>
 

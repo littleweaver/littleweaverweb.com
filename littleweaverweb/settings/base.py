@@ -1,6 +1,8 @@
 import os
 from os.path import abspath, dirname, join
 
+from django.conf import global_settings
+
 # Absolute filesystem path to the Django project directory:
 PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
 
@@ -47,6 +49,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailsearch',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
+    'wagtail.contrib.settings',
 
     'core',
 )
@@ -133,6 +136,7 @@ from django.conf import global_settings
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
+    'wagtail.contrib.settings.context_processors.settings',
 )
 
 
