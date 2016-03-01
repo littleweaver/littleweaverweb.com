@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='opengraphandmetasettings',
             name='ga_id',
-            field=models.CharField(help_text=b'Google Analytics Tracking ID, e.g. UA-63793864-1', max_length=30, null=True),
+            field=models.CharField(help_text=b'Google Analytics Tracking ID, e.g. UA-12345678-1', max_length=30, null=True),
         ),
         migrations.AlterField(
             model_name='opengraphandmetasettings',
