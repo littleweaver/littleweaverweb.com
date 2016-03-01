@@ -27,9 +27,16 @@ class OpenGraphAndMetaSettings(BaseSetting):
         max_length=255,
         help_text='meta[name="description"] and og:description')
 
+    ga_id = models.CharField(
+        null=True,
+        blank=True,
+        max_length=30,
+        help_text='Google Analytics Tracking ID, e.g. UA-12345678-1')
+
     panels = [
         FieldPanel('open_graph_image_path'),
         FieldPanel('meta_description'),
+        FieldPanel('ga_id'),
     ]
 
     class Meta:
