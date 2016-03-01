@@ -9,7 +9,7 @@ def testimonial_to_stream_quote(apps, schema_editor):
     db_alias = schema_editor.connection.alias
     for page in WorkPage.objects.using(db_alias).all():
         if page.testimonial:
-            page.body.stream_data.prepend(
+            page.body.stream_data.list_.insert(0,
                 {'type': 'quote',
                  'value': {'credit': page.testimonial_credit,
                            'quote': page.testimonial}})
