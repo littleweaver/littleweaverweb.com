@@ -46,7 +46,7 @@ class CodeBlock(blocks.StructBlock):
 class QuoteBlock(blocks.StructBlock):
 
     quote = blocks.RichTextBlock()
-    credit = blocks.RichTextBlock()
+    credit = blocks.RichTextBlock(required=False)
 
     class Meta:
         template = 'core/blocks/quote.html'
@@ -72,8 +72,8 @@ class MarkdownBlock(blocks.TextBlock):
 class CaptionedImageBlock(blocks.StructBlock):
 
     image = ImageChooserBlock()
-    caption = blocks.RichTextBlock()
-    is_screenshot = blocks.BooleanBlock()
+    caption = blocks.RichTextBlock(required=False)
+    is_screenshot = blocks.BooleanBlock(required=False)
 
     class Meta:
         template = 'core/blocks/captioned_image.html'
