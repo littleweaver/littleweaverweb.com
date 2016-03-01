@@ -137,9 +137,14 @@
 	.social-link
 		line-height: 3rem
 
+	p
+		margin: 0
+
 	+media-breakpoint-down(sm)
 		text-align: center
-		line-height: 2.5
 
 		.row > div:not(:last-child)
 			margin-bottom: $spacer
+
+		p + p
+			margin-top: $spacer
