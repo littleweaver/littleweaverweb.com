@@ -5,6 +5,7 @@ from pygments import highlight
 from pygments.formatters import get_formatter_by_name
 from pygments.lexers import get_lexer_by_name
 from wagtail.wagtailcore import blocks
+from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 
 class CodeBlock(blocks.StructBlock):
@@ -42,7 +43,11 @@ class CodeBlock(blocks.StructBlock):
         return mark_safe(highlight(src, lexer, formatter))
 
 
-class QuoteBlock(blocks.TextBlock):
+class QuoteBlock(blocks.StructBlock):
+
+    quote = blocks.RichTextBlock()
+    credit = blocks.RichTextBlock()
+
     class Meta:
         template = 'core/blocks/quote.html'
         icon = 'openquote'
@@ -62,3 +67,15 @@ class MarkdownBlock(blocks.TextBlock):
             ],
         )
         return mark_safe(md)
+
+
+class CaptionedImageBlock(blocks.StructBlock):
+
+    image = ImageChooserBlock()
+    caption = blocks.RichTextBlock()
+    is_screenshot = blocks.BooleanBlock()
+
+    class Meta:
+        template = 'core/blocks/captioned_image.html'
+        icon = 'image'
+        label = 'Captioned Image'
