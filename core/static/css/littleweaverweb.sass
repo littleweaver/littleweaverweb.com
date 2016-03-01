@@ -135,13 +135,20 @@
 	background: $black-almost
 
 	.social-link
-		line-height: 3rem
+		line-height: 1rem * 2 * 1.5  // font-size * num paragraphs * line-height
 
 	p
 		margin: 0
 
 	+media-breakpoint-down(sm)
 		text-align: center
+
+		.social-link
+			padding: 1rem 0.25rem
+			font-size: 1.25rem  // Larger social icons
+
+			.fa
+				line-height: 2rem
 
 		.row > div:not(:last-child)
 			margin-bottom: $spacer
