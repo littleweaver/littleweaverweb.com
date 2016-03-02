@@ -34,7 +34,7 @@
 			{% for block in page.body %}
 				<div class='row block-{{ block.block_type }}'>
 					{% if block.block_type == 'image' %}
-						<div class='col-xs-12 text-center'>
+						<div class='col-xs-12 m-t-1 m-b-2'>
 							{{ block }}
 						</div>
 					{% elif block.block_type == 'code' %}
