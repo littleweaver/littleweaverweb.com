@@ -1,8 +1,8 @@
-<header class="blog-post-header margin-trailer-0">
+<header class="blog-post-header m-b-0">
 	<h2 class="blog-post-title card-title">
 		<a href="{{ entry.url }}" class="color-black-almost">{{ entry.title }}</a>
 	</h2>
-	<div class="blog-post-byline-dateline margin-trailer-tiny">
+	<div class="blog-post-byline-dateline m-b-1">
 		<span class="color-black-almost">
 			{% if entry.author %}
 				{{ entry.author.name }}
@@ -17,5 +17,5 @@
 	{{ entry.summary }}
 </div>
 <footer>
-	<a href="{{ entry.url }}" class="btn btn-sm btn-secondary margin-leader-tiny">Read <i class="fa fa-fw fa-chevron-right"></i></a>
+	<a href="{{ entry.url }}" class="btn btn-sm btn-secondary m-t-1-tiny">Read <i class="fa fa-fw fa-chevron-right"></i></a>
 </footer>

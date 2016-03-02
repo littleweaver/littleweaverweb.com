@@ -7,10 +7,10 @@
 {% block main %}
 	{% if page.banner_image %}
 		{% image page.banner_image fill-1650x500 as banner_image %}
-		<div class="banner-image--large margin-trailer" style="background-image:url({{ banner_image.url }});"></div>
+		<div class="banner-image--large m-b-1" style="background-image:url({{ banner_image.url }});"></div>
 	{% endif %}
 
-	<div class="container m-r-0-1-0-0">
+	<div class="container m-r-1-sm-only">
 		<div class="row m-y-2">
 			<div class='col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
 				<h1 class="color-black-almost">{{ page.title }}</h1>
@@ -34,7 +34,7 @@
 			{% for block in page.body %}
 				<div class='row block-{{ block.block_type }}'>
 					{% if block.block_type == 'image' %}
-						<div class='col-xs-12 text-center'>
+						<div class='col-xs-12 text-xs-center'>
 							{{ block }}
 						</div>
 					{% elif block.block_type == 'code' %}
