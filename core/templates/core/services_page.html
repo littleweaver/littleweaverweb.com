@@ -16,22 +16,18 @@
 		</div>
 	</div>
 
-	<div class="pane--light-gray">
-		<div class="container p-t-3">
-			<div class="row">
-				{% for service in page.services.all %}
-					<div class="col-sm-6 col-lg-3 text-center m-b-3">
-						{% if services.image %}
-							{% image services.image fit-600x600 class="img-fluid" %}
-						{% endif %}
-						<h2>{{ service.title }}</h2>
-						{{ service.body|richtext }}
-					</div>
-					{% if forloop.counter|divisibleby:"2" %}
-						<div class="clearfix hidden-lg-up"></div>
-					{% endif %}
-				{% endfor %}
-			</div>
+	<div class="pane--colorful">
+		<div class="row">
+			{% for service in page.services.all %}
+				<div class="text-center col-md-6 p-a-3 pane__child--{% cycle 'one' 'two' 'three' 'four' as index %}">
+					<h2 class="text-center m-b-1">{{ service.title }}</h2>
+					{{ service.body|richtext }}
+				</div>
+
+				{% if forloop.counter|divisibleby:"2" and not forloop.last %}
+					</div><div class="row">
+				{% endif %}
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}
