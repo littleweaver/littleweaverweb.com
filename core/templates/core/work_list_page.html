@@ -5,12 +5,12 @@
 {% block body_classes %}no-banner{% endblock %}
 
 {% block main %}
-	<div class='container'>
+	<div class='container m-r-1-sm-only'>
 		<div class='row'>
 			<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2'>
 				{% for child in self.get_children.live %}
 					{% with child=child.workpage %}
-						<div class='pane--outline p-t-2 p-b-2'>
+						<div class='pane--outline p-y-2'>
 							{% include "core/_work_item_short.html" with item=child %}
 						</div>
 					{% endwith %}
