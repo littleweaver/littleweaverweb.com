@@ -21,7 +21,7 @@ from blocks import CodeBlock, QuoteBlock, MarkdownBlock, CaptionedImageBlock
 class OpenGraphAndMetaSettings(BaseSetting):
     open_graph_image_path = models.CharField(
         max_length=255,
-        help_text='Absolute path to og:image, e.g. /static/images/facebook.gif')
+        help_text='Absolute path to og:image, e.g., /static/images/facebook.gif')
 
     meta_description = models.CharField(
         max_length=255,
@@ -31,7 +31,7 @@ class OpenGraphAndMetaSettings(BaseSetting):
         null=True,
         blank=True,
         max_length=30,
-        help_text='Google Analytics Tracking ID, e.g. UA-12345678-1')
+        help_text='Google Analytics Tracking ID, e.g., UA-12345678-1')
 
     panels = [
         FieldPanel('open_graph_image_path'),
