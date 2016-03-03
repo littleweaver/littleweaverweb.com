@@ -1,0 +1,42 @@
+{% load wagtailimages_tags %}
+
+{% if self.full_width %}
+    <div class="text-center">
+        {% if self.is_screenshot %}
+            <div class="browser">
+                <div class="titlebar">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                {% image value.image width-1300 class="m-b-0" %}
+            </div>
+        {% else %}
+            {% image value.image width-1300 class="m-b-0" %}
+        {% endif %}
+    </div>
+{% else %}
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6">
+            {% if self.is_screenshot %}
+                <div class="browser m-b-1">
+                    <div class="titlebar">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    {% image value.image width-810 class="m-b-0" %}
+                </div>
+            {% else %}
+                {% image value.image width-810 class="m-b-0" %}
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+{% if self.caption %}
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6 m-t-1">
+            <small>{{ self.caption }}</small>
+        </div>
+    </div>
+{% endif %}
