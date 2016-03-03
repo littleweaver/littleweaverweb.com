@@ -13,7 +13,7 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
-from blocks import CodeBlock, QuoteBlock, MarkdownBlock
+from blocks import CodeBlock, QuoteBlock, MarkdownBlock, CaptionedImageBlock
 
 
 class SimplePage(Page):
@@ -57,7 +57,7 @@ class WorkPage(Page):
         ('quote', QuoteBlock(icon='openquote')),
         ('markdown', MarkdownBlock()),
         ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
-        ('image', ImageChooserBlock()),
+        ('image', CaptionedImageBlock()),
     ])
     screenshot = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
                                    on_delete=models.SET_NULL, related_name="+")
@@ -68,8 +68,6 @@ class WorkPage(Page):
     client_name = models.CharField(max_length=255)
     project_date = models.DateField(blank=True, null=True,
                             help_text="Approximate date of project completion.")
-    testimonial = RichTextField(blank=True)
-    testimonial_credit = models.CharField(max_length=255, blank=True)
     link = models.URLField(max_length=255, null=True, blank=True,
                             help_text="External URL of the project.",
                             verbose_name="Client External URL")
@@ -81,10 +79,6 @@ class WorkPage(Page):
     parent_page_types = ['core.WorkListPage']
 
     content_panels = Page.content_panels + [
-        MultiFieldPanel([
-            FieldPanel('testimonial'),
-            FieldPanel('testimonial_credit'),
-        ], "Testimonial"),
         StreamFieldPanel('body'),
         MultiFieldPanel([
             FieldPanel('link'),
@@ -126,7 +120,7 @@ class ServicesPage(Page):
         ('quote', QuoteBlock(icon='openquote')),
         ('markdown', MarkdownBlock()),
         ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
-        ('image', ImageChooserBlock()),
+        ('image', CaptionedImageBlock()),
     ])
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
                                      on_delete=models.SET_NULL)
@@ -168,7 +162,7 @@ class BlogPage(Page):
         ('quote', QuoteBlock(icon='openquote')),
         ('markdown', MarkdownBlock()),
         ('html', blocks.RawHTMLBlock(icon='site', label='HTML')),
-        ('image', ImageChooserBlock()),
+        ('image', CaptionedImageBlock()),
     ])
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
                                      on_delete=models.SET_NULL)

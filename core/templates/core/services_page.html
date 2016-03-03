@@ -4,7 +4,7 @@
 
 {% block main %}
 	{% image page.banner_image fill-1650x500 as banner_image %}
-	<div class="banner-image margin-trailer-dbl" style="background-image:url({{ banner_image.url }});background-position:top center;">
+	<div class="banner-image m-b-3" style="background-image:url({{ banner_image.url }});background-position:top center;">
 		<div class="container banner-image-text">
 			<h1 class="color-white">{{ page.title }}</h1>
 		</div>
@@ -16,15 +16,17 @@
 		</div>
 	</div>
 
-	<div class="pane--light-gray">
+	<div class="pane--light-gray services-pane">
 		<div class="container p-t-3">
 			<div class="row">
 				{% for service in page.services.all %}
-					<div class="col-sm-6 col-lg-3 text-center m-b-3">
+					<div class="col-sm-6 col-lg-3 text-xs-center m-b-3">
 						{% if services.image %}
 							{% image services.image fit-600x600 class="img-fluid" %}
 						{% endif %}
-						<h2>{{ service.title }}</h2>
+						<div class="container--vertically-centered">
+							<h2>{{ service.title }}</h2>
+						</div>
 						{{ service.body|richtext }}
 					</div>
 					{% if forloop.counter|divisibleby:"2" %}
