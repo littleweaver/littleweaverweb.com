@@ -5,20 +5,18 @@
 {% block body_classes %}no-banner{% endblock %}
 
 {% block main %}
-	<div class='container'>
+	<div class='container m-r-1-sm-only'>
 		<div class='row m-b-1'>
 			<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
-				<h1 class="margin-leader margin-trailer">
-					<span class="color-black">{{ self.teaser_title }}</span>
-				</h1>
+				<h1 class="m-y-1 color-black">{{ self.teaser_title }}</h1>
 				<h2 class="color-gray-mid">{{ self.client_name }}</h2>
 			</div>
 		</div>
 
 		<div class="row m-b-3">
-			<div class='col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
+			<div class='col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6 m-b-2'>
 				{% if page.screenshot %}
-					<div class="browser margin-trailer-dbl">
+					<div class="browser">
 						<div class="titlebar">
 							<div class="dot"></div>
 							<div class="dot"></div>
@@ -28,32 +26,30 @@
 					</div>
 				{% endif %}
 			</div>
-			<div class="m-b-2">
-				{% for block in page.body %}
-					<div class='block-{{ block.block_type }}'>
-						{% if block.block_type == 'image' %}
-							<div class='col-xs-12 m-t-1 m-b-2'>
-								{{ block }}
-							</div>
-						{% elif block.block_type == 'code' %}
-							<div class='col-xs-12 col-md-10 col-md-offset-1'>
-								{{ block }}
-							</div>
-						{% else %}
-							<div class='col-xs-12 col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
-								{{ block }}
-							</div>
-						{% endif %}
-					</div>
-				{% endfor %}
-				{% if self.link %}
-					<div class='col-xs-12 col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
-						<a href="{{ self.link }}" class="btn btn-wrap btn-lg btn-primary text-uppercase col-xs-12  m-t-1 p-y-2 h3">
-							See {{ page.title }} for yourself!
-						</a>
-					</div>
-				{% endif %}
-			</div>
+			{% for block in page.body %}
+				<div class='block-{{ block.block_type }}'>
+					{% if block.block_type == 'image' %}
+						<div class='col-xs-12 m-t-1 m-b-2 text-xs-center'>
+							{{ block }}
+						</div>
+					{% elif block.block_type == 'code' %}
+						<div class='col-xs-12 col-md-10 col-md-offset-1'>
+							{{ block }}
+						</div>
+					{% else %}
+						<div class='col-xs-12 col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
+							{{ block }}
+						</div>
+					{% endif %}
+				</div>
+			{% endfor %}
+			{% if self.link %}
+				<div class='col-xs-12 col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
+					<a href="{{ self.link }}" class="btn btn-wrap btn-lg btn-primary text-uppercase col-xs-12 m-t-1 p-y-2 h3">
+						See {{ page.title }} for yourself!
+					</a>
+				</div>
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}

@@ -7,11 +7,11 @@
 {% block main %}
 	{% if page.banner_image %}
 		{% image page.banner_image fill-1650x500 as banner_image %}
-		<div class="banner-image--large margin-trailer" style="background-image:url({{ banner_image.url }});"></div>
+		<div class="banner-image--large m-b-1" style="background-image:url({{ banner_image.url }});"></div>
 	{% endif %}
 
-	<div class="container m-b-3">
-		<div class="row m-t-2 m-b-2">
+	<div class="container m-r-1-sm-only">
+		<div class="row m-y-2">
 			<div class='col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
 				<h1 class="color-black-almost">{{ page.title }}</h1>
 
@@ -34,11 +34,11 @@
 			{% for block in page.body %}
 				<div class='row block-{{ block.block_type }}'>
 					{% if block.block_type == 'image' %}
-						<div class='col-xs-12 m-t-1 m-b-2'>
+						<div class='col-xs-12 m-t-1 m-b-2 text-xs-center'>
 							{{ block }}
 						</div>
 					{% elif block.block_type == 'code' %}
-						<div class='col-xs-12 col-md-10 col-md-offset-1'>
+						<div class='col-xs-12 col-lg-8 col-lg-offset-1'>
 							{{ block }}
 						</div>
 					{% else %}
@@ -52,7 +52,7 @@
 
 		{% if page.author %}
 			<div class="row m-b-3">
-				<div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8">
+				<div class="col-xs-12 col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6">
 					{% if page.author.picture %}
 						<div class="media">
 							<div class="media-left p-r-1">
