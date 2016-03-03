@@ -19,9 +19,8 @@ from blocks import CodeBlock, QuoteBlock, MarkdownBlock, CaptionedImageBlock
 
 @register_setting
 class OpenGraphAndMetaSettings(BaseSetting):
-    open_graph_image_path = models.CharField(
-        max_length=255,
-        help_text='Absolute path to og:image, e.g., /static/images/facebook.gif')
+    open_graph_image = models.ForeignKey('wagtailimages.Image', null=True, blank=True,
+                              on_delete=models.SET_NULL)
 
     meta_description = models.CharField(
         max_length=255,
@@ -34,7 +33,7 @@ class OpenGraphAndMetaSettings(BaseSetting):
         help_text='Google Analytics Tracking ID, e.g., UA-12345678-1')
 
     panels = [
-        FieldPanel('open_graph_image_path'),
+        ImageChooserPanel('open_graph_image'),
         FieldPanel('meta_description'),
         FieldPanel('ga_id'),
     ]

@@ -1,4 +1,5 @@
 {% load compress staticfiles wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 <!DOCTYPE html>
 <html class="no-js">
@@ -11,7 +12,10 @@
 
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="Little Weaver Web Collective"/>
-		<meta property="og:image" content="{{ site.url }}{{ settings.core.OpenGraphAndMetaSettings.open_graph_image_path }}"/>
+		{% if settings.core.OpenGraphAndMetaSettings.open_graph_image %}
+			{% image settings.core.OpenGraphAndMetaSettings.open_graph_image original as og_image %}
+			<meta property="og:image" content="{{ og_image.url }}"/>
+		{% endif %}
 		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
 		<meta property="og:description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
