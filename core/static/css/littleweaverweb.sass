@@ -131,3 +131,36 @@
 .site-footer
 	color: $gray-light
 	background: $black-almost
+
+.container--vertically-centered
+	display: table
+	width: 100%
+
+	> *
+		display: table-cell
+		vertical-align: middle
+
+.services-pane
+	+media-breakpoint-up(sm)
+		.container--vertically-centered
+			height: 100px
+
+	+media-breakpoint-up(lg)
+		.container--vertically-centered
+			height: 120px
+
+	+media-breakpoint-up(xl)
+		.container--vertically-centered
+			height: 100px
+
+.home-services-pane
+	.container--vertically-centered
+		height: 60px
+
+	+media-breakpoint-down(lg)
+		.container--vertically-centered
+			height: 75px
+
+	+media-breakpoint-down(sm)
+		.container--vertically-centered
+			height: 100px
