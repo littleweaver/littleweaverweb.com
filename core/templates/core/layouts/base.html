@@ -1,4 +1,5 @@
 {% load compress staticfiles wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 <!DOCTYPE html>
 <html class="no-js">
@@ -7,13 +8,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="description" content="Little Weaver Web Collective is a cooperative web development group." />
+		<meta name="description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="Little Weaver Web Collective"/>
-		<meta property="og:image" content="{{ site.url }}/static/images/facebook.gif"/>
+		{% if settings.core.OpenGraphAndMetaSettings.open_graph_image %}
+			{% image settings.core.OpenGraphAndMetaSettings.open_graph_image original as og_image %}
+			<meta property="og:image" content="{{ og_image.url }}"/>
+		{% endif %}
 		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
-		<meta property="og:description" content="Little Weaver Web Collective is a cooperative web development group." />
+		<meta property="og:description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
 		<title>{% include "core/_page_title.html" %}</title>
 
@@ -44,6 +48,17 @@
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="msapplication-TileImage" content="{% static 'img/favicons/mstile-144x144.png' %}">
 		<meta name="theme-color" content="#ffffff">
+		{% if settings.core.OpenGraphAndMetaSettings.ga_id %}
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+				ga('create', '{{ settings.core.OpenGraphAndMetaSettings.ga_id }}', 'auto');
+				ga('send', 'pageview');
+			</script>
+		{% endif %}
 	</head>
 	<body class="{% block body_classes %}{% endblock %}">
 
@@ -72,6 +87,5 @@
 			<script type="text/javascript" src="{% static 'js/littleweaverweb.js' %}"></script>
 		{% endcompress %}
 		{% block extra_js %}{% endblock %}
-
 	</body>
 </html>

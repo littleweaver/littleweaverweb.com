@@ -3,6 +3,7 @@ from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
+from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page, Orderable
@@ -14,6 +15,31 @@ from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
 from blocks import CodeBlock, QuoteBlock, MarkdownBlock, CaptionedImageBlock
+
+
+@register_setting
+class OpenGraphAndMetaSettings(BaseSetting):
+    open_graph_image = models.ForeignKey('wagtailimages.Image', null=True, blank=True,
+                              on_delete=models.SET_NULL)
+
+    meta_description = models.CharField(
+        max_length=255,
+        help_text='meta[name="description"] and og:description')
+
+    ga_id = models.CharField(
+        null=True,
+        blank=True,
+        max_length=30,
+        help_text='Google Analytics Tracking ID, e.g., UA-12345678-1')
+
+    panels = [
+        ImageChooserPanel('open_graph_image'),
+        FieldPanel('meta_description'),
+        FieldPanel('ga_id'),
+    ]
+
+    class Meta:
+        verbose_name = 'Head Meta'
 
 
 class SimplePage(Page):
