@@ -47,7 +47,7 @@
 					<ul class="list-inline js-technology-pane-waypoint">
 						{% for technology in technologies %}
 							<li class="list-inline-item">
-								<a href="{{ technology.link }}" target="_blank">
+								<a href="{{ technology.link }}" target="_blank" title="{{ technology.label }}">
 									<span class="sr-only">{{ technology.label }}</span>
 									<span role="presentation">{{ technology.vector|safe }}</span>
 								</a>

@@ -206,18 +206,17 @@
 .technology-pane svg rect,
 .technology-pane svg g,
 .technology-pane svg path
-  fill: rgba(255, 255, 255, 0.5)
+	transition: fill 0.25s ease
+	fill: rgb(149, 148, 147)
 
 .technology-pane svg.--no-fill path
   fill: none
 
 .technology-pane svg.--solid-stroke path
+	transition: stroke 0.25s ease
 	stroke: rgb(149, 148, 147)
 
-.technology-pane svg.--solid-fill path
-	fill: rgb(149, 148, 147)
-
-.technology-pane .--solid-path-fg path
+.technology-pane svg.--solid-path-fg path
 	fill: $technology-pane-bg
 
 @keyframes fade-in
@@ -239,3 +238,19 @@
 	@for $i from 2 through 12
 		&:nth-child(#{$i})
 			animation-delay: ($i - 1) * (0.2s - (min($i, 5) * 0.01))
+
+.technology-pane ul li a:hover
+	circle,
+	rect,
+	g,
+	path
+		fill: rgb(197, 196, 195)
+
+	svg.--solid-stroke path
+		stroke: rgb(197, 196, 195)
+
+	svg.--solid-path-fg path
+		fill: $technology-pane-bg
+
+	svg.--no-fill path
+		fill: none
