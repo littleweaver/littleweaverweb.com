@@ -8,16 +8,20 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
+		<meta name="description" content="{{ self.get_og_description|default:settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
-		<meta property="og:type" content="website"/>
+		<meta property="og:type" content="{{ self.get_og_type|default:"website" }}"/>
 		<meta property="og:site_name" content="Little Weaver Web Collective"/>
-		{% if settings.core.OpenGraphAndMetaSettings.open_graph_image %}
+		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
+		<meta property="og:description" content="{{ self.get_og_description|default:settings.core.OpenGraphAndMetaSettings.meta_description }}" />
+
+		{% if self.get_og_image %}
+			{% image self.get_og_image original as og_image %}
+			<meta property="og:image" content="{{ og_image.url }}"/>
+		{% elif settings.core.OpenGraphAndMetaSettings.open_graph_image %}
 			{% image settings.core.OpenGraphAndMetaSettings.open_graph_image original as og_image %}
 			<meta property="og:image" content="{{ og_image.url }}"/>
 		{% endif %}
-		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
-		<meta property="og:description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
 		<title>{% include "core/_page_title.html" %}</title>
 

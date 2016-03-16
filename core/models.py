@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import striptags, truncatewords
 
 from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
@@ -122,6 +123,27 @@ class WorkPage(Page):
         ], "Teaser Details"),
     ]
 
+    def get_og_type(self):
+        return "article"
+
+    def get_og_description(self):
+        """
+        Returns the teaser description. If no teaser description, returns the
+        first 20 words of the first text block in the body. If no text blocks
+        are found in the body, returns None.
+        """
+
+        if self.teaser_description:
+            return self.teaser_description
+
+        for block in self.body:
+            if block.block_type in ["rich_text", "markdown"]:
+                return truncatewords(striptags(block.render()), 20)
+
+        return None
+
+    def get_og_image(self):
+        return self.screenshot
 
 class AboutPage(Page):
     body = RichTextField()
@@ -217,6 +239,34 @@ class BlogPage(Page):
         context = super(BlogPage, self).get_context(request)
         context['blog_index'] = BlogIndexPage.objects.first()
         return context
+
+    def get_og_type(self):
+        return "article"
+
+    def get_og_description(self):
+        return self.summary
+
+    def get_og_image(self):
+        """
+        Returns the first non-None item of this list:
+
+        * teaser image
+        * banner image
+        * image from first image block in body
+
+        If it reaches the end of that list, returns None.
+        """
+
+        if self.teaser_image:
+            return self.teaser_image
+        if self.banner_image:
+            return self.banner_image
+
+        for block in self.body:
+            if block.block_type == "image":
+                return block.value['image']
+
+        return None
 
 
 class BlogIndexPage(Page):
