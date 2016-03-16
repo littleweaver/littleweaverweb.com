@@ -37,4 +37,25 @@
 
 	document.addEventListener('DOMContentLoaded', setStickyFooterHeight);
 	window.addEventListener('resize', setStickyFooterHeight);
+
+
+	// Animate the Technology pane items when the waypoint is scrolled to
+	// (or already in view).
+	(function () {
+		var elm = document.getElementsByClassName('js-technology-pane-waypoint');
+		if (elm.length === 0) {
+			return;
+		}
+
+		elm[0].className += ' --animation-begin';
+
+		var waypoint = new Waypoint({
+			element: elm[0],
+			offset: 'bottom-in-view',
+			handler: function() {
+				elm[0].className = elm[0].className.replace('--animation-begin', '--animation-start')
+			}
+		});
+
+	})();
 })();
