@@ -11,14 +11,14 @@ app-pkgs:
       - gcc
       - libjpeg8-dev
       - libpq-dev
-      - ruby
-      - ruby-dev
       - imagemagick
+      - npm
 
-bootstrap_sass:
-  gem.installed:
-    - name: bootstrap-sass
-    - version: 3.3.4.1
+autoprefixer-pkgs:
+  npm.installed:
+    - pkgs:
+      - postcss-cli
+      - autoprefixer
     - require:
       - pkg: app-pkgs
 
@@ -51,7 +51,7 @@ webproject_env:
       - pkg: app-pkgs
       - user: webproject
       - file: webproject_dirs
-      - gem: bootstrap_sass
+      - npm: autoprefixer-pkgs
 
 project:
   pip.installed:
