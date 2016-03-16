@@ -191,3 +191,31 @@
 	+media-breakpoint-down(sm)
 		.container--vertically-centered
 			height: 100px
+
+.technology-pane
+	text-align: center
+
+.technology-pane a
+	display: inline-block
+	margin: 1rem
+
+.technology-pane svg
+	height: 40px
+
+.technology-pane svg circle,
+.technology-pane svg rect,
+.technology-pane svg g,
+.technology-pane svg path
+  fill: rgba(255, 255, 255, 0.5)
+
+.technology-pane svg.--no-fill path
+  fill: none
+
+.technology-pane svg.--solid-stroke path
+	stroke: rgb(149, 148, 147)
+
+.technology-pane svg.--solid-fill path
+	fill: rgb(149, 148, 147)
+
+.technology-pane .--solid-path-fg path
+	fill: $technology-pane-bg
