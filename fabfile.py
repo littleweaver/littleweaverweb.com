@@ -1,39 +1,19 @@
+import os
+
 from fabric.api import task, run, put, sudo, cd, env, get
 from fabric.contrib.files import exists
 
 
 env.use_ssh_config = True
+REPO_SLUG = 'django-brambling'
+REPO_URL = "https://github.com/littleweaver/" + REPO_SLUG + ".git"
+DEFAULT_BRANCH = 'wagtail'
+CURRENT_DIR = os.path.dirname(__file__)
 
 
 @task
-def bootstrap_salt(env='production'):
-    run("curl -L https://bootstrap.saltstack.com | sudo sh -s -- -P git v2015.8.2")
-    conf = 'salt.conf'
-    if env == 'staging':
-        conf = 'salt-staging.conf'
-    elif env == 'production':
-        conf = 'salt-production.conf'
-    else:
-        raise ValueError("Unrecognized environment: {}".format(env))
-    put(conf, '/etc/salt/minion', use_sudo=True)
-
-
-@task
-def bootstrap_project(target='wagtail'):
-    put("pillar/deploy_rsa", "/root/.ssh/id_rsa",
-        use_sudo=True, mode=0400)
-    with cd("/var/www/"):
-        if not exists('/var/www/littleweaverweb.com'):
-            sudo("git clone git@github.com:littleweaver/littleweaverweb.com.git")
-        with cd('littleweaverweb.com'):
-            sudo('git fetch')
-            sudo('git stash')
-            sudo('git checkout {}'.format(target))
-            sudo('git reset --hard origin/{}'.format(target))
-            sudo('chmod -R a+rw /var/www/littleweaverweb.com')
-            if not exists('/srv/salt'):
-                sudo('mkdir /srv/salt')
-            sudo("cp -R salt/* /srv/salt")
+def install_salt():
+    run("curl -L https://bootstrap.saltstack.com | sudo sh -s -- -P git a6c0907")
 
 
 @task
@@ -49,9 +29,22 @@ def get_pillar():
 
 
 @task
-def run_management_command(command):
-    full_command = "/bin/bash -l -c 'source /var/www/env/bin/activate && python /var/www/project/manage.py {0}'".format(command)
-    sudo(full_command, user="webproject")
+def deploy_code(branch_or_commit=DEFAULT_BRANCH):
+    put("pillar/deploy_rsa", "/root/.ssh/id_rsa",
+        use_sudo=True, mode=0400)
+    with cd("/var/www/"):
+        project_dir = "/var/www/{}".format(REPO_SLUG)
+        if not exists(project_dir):
+            sudo("git clone {}".format(REPO_URL))
+        with cd(REPO_SLUG):
+            sudo('git fetch')
+            sudo('git stash')
+            sudo('git checkout {}'.format(branch_or_commit))
+            sudo('git reset --hard origin/{}'.format(branch_or_commit))
+            sudo('chmod -R a+rw {}'.format(project_dir))
+            sudo('rm -rf /srv/salt')
+            sudo('mkdir /srv/salt')
+            sudo("cp -R salt/* /srv/salt")
 
 
 @task
@@ -60,10 +53,22 @@ def salt_call():
 
 
 @task
-def full_deploy(env, target='master'):
-    bootstrap_salt(env)
-    bootstrap_project(target)
+def deploy(branch_or_commit=DEFAULT_BRANCH):
+    if not run('which salt-call', quiet=True):
+        install_salt()
+    if not os.path.exists(os.path.join(CURRENT_DIR, 'pillar')):
+        get_pillar()
+    deploy_code(branch_or_commit)
     salt_call()
+    manage('migrate --noinput')
+    manage('collectstatic --noinput')
+    manage('compress --noinput')
+
+
+@task
+def manage(command):
+    full_command = "/bin/bash -l -c 'source /var/www/env/bin/activate && python /var/www/project/manage.py {0}'".format(command)
+    sudo(full_command, user="webproject")
 
 
 @task
