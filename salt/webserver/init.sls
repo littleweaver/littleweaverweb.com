@@ -11,9 +11,16 @@ app-pkgs:
       - gcc
       - libjpeg8-dev
       - libpq-dev
-      - ruby
-      - ruby-dev
       - imagemagick
+      - npm
+
+autoprefixer-pkgs:
+  npm.installed:
+    - pkgs:
+      - postcss-cli
+      - autoprefixer
+    - require:
+      - pkg: app-pkgs
 
 webproject_user:
   user.present:
@@ -44,6 +51,7 @@ webproject_env:
       - pkg: app-pkgs
       - user: webproject
       - file: webproject_dirs
+      - npm: autoprefixer-pkgs
 
 project:
   pip.installed:

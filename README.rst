@@ -36,6 +36,15 @@ Then install the requirements:
 
     pip install -r requirements.txt
 
+Node dependencies
++++++++++++++++++
+
+Install node dependencies.
+
+.. code:: bash
+
+    npm install -g postcss-cli autoprefixer
+
 Database initialization
 +++++++++++++++++++++++
 
