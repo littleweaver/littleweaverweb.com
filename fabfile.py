@@ -5,7 +5,7 @@ from fabric.contrib.files import exists
 
 
 env.use_ssh_config = True
-REPO_SLUG = 'django-brambling'
+REPO_SLUG = 'littleweaverweb.com'
 REPO_URL = "https://github.com/littleweaver/" + REPO_SLUG + ".git"
 DEFAULT_BRANCH = 'wagtail'
 CURRENT_DIR = os.path.dirname(__file__)
