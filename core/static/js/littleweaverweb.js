@@ -47,13 +47,16 @@
 			return;
 		}
 
-		elm[0].className += ' --animation-begin';
+		elm[0].className += ' action--animation-pre';
 
 		var waypoint = new Waypoint({
 			element: elm[0],
 			offset: 'bottom-in-view',
 			handler: function() {
-				elm[0].className = elm[0].className.replace('--animation-begin', '--animation-start')
+				elm[0].className = elm[0].className.replace(
+					'action--animation-pre',
+					'action--animation-start'
+				)
 			}
 		});
 

@@ -195,30 +195,33 @@
 .technology-pane
 	text-align: center
 
-.technology-pane a
-	display: inline-block
-	padding: 1rem
+	a
+		display: inline-block
+		padding: 1rem
 
-.technology-pane svg
-	height: 40px
+	svg
+		height: 40px
 
-.technology-pane svg circle,
-.technology-pane svg rect,
-.technology-pane svg g,
-.technology-pane svg path
-	transition: fill 0.25s ease
-	fill: rgb(149, 148, 147)
+	svg circle,
+	svg rect,
+	svg g,
+	svg path
+		transition: fill 0.25s ease
+		fill: rgb(149, 148, 147)
 
-.technology-pane svg.--no-fill path
-  fill: none
 
-.technology-pane svg.--solid-stroke path
-	transition: stroke 0.25s ease
-	stroke: rgb(149, 148, 147)
+	.svg--no-fill,
+	.svg--no-fill path
+		fill: none
 
-.technology-pane path.--solid-path-fg,
-.technology-pane svg.--solid-path-fg path
-	fill: $technology-pane-bg
+	.svg--solid-stroke,
+	.svg--solid-stroke path
+		transition: stroke 0.25s ease
+		stroke: rgb(149, 148, 147)
+
+	.svg--solid-path-fg,
+	.svg--solid-path-fg path
+		fill: $technology-pane-bg
 
 @keyframes fade-in
 	from
@@ -227,10 +230,10 @@
 	to:
 		opacity: 1
 
-.technology-pane ul.--animation-begin li
+.technology-pane ul.action--animation-pre li
 	opacity: 0
 
-.technology-pane ul.--animation-start li
+.technology-pane ul.action--animation-start li
 	animation-name: fade-in
 	animation-duration: 0.6s
 	animation-fill-mode: both
@@ -247,12 +250,14 @@
 	path
 		fill: rgb(197, 196, 195)
 
-	svg.--solid-stroke path
+	.svg--solid-stroke,
+	.svg--solid-stroke path
 		stroke: rgb(197, 196, 195)
 
-	path.--solid-path-fg,
-	svg.--solid-path-fg path
+	.svg--solid-path-fg,
+	.svg--solid-path-fg path
 		fill: $technology-pane-bg
 
-	svg.--no-fill path
+	.svg--no-fill,
+	.svg--no-fill path
 		fill: none
