@@ -12,7 +12,7 @@ app-pkgs:
       - libjpeg8-dev
       - libpq-dev
       - imagemagick
-      - node
+      - nodejs
       - npm
 
 autoprefixer-pkgs:
