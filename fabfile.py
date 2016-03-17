@@ -62,7 +62,7 @@ def deploy(branch_or_commit=DEFAULT_BRANCH):
     salt_call()
     manage('migrate --noinput')
     manage('collectstatic --noinput')
-    manage('compress --noinput')
+    manage('compress')
 
 
 @task
