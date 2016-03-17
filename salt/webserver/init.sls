@@ -13,6 +13,7 @@ app-pkgs:
       - libpq-dev
       - imagemagick
       - nodejs
+      - nodejs-legacy
       - npm
 
 autoprefixer-pkgs:
