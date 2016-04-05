@@ -154,7 +154,8 @@ class ServicesPage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
         ImageChooserPanel('banner_image'),
-        InlinePanel('services', label="Services")
+        InlinePanel('services', label="Services"),
+        InlinePanel('technologies', label="Technologies"),
     ]
 
 
@@ -169,6 +170,22 @@ class Service(Orderable):
         ImageChooserPanel('image'),
         FieldPanel('title'),
         FieldPanel('body')
+    ]
+
+
+class Technology(Orderable):
+    page = ParentalKey(ServicesPage, related_name='technologies')
+    vector = models.TextField(
+            help_text="SVG contents. It is recommended to use a compressor such as https://jakearchibald.github.io/svgomg/ and remove width/height attributes. It should always have a viewBox attribute.")
+    label = models.CharField(max_length=255)
+    link = models.URLField(max_length=255,
+            null=True, blank=True,
+            help_text="External URL of the Technology.")
+
+    panels = [
+        FieldPanel('label'),
+        FieldPanel('link'),
+        FieldPanel('vector'),
     ]
 
 

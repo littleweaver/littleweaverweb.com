@@ -84,6 +84,7 @@
 		{% wagtailuserbar %}
 
 		{% compress js inline %}
+			<script type="text/javascript" src="{% static 'js/waypoints.4.0.0.min.js' %}"></script>
 			<script type="text/javascript" src="{% static 'js/littleweaverweb.js' %}"></script>
 		{% endcompress %}
 		{% block extra_js %}{% endblock %}
