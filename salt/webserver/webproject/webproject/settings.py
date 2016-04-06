@@ -28,6 +28,7 @@ SECRET_KEY = '{{ pillar["deploy"]["secret_key"] }}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = {% if pillar['deploy']['debug'] %}True{% else %}False{% endif %}
+TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
 ALLOWED_HOSTS = ['{{ pillar["deploy"]["server_name"] }}']
 
