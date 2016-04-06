@@ -29,6 +29,8 @@ SECRET_KEY = '{{ pillar["deploy"]["secret_key"] }}'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = {% if pillar['deploy']['debug'] %}True{% else %}False{% endif %}
 
+ALLOWED_HOSTS = ['{{ pillar["deploy"]["server_name"] }}']
+
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
