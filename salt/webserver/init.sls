@@ -115,6 +115,8 @@ nginx:
     - running
     - watch:
       - file: nginx_conf
+    - require_in:
+        - file: letsencrypt-config
     - require:
         - pkg: nginx
 
@@ -127,6 +129,15 @@ nginx_conf:
     - mode: 755
     - user: nginx
     - group: nginx
+    - require:
+      - pkg: nginx
+
+letsencrypt_webroot_dir:
+  file.directory:
+    - user: nginx
+    - group: nginx
+    - makedirs: true
+    - name: {{ pillar['letsencrypt']['webroot_dir'] }}
     - require:
       - pkg: nginx
 
