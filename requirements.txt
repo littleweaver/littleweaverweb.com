@@ -19,6 +19,7 @@ markdown>=2.0,<3.0
 Pillow==3.2.0
 psycopg2==2.5.1
 pygments>=2.0,<3.0
+python-http-client==1.2.3
 pytz==2016.3
 rcssmin==1.0.6
 rjsmin==1.0.12
