@@ -1,9 +1,11 @@
 from django.db import models
 
+from django.utils.six import text_type
 from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.wagtailadmin.utils import send_mail
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page, Orderable
@@ -308,3 +310,14 @@ class EmailFormPage(AbstractEmailForm):
             FieldPanel('subject', classname="full"),
         ], "Email")
     ]
+
+    def process_form_submission(self, form):
+        super(AbstractEmailForm, self).process_form_submission(form)
+
+        if self.to_address:
+            content = '\n'.join([x[1].label + ': ' + text_type(form.data.get(x[0])) for x in form.fields.items()])
+            if 'your-name' in form.data and 'your-email' in form.data:
+                subject = u'{}: {} <{}>'.format(self.subject, form.data['your-name'], form.data['your-email'])
+            else:
+                subject = self.subject
+            send_mail(subject, content, [self.to_address], self.from_address,)
