@@ -60,6 +60,7 @@ class Technology(models.Model):
         blank=True,
         help_text='External URL for the technology')
     logo = models.TextField(
+        blank=True,
         help_text="SVG contents. It is recommended to use a compressor such as https://jakearchibald.github.io/svgomg/ and remove width/height attributes. It should always have a viewBox attribute.")
 
     class Meta:
