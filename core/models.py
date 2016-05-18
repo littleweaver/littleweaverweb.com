@@ -119,11 +119,14 @@ class WorkPage(Page):
                            help_text="Background image for homepage stripe. Should be blurred or low entropy for light text to be legible on it.",
                            related_name="+")
     client_name = models.CharField(max_length=255)
+    project_name = models.CharField(max_length=255)
     project_date = models.DateField(blank=True, null=True,
                             help_text="Approximate date of project completion.")
     link = models.URLField(max_length=255, null=True, blank=True,
                             help_text="External URL of the project.",
                             verbose_name="Client External URL")
+    services = models.ManyToManyField(Service, blank=True)
+    technologies = models.ManyToManyField(Technology, blank=True)
 
     # Details for teasers on other pages:
     teaser_title = models.CharField(max_length=255, blank=True)
@@ -137,7 +140,10 @@ class WorkPage(Page):
             FieldPanel('link'),
             ImageChooserPanel('screenshot'),
             FieldPanel('client_name'),
+            FieldPanel('project_name'),
             FieldPanel('project_date'),
+            FieldPanel('services'),
+            FieldPanel('technologies'),
         ], "Project Details")
     ]
 
