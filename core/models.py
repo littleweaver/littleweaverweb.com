@@ -44,6 +44,31 @@ class OpenGraphAndMetaSettings(BaseSetting):
         verbose_name = 'Head Meta'
 
 
+@register_snippet
+class Service(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return self.name
+
+
+@register_snippet
+class Technology(models.Model):
+    name = models.CharField(max_length=255)
+    link = models.URLField(
+        max_length=255,
+        blank=True,
+        help_text='External URL for the technology')
+    logo = models.TextField(
+        help_text="SVG contents. It is recommended to use a compressor such as https://jakearchibald.github.io/svgomg/ and remove width/height attributes. It should always have a viewBox attribute.")
+
+    class Meta:
+        verbose_name_plural = 'technologies'
+
+    def __unicode__(self):
+        return self.name
+
+
 class SimplePage(Page):
     body = StreamField([
         ('rich_text', blocks.RichTextBlock(icon='doc-full', label='Rich Text')),
@@ -160,8 +185,13 @@ class ServicesPage(Page):
         InlinePanel('technologies', label="Technologies"),
     ]
 
+    def get_context(self, request):
+        context = super(ServicesPage, self).get_context(request)
+        context['technologies'] = Technology.objects.filter(technologysection__page=self)
+        return context
 
-class Service(Orderable):
+
+class ServiceSection(Orderable):
     page = ParentalKey(ServicesPage, related_name='services')
     image = models.ForeignKey('wagtailimages.Image', null=True, blank=True,
                               on_delete=models.SET_NULL)
@@ -175,19 +205,12 @@ class Service(Orderable):
     ]
 
 
-class Technology(Orderable):
+class TechnologySection(Orderable):
     page = ParentalKey(ServicesPage, related_name='technologies')
-    vector = models.TextField(
-            help_text="SVG contents. It is recommended to use a compressor such as https://jakearchibald.github.io/svgomg/ and remove width/height attributes. It should always have a viewBox attribute.")
-    label = models.CharField(max_length=255)
-    link = models.URLField(max_length=255,
-            null=True, blank=True,
-            help_text="External URL of the Technology.")
+    technology = models.ForeignKey(Technology)
 
     panels = [
-        FieldPanel('label'),
-        FieldPanel('link'),
-        FieldPanel('vector'),
+        SnippetChooserPanel('technology'),
     ]
 
 
