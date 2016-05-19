@@ -37,27 +37,25 @@
 		</div>
 	</div>
 
-	{% with technologies=page.technologies.all %}
-		{% if technologies %}
-			<section class="pane--green-dark text-center">
-				<div class="container p-y-3">
+	{% if technologies %}
+		<section class="pane--green-dark text-center">
+			<div class="container p-y-3">
 
-					<h1 class="color-gray-mid heading--quiet">Technologies</h1>
+				<h1 class="color-gray-mid heading--quiet">Technologies</h1>
 
-					<ul class="list-inline list--vectors js-technology-pane-waypoint">
-						{% for technology in technologies %}
-							<li class="list-inline-item">
-								<a href="{{ technology.link }}" target="_blank" title="{{ technology.label }}">
-									<span class="sr-only">{{ technology.label }}</span>
-									<span role="presentation">{{ technology.vector|safe }}</span>
-								</a>
-							</li>
-						{% endfor %}
-					</ul>
+				<ul class="list-inline list--vectors js-technology-pane-waypoint">
+					{% for technology in technologies %}
+						<li class="list-inline-item">
+							<a href="{{ technology.link }}" target="_blank" title="{{ technology.label }}">
+								<span class="sr-only">{{ technology.label }}</span>
+								<span role="presentation">{{ technology.logo|safe }}</span>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
 
-				</div>
-			</section>
-		{% endif %}
-	{% endwith %}
+			</div>
+		</section>
+	{% endif %}
 
 {% endblock %}
