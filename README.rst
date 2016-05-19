@@ -58,7 +58,7 @@ The first time you run, you'll need to run migrations and create a superuser:
 Get it running
 --------------
 
-If you are using virtualenv and RVM, ensure that you are on the appropriate virtual environment, gemset, and ruby version. E.g.,
+If you are using virtualenv, ensure that you are on the appropriate virtual environment:
 
 .. code:: bash
 
