@@ -9,12 +9,25 @@
 		<div class='row m-b-1'>
 			<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
 				<h1 class="m-y-1 color-black">{{ self.teaser_title }}</h1>
-				<h2 class="color-gray-mid">{{ self.client_name }}</h2>
+				<h2 class="color-gray-dark">{{ self.project_name }}</h2>
+				<h3 class="color-gray-mid">{{ self.client_name }}</h3>
+				<hr> <!-- Hopefully temp fix for services running into logo? -->
 			</div>
 		</div>
-
 		<div class="row m-b-3">
-			<div class='col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6 m-b-2'>
+			<div class="col-sm-3 col-md-2 text-sm-right">
+				<ul class="list--margin-separated text-uppercase text-bold m-a-0-xs-down">
+					{% for service in self.services.all %}
+						<li class="list-comma-item-xs-down">{{ service }}</li>
+					{% endfor %}
+				</ul>
+				<ul class="list--margin-separated">
+					{% for technology in self.technologies.all %}
+						<li class="list-comma-item-xs-down">{{ technology }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class='col-sm-9 col-md-8 col-lg-6 m-b-2'>
 				{% if page.screenshot %}
 					<div class="browser">
 						<div class="titlebar">

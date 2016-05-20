@@ -12,8 +12,8 @@
 			<h4>{{ item.project_name }}</h4>
 			{{ item.teaser_description|richtext }}
 			<ul class="list-comma text-uppercase m-t-1 small">
-				{% for technology in item.services.all %}
-					<li class="list-comma-item">{{ technology }}</li>
+				{% for service in item.services.all %}
+					<li class="list-comma-item">{{ service }}</li>
 				{% endfor %}
 			</ul>
 		</div>
