@@ -17,7 +17,7 @@
 				<meta property="og:image" content="{{ og_image.url }}"/>
 			{% endif %}
 		{% endblock %}
-
+		<meta property="og:url" content="{{ request.build_absolute_uri }}" />
 		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
 		<meta property="og:description" content="{% include "core/_page_description.html" %}" />
 
