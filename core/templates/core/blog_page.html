@@ -10,6 +10,8 @@
 	{% endif %}
 {% endblock %}
 
+{% block twitter_creator %}{% if page.author.twitter_username %}<meta name="twitter:creator" content="@{{ page.author.twitter_username }}" />{% endif %}{% endblock %}
+
 {% block body_classes %}{% if not page.banner_image %}no-banner{% endif %}{% endblock %}
 
 {% block main %}
