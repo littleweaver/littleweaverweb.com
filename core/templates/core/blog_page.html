@@ -2,6 +2,14 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
+{% block og_type %}article{% endblock %}
+{% block og_image %}
+	{% if page.teaser_image %}
+		{% image page.teaser_image original as og_image %}
+		<meta property="og:image" content="{{ og_image.url }}"/>
+	{% endif %}
+{% endblock %}
+
 {% block body_classes %}{% if not page.banner_image %}no-banner{% endif %}{% endblock %}
 
 {% block main %}
