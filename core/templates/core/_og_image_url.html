@@ -1,0 +1,11 @@
+{% load wagtailimages_tags %}
+{% if self.teaser_image %}
+    {% image self.teaser_image original as og_image %}
+    {{ og_image.url }}
+{% elif self.screenshot %}
+    {% image self.screenshot original as og_image %}
+    {{ og_image.url }}
+{% elif settings.core.OpenGraphAndMetaSettings.open_graph_image %}
+    {% image settings.core.OpenGraphAndMetaSettings.open_graph_image original as og_image %}
+    {{ og_image.url }}
+{% endif %}

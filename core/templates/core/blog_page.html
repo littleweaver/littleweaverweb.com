@@ -2,15 +2,13 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block og_type %}article{% endblock %}
-{% block og_image %}
-	{% if page.teaser_image %}
-		{% image page.teaser_image original as og_image %}
-		<meta property="og:image" content="{{ og_image.url }}"/>
+{% block meta %}
+	{{ block.super }}
+	<meta property="og:type" content="article" />
+	{% if page.author.twitter_username %}
+		<meta name="twitter:creator" content="@{{ page.author.twitter_username }}" />
 	{% endif %}
 {% endblock %}
-
-{% block twitter_creator %}{% if page.author.twitter_username %}<meta name="twitter:creator" content="@{{ page.author.twitter_username }}" />{% endif %}{% endblock %}
 
 {% block body_classes %}{% if not page.banner_image %}no-banner{% endif %}{% endblock %}
 

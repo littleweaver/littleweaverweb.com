@@ -1,1 +1,1 @@
-{% if self.summary %}{{ self.summary }}{% else %}{{ settings.core.OpenGraphAndMetaSettings.meta_description }}{% endif %}
+{% if self.summary %}{{ self.summary }}{% elif self.teaser_title %}{{ self.teaser_title }}{% else %}{{ settings.core.OpenGraphAndMetaSettings.meta_description }}{% endif %}

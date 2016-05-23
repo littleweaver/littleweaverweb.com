@@ -4,6 +4,11 @@
 
 {% block body_classes %}no-banner{% endblock %}
 
+{% block meta %}
+	{{ block.super }}
+	<meta property="og:type" content="website" />
+{% endblock %}
+
 {% block main %}
 	<div class='container m-r-1-sm-only'>
 		<div class='row'>

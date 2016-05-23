@@ -7,6 +7,11 @@
 
 {% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
 
+{% block meta %}
+	{{ block.super }}
+	<meta property="og:type" content="website" />
+{% endblock %}
+
 {% block main %}
 	{% if self.featured_work %}
 		{% with work=self.featured_work %}

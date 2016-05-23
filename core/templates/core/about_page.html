@@ -2,6 +2,11 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
+{% block meta %}
+	{{ block.super }}
+	<meta property="og:type" content="website" />
+{% endblock %}
+
 {% block main %}
 	{% image page.banner_image fill-1650x500 as banner_image %}
 	<div class="banner-image m-b-3" style="background-image:url({{ banner_image.url }});background-position:top center;">

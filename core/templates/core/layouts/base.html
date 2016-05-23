@@ -4,26 +4,20 @@
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
-
+		{% block meta %}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="description" content="{% include "core/_page_description.html" %}" />
 		<meta property="og:site_name" content="Little Weaver Web Collective"/>
-		<meta property="og:type" content="{% block og_type %}website{% endblock %}"/>
-		{% block og_image %}
-			{% if settings.core.OpenGraphAndMetaSettings.open_graph_image %}
-				{% image settings.core.OpenGraphAndMetaSettings.open_graph_image original as og_image %}
-				<meta property="og:image" content="{{ og_image.url }}"/>
-			{% endif %}
-		{% endblock %}
+		<meta property="og:image" content="{% spaceless %}{% include "core/_og_image_url.html" %}{% endspaceless %}" />
 		<meta property="og:url" content="{{ request.build_absolute_uri }}" />
 		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
 		<meta property="og:description" content="{% include "core/_page_description.html" %}" />
 
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@littleweaverweb">
-		{% block twitter_creator %}{% endblock %}
+		{% endblock %}
 
 		<title>{% include "core/_page_title.html" %}</title>
 
