@@ -2,7 +2,7 @@ from .base import *
 
 
 DEBUG = True
-TEMPLATE_DEBUG = True
+TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
 SECRET_KEY = 'NOTSECRET'
 

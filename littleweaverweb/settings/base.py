@@ -1,6 +1,8 @@
 import os
 from os.path import abspath, dirname, join
 
+from django.conf import global_settings
+
 # Absolute filesystem path to the Django project directory:
 PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
 
@@ -10,8 +12,6 @@ PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailsearch',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
+    'wagtail.contrib.settings',
 
     'core',
 )
@@ -125,15 +126,51 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
     ('text/x-sass', 'django_libsass.SassCompiler'),
 )
+COMPRESS_CSS_FILTERS = (
+    'django_compressor_autoprefixer.AutoprefixerFilter',
+)
+# Based on: https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/Gruntfile.js#L24
+_browsers = [
+    'Chrome >= 35',
+    'Firefox >= 31',
+    'Edge >= 12',
+    'Explorer >= 9',
+    'iOS >= 8',
+    'Safari >= 8',
+    'Android 2.3',
+    'Android >= 4',
+    'Opera >= 12',
+]
+COMPRESS_AUTOPREFIXER_ARGS = '--use autoprefixer --autoprefixer.browsers "{}"'.format(','.join(_browsers))
 
 
 # Template configuration
 
-from django.conf import global_settings
-
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-    'django.core.context_processors.request',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            # insert your TEMPLATE_DIRS here
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.request',
+                'wagtail.contrib.settings.context_processors.settings',
+            ],
+            'debug': True,
+        },
+    },
+]
 
 
 # Wagtail settings

@@ -28,6 +28,9 @@ SECRET_KEY = '{{ pillar["deploy"]["secret_key"] }}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = {% if pillar['deploy']['debug'] %}True{% else %}False{% endif %}
+TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
+
+ALLOWED_HOSTS = ['{{ pillar["deploy"]["server_name"] }}']
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -45,8 +48,8 @@ DATABASES = {
 
 DEFAULT_FROM_EMAIL = '{{ pillar["deploy"]["default_from_email"] }}'
 SERVER_EMAIL = '{{ pillar["deploy"]["server_email"] }}'
-MANDRILL_API_KEY = '{{ pillar["deploy"]["mandrill_api_key"] }}'
-EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+SENDGRID_API_KEY = '{{ pillar["deploy"]["sendgrid_api_key"] }}'
+EMAIL_BACKEND = "sgbackend.SendGridBackend"
 
 GOOGLE_ANALYTICS_UA = 'UA-52154832-3'
 GOOGLE_ANALYTICS_DOMAIN = 'littleweaverweb.com'

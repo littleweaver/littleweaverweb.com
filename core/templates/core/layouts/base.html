@@ -1,4 +1,5 @@
 {% load compress staticfiles wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 <!DOCTYPE html>
 <html class="no-js">
@@ -7,13 +8,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="description" content="Little Weaver Web Collective is a cooperative web development group." />
+		<meta name="description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="Little Weaver Web Collective"/>
-		<meta property="og:image" content="{{ site.url }}/static/images/facebook.gif"/>
+		{% if settings.core.OpenGraphAndMetaSettings.open_graph_image %}
+			{% image settings.core.OpenGraphAndMetaSettings.open_graph_image original as og_image %}
+			<meta property="og:image" content="{{ og_image.url }}"/>
+		{% endif %}
 		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
-		<meta property="og:description" content="Little Weaver Web Collective is a cooperative web development group." />
+		<meta property="og:description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
 
 		<title>{% include "core/_page_title.html" %}</title>
 
@@ -24,9 +28,6 @@
 
 		<script type="text/javascript" src="//use.typekit.net/kir3awt.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		{% compress js %}
-			<script type="text/javascript" src="{% static 'js/littleweaverweb.js' %}"></script>
-		{% endcompress %}
 
 		{# Generated using http://realfavicongenerator.net/ #}
 		<link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicons/apple-touch-icon-57x57.png' %}">
@@ -47,23 +48,34 @@
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="msapplication-TileImage" content="{% static 'img/favicons/mstile-144x144.png' %}">
 		<meta name="theme-color" content="#ffffff">
+		{% if settings.core.OpenGraphAndMetaSettings.ga_id %}
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+				ga('create', '{{ settings.core.OpenGraphAndMetaSettings.ga_id }}', 'auto');
+				ga('send', 'pageview');
+			</script>
+		{% endif %}
 	</head>
 	<body class="{% block body_classes %}{% endblock %}">
 
 		{% block body %}{% endblock %}
 
-		<footer class="site-footer p-y-3">
+		<footer class="js-site-footer site-footer p-y-3">
 			<div class="muted container">
 				<div class="row">
-					<div class="col-sm-4">
-						<a href="/contact">Contact Us</a><br />
-						<a href="http://twitter.com/littleweaverweb" class="color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-twitter"></i> <span class="sr-only">Twitter</span></a>
-						<a href="http://facebook.com/littleweaverwebcollective" class="color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-facebook-square"></i> <span class="sr-only">Facebook</span></a>
-						<a href="http://github.com/littleweaver" class="color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-github"></i> <span class="sr-only">GitHub</span></a>
+					<div class="col-md-6">
+						<a href="/contact" class="btn-contact-us btn-green-outline m-r-1">Contact Us</a>
+						<a href="http://twitter.com/littleweaverweb" class="social-link color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-twitter"></i> <span class="sr-only">Twitter</span></a>
+						<a href="http://facebook.com/littleweaverwebcollective" class="social-link color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-facebook-square"></i> <span class="sr-only">Facebook</span></a>
+						<a href="http://github.com/littleweaver" class="social-link color-gray-mid color-white-hover link-no-underline"><i class="fa fa-fw fa-lg fa-github"></i> <span class="sr-only">GitHub</span></a>
 					</div>
-					<div class="col-sm-8 text-right-sm-up">
-						&copy; {% now "Y" %} Little Weaver Web Collective, LLC.<br />
-						<i class="fa fa-heart-o color-red"></i> Made with love.
+					<div class="col-md-6 text-md-right">
+						<p>&copy; {% now "Y" %}  Little Weaver Web Collective, LLC.</p>
+						<p><i class="fa fa-heart-o color-red"></i> Made with love.</p>
 					</div>
 				</div>
 			</div>
@@ -71,7 +83,10 @@
 
 		{% wagtailuserbar %}
 
+		{% compress js inline %}
+			<script type="text/javascript" src="{% static 'js/waypoints.4.0.0.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/littleweaverweb.js' %}"></script>
+		{% endcompress %}
 		{% block extra_js %}{% endblock %}
-
 	</body>
 </html>

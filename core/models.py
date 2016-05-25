@@ -1,8 +1,11 @@
 from django.db import models
 
+from django.utils.six import text_type
 from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.wagtailadmin.utils import send_mail
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page, Orderable
@@ -14,6 +17,61 @@ from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
 from blocks import CodeBlock, QuoteBlock, MarkdownBlock, CaptionedImageBlock
+
+
+@register_setting
+class OpenGraphAndMetaSettings(BaseSetting):
+    open_graph_image = models.ForeignKey('wagtailimages.Image', null=True, blank=True,
+                              on_delete=models.SET_NULL)
+
+    meta_description = models.CharField(
+        max_length=255,
+        help_text='meta[name="description"] and og:description')
+
+    ga_id = models.CharField(
+        null=True,
+        blank=True,
+        max_length=30,
+        help_text='Google Analytics Tracking ID, e.g., UA-12345678-1')
+
+    panels = [
+        ImageChooserPanel('open_graph_image'),
+        FieldPanel('meta_description'),
+        FieldPanel('ga_id'),
+    ]
+
+    class Meta:
+        verbose_name = 'Head Meta'
+
+
+@register_snippet
+class Service(models.Model):
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ('name',)
+
+    def __unicode__(self):
+        return self.name
+
+
+@register_snippet
+class Technology(models.Model):
+    name = models.CharField(max_length=255)
+    link = models.URLField(
+        max_length=255,
+        blank=True,
+        help_text='External URL for the technology')
+    logo = models.TextField(
+        blank=True,
+        help_text="SVG contents. It is recommended to use a compressor such as https://jakearchibald.github.io/svgomg/ and remove width/height attributes. It should always have a viewBox attribute.")
+
+    class Meta:
+        verbose_name_plural = 'technologies'
+        ordering = ('name',)
+
+    def __unicode__(self):
+        return self.name
 
 
 class SimplePage(Page):
@@ -66,11 +124,14 @@ class WorkPage(Page):
                            help_text="Background image for homepage stripe. Should be blurred or low entropy for light text to be legible on it.",
                            related_name="+")
     client_name = models.CharField(max_length=255)
+    project_name = models.CharField(max_length=255)
     project_date = models.DateField(blank=True, null=True,
                             help_text="Approximate date of project completion.")
     link = models.URLField(max_length=255, null=True, blank=True,
                             help_text="External URL of the project.",
                             verbose_name="Client External URL")
+    services = models.ManyToManyField(Service, blank=True)
+    technologies = models.ManyToManyField(Technology, blank=True)
 
     # Details for teasers on other pages:
     teaser_title = models.CharField(max_length=255, blank=True)
@@ -84,7 +145,10 @@ class WorkPage(Page):
             FieldPanel('link'),
             ImageChooserPanel('screenshot'),
             FieldPanel('client_name'),
+            FieldPanel('project_name'),
             FieldPanel('project_date'),
+            FieldPanel('services'),
+            FieldPanel('technologies'),
         ], "Project Details")
     ]
 
@@ -128,11 +192,17 @@ class ServicesPage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
         ImageChooserPanel('banner_image'),
-        InlinePanel('services', label="Services")
+        InlinePanel('services', label="Services"),
+        InlinePanel('technologies', label="Technologies"),
     ]
 
+    def get_context(self, request):
+        context = super(ServicesPage, self).get_context(request)
+        context['technologies'] = Technology.objects.filter(technologysection__page=self)
+        return context
 
-class Service(Orderable):
+
+class ServiceSection(Orderable):
     page = ParentalKey(ServicesPage, related_name='services')
     image = models.ForeignKey('wagtailimages.Image', null=True, blank=True,
                               on_delete=models.SET_NULL)
@@ -143,6 +213,15 @@ class Service(Orderable):
         ImageChooserPanel('image'),
         FieldPanel('title'),
         FieldPanel('body')
+    ]
+
+
+class TechnologySection(Orderable):
+    page = ParentalKey(ServicesPage, related_name='technologies')
+    technology = models.ForeignKey(Technology)
+
+    panels = [
+        SnippetChooserPanel('technology'),
     ]
 
 
@@ -265,3 +344,14 @@ class EmailFormPage(AbstractEmailForm):
             FieldPanel('subject', classname="full"),
         ], "Email")
     ]
+
+    def process_form_submission(self, form):
+        super(AbstractEmailForm, self).process_form_submission(form)
+
+        if self.to_address:
+            content = '\n'.join([x[1].label + ': ' + text_type(form.data.get(x[0])) for x in form.fields.items()])
+            if 'your-name' in form.data and 'your-email' in form.data:
+                subject = u'{}: {} <{}>'.format(self.subject, form.data['your-name'], form.data['your-email'])
+            else:
+                subject = self.subject
+            send_mail(subject, content, [self.to_address], self.from_address,)

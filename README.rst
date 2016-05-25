@@ -36,6 +36,15 @@ Then install the requirements:
 
     pip install -r requirements.txt
 
+Node dependencies
++++++++++++++++++
+
+Install node dependencies.
+
+.. code:: bash
+
+    npm install -g postcss-cli autoprefixer
+
 Database initialization
 +++++++++++++++++++++++
 
@@ -49,7 +58,7 @@ The first time you run, you'll need to run migrations and create a superuser:
 Get it running
 --------------
 
-If you are using virtualenv and RVM, ensure that you are on the appropriate virtual environment, gemset, and ruby version. E.g.,
+If you are using virtualenv, ensure that you are on the appropriate virtual environment:
 
 .. code:: bash
 

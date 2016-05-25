@@ -2,9 +2,6 @@
 @import bootstrap/bootstrap
 
 @import utilities/colors
-@import utilities/margins
-@import utilities/padded
-@import utilities/text
 
 @import modules/base
 
@@ -17,11 +14,15 @@
 @import modules/hidden
 @import modules/image
 @import modules/links
+@import modules/margins
 @import modules/navs
 @import modules/pane
 @import modules/pygments
 @import modules/site-header
 
+
+.text-center
+	text-align: center
 
 .container
 	max-width: none
@@ -124,7 +125,6 @@
 	margin-bottom: 1em
 
 .block-image img
-	@extend .margin-trailer
 	max-width: 100%
 	height: auto
 	margin-left: auto
@@ -133,3 +133,131 @@
 .site-footer
 	color: $gray-light
 	background: $black-almost
+
+	.social-link
+		transition: all 0.25s ease
+		line-height: 1rem * 2 * 1.5  // font-size * num paragraphs * line-height
+		padding: 1rem 0.25rem
+		font-size: 1.25rem  // Larger social icons
+
+		.fa
+			line-height: 2rem
+
+	p
+		margin: 0
+
+	+media-breakpoint-down(sm)
+		text-align: center
+
+		.row > div:not(:last-child)
+			margin-bottom: $spacer
+
+		p + p
+			margin-top: $spacer
+
+@media (max-width: 300px)
+	.btn-contact-us
+		display: block
+		width: 80%
+		margin-left: 10%
+
+.container--vertically-centered
+	display: table
+	width: 100%
+
+	> *
+		display: table-cell
+		vertical-align: middle
+
+.services-pane
+	+media-breakpoint-up(sm)
+		.container--vertically-centered
+			height: 100px
+
+	+media-breakpoint-up(lg)
+		.container--vertically-centered
+			height: 120px
+
+	+media-breakpoint-up(xl)
+		.container--vertically-centered
+			height: 100px
+
+.home-services-pane
+	.container--vertically-centered
+		height: 60px
+
+	+media-breakpoint-down(lg)
+		.container--vertically-centered
+			height: 75px
+
+	+media-breakpoint-down(sm)
+		.container--vertically-centered
+			height: 100px
+
+ul.list--vectors
+	a
+		display: inline-block
+		padding: 1rem
+
+	svg
+		height: 40px
+
+	svg circle,
+	svg rect,
+	svg g,
+	svg path
+		transition: fill 0.25s ease
+		fill: rgb(149, 148, 147)
+
+
+	.svg--no-fill,
+	.svg--no-fill path
+		fill: none
+
+	.svg--solid-stroke,
+	.svg--solid-stroke path
+		transition: stroke 0.25s ease
+		stroke: rgb(149, 148, 147)
+
+	.svg--green-dark-fill,
+	.svg--green-dark-fill path
+		fill: $green-dark-variant
+
+@keyframes fade-in
+	from
+		opacity: 0
+
+	to:
+		opacity: 1
+
+ul.animation-fade-in--pre li
+	opacity: 0
+
+ul.animation-fade-in--start li
+	animation-name: fade-in
+	animation-duration: 0.6s
+	animation-fill-mode: both
+	animation-timing-function: linear
+
+	@for $i from 2 through 12
+		&:nth-child(#{$i})
+			animation-delay: ($i - 1) * (0.2s - (min($i, 5) * 0.01))
+
+ul.list--vectors li a:hover
+	circle,
+	rect,
+	g,
+	path
+		fill: rgb(197, 196, 195)
+
+	.svg--solid-stroke,
+	.svg--solid-stroke path
+		stroke: rgb(197, 196, 195)
+
+	.svg--green-dark-fill,
+	.svg--green-dark-fill path
+		fill: $green-dark-variant
+
+	.svg--no-fill,
+	.svg--no-fill path
+		fill: none

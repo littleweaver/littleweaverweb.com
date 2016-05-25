@@ -73,7 +73,10 @@ class CaptionedImageBlock(blocks.StructBlock):
 
     image = ImageChooserBlock()
     caption = blocks.RichTextBlock(required=False)
-    is_screenshot = blocks.BooleanBlock(required=False)
+    is_screenshot = blocks.BooleanBlock(required=False,
+                        help_text="Display image in a mock broswer window. Must be 810px wide, or 1110px wide if displayed full-width.")
+    full_width = blocks.BooleanBlock(required=False,
+                        help_text="Display image at the full width of the container. IF also a screenshot, must be at least 1110px wide.")
 
     class Meta:
         template = 'core/blocks/captioned_image.html'

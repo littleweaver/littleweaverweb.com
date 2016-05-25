@@ -1,0 +1,14 @@
+.m-x-3-1-1-3
+	margin-right: 3rem
+	margin-left: 3rem
+	+media-breakpoint-between(sm,md)
+		margin-left: 1rem
+		margin-right: 1rem
+
++media-breakpoint-down(xs)
+	.m-b-1-xs-down
+		margin-bottom: $spacer-y
+
+.m-r-1-sm-only
+	+media-breakpoint-only(sm)
+		margin-right: 1*$spacer-x

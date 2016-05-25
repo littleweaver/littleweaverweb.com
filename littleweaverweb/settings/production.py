@@ -4,18 +4,11 @@ import dj_database_url
 # Disable debug mode
 
 DEBUG = False
-TEMPLATE_DEBUG = False
+TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
 DATABASES['default'] =  dj_database_url.config()
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-
-# Compress static files offline
-# http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
-
-COMPRESS_OFFLINE = True
-COMPRESS_ENABLED = True
-COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 AWS_STORAGE_BUCKET_NAME = os.environ.get("S3_BUCKET_NAME")
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
@@ -27,6 +20,13 @@ STATICFILES_STORAGE = 'littleweaverweb.settings.custom_storages.StaticStorage'
 MEDIAFILES_LOCATION = 'media'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'littleweaverweb.settings.custom_storages.MediaStorage'
+
+# Compress static files offline
+# http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
+
+COMPRESS_OFFLINE = True
+COMPRESS_ENABLED = True
+COMPRESS_STORAGE = STATICFILES_STORAGE
 
 # Send notification emails as a background task using Celery,
 # to prevent this from blocking web server threads

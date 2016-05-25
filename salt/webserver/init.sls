@@ -2,6 +2,18 @@ include:
   - circus
   - database
 
+nodejs.ppa:
+  pkg.installed:
+    - name: apt-transport-https
+  pkgrepo.managed:
+    - humanname: NodeSource Node.js Repository
+    - name: deb {{ salt['pillar.get']('node:ppa:repository_url', 'https://deb.nodesource.com/node_0.12') }} {{ grains['oscodename'] }} main
+    - dist: {{ grains['oscodename'] }}
+    - file: /etc/apt/sources.list.d/nodesource.list
+    - key_url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    - require:
+      - pkg: nodejs.ppa
+
 app-pkgs:
   pkg.installed:
     - names:
@@ -11,14 +23,18 @@ app-pkgs:
       - gcc
       - libjpeg8-dev
       - libpq-dev
-      - ruby
-      - ruby-dev
       - imagemagick
+      - nodejs
+      - nodejs-legacy
+      - npm
+    - require:
+      - pkgrepo: nodejs.ppa
 
-bootstrap_sass:
-  gem.installed:
-    - name: bootstrap-sass
-    - version: 3.3.4.1
+autoprefixer-pkgs:
+  npm.installed:
+    - pkgs:
+      - postcss-cli
+      - autoprefixer
     - require:
       - pkg: app-pkgs
 
@@ -51,7 +67,7 @@ webproject_env:
       - pkg: app-pkgs
       - user: webproject
       - file: webproject_dirs
-      - gem: bootstrap_sass
+      - npm: autoprefixer-pkgs
 
 project:
   pip.installed:
@@ -99,6 +115,8 @@ nginx:
     - running
     - watch:
       - file: nginx_conf
+    - require_in:
+        - file: letsencrypt-config
     - require:
         - pkg: nginx
 
@@ -111,6 +129,15 @@ nginx_conf:
     - mode: 755
     - user: nginx
     - group: nginx
+    - require:
+      - pkg: nginx
+
+letsencrypt_webroot_dir:
+  file.directory:
+    - user: nginx
+    - group: nginx
+    - makedirs: true
+    - name: {{ pillar['letsencrypt']['webroot_dir'] }}
     - require:
       - pkg: nginx
 
@@ -160,34 +187,3 @@ gunicorn_circus_restart:
       - file: gunicorn_circus
       - virtualenv: webproject_env
       - service: circusd
-
-
-collectstatic:
-  cmd.run:
-    - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py collectstatic --noinput
-    - user: webproject
-    - require:
-      - file: webproject_project
-      - virtualenv: webproject_env
-      - postgres_database: webproject_db
-      - user: webproject_user
-
-migrate:
-  cmd.run:
-    - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py migrate --noinput
-    - user: webproject
-    - require:
-      - file: webproject_project
-      - virtualenv: webproject_env
-      - postgres_database: webproject_db
-      - user: webproject_user
-
-compress:
-  cmd.run:
-    - name: {{ pillar['files']['env_dir'] }}bin/python {{ pillar['files']['project_dir'] }}manage.py compress
-    - user: webproject
-    - require:
-      - user: webproject_user
-      - file: webproject_project
-      - virtualenv: webproject_env
-      - pip: project
