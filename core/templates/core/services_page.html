@@ -19,7 +19,7 @@
 	<div class="pane--colorful">
 		<div class="row">
 			{% for service in page.services.all %}
-				<div class="text-center col-md-6 p-a-3 pane__child--{% cycle 'one' 'two' 'three' 'four' as index %}">
+				<div class="text-center col-md-6 p-a-3 pane__child--bg-{% cycle 'one' 'two' 'three' 'four' 'two' 'three' 'four' 'one' as index %}">
 					<h2 class="text-center m-b-1">{{ service.title }}</h2>
 					{{ service.body|richtext }}
 				</div>
