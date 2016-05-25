@@ -17,6 +17,8 @@
 .pane--colorful
 	font-size: 1.2em
 	color: $white-trans
+	display: flex
+	flex-flow: row wrap
 
 	h2
 		color: inherit
@@ -32,3 +34,10 @@
 
 .pane__child--bg-four
 	background-color: darken($green-mid,5)
+
+.pane__child
+	flex-basis: 50%
+	&:last-child:nth-child(2n+1)
+		flex-basis: 100%
+		background-color: $gray-light
+		color: $black-almost
