@@ -5,6 +5,10 @@
 {% block meta %}
 	{{ block.super }}
 	<meta property="og:type" content="article" />
+	{% if self.teaser_image %}
+		{% image self.teaser_image original as og_image %}
+		<meta property="og:image" content="{{ og_image.url }}" />
+	{% endif %}
 	{% if page.author.twitter_username %}
 		<meta name="twitter:creator" content="@{{ page.author.twitter_username }}" />
 	{% endif %}

@@ -1,12 +1,16 @@
 {% extends "core/layouts/small_header.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_classes %}no-banner{% endblock %}
 
 {% block meta %}
 	{{ block.super }}
 	<meta property="og:type" content="website" />
+	{% if settings.core.OpenGraphAndMetaSettings.open_graph_image %}
+		{% image settings.core.OpenGraphAndMetaSettings.open_graph_image original as og_image %}
+		<meta property="og:image" content="{{ og_image.url }}" />
+	{% endif %}
 {% endblock %}
 
 {% block main %}

@@ -5,6 +5,10 @@
 {% block meta %}
 	{{ block.super }}
 	<meta property="og:type" content="article" />
+	{% if self.screenshot %}
+		{% image self.screenshot original as og_image %}
+		<meta property="og:image" content="{{ og_image.url }}" />
+	{% endif %}
 {% endblock %}
 
 {% block body_classes %}no-banner{% endblock %}
