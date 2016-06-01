@@ -9,6 +9,10 @@
 		{% image self.screenshot original as og_image %}
 		<meta property="og:image" content="{{ og_image.url }}" />
 	{% endif %}
+	{% if self.teaser_title %}
+		<meta property="og:description" content="{{ self.teaser_title }}" />
+		<meta name="description" content="{{ self.teaser_title }}" />
+	{% endif %}
 {% endblock %}
 
 {% block body_classes %}no-banner{% endblock %}

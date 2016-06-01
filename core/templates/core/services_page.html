@@ -5,6 +5,10 @@
 {% block meta %}
 	{{ block.super }}
 	<meta property="og:type" content="website" />
+	{% if settings.core.OpenGraphAndMetaSettings.meta_description %}
+		<meta property="og:description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
+		<meta name="description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
+	{% endif %}
 {% endblock %}
 
 {% block main %}
