@@ -8,14 +8,14 @@
 			{% comment %}
 			Only meta tags should go inside this block.
 			{% endcomment %}
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta property="og:site_name" content="Little Weaver Web Collective"/>
-		<meta property="og:url" content="{{ request.build_absolute_uri }}" />
-		<meta property="og:title" content="{% include "core/_page_title.html" %}" />
-		<meta name="twitter:card" content="summary">
-		<meta name="twitter:site" content="@littleweaverweb">
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta property="og:site_name" content="Little Weaver Web Collective"/>
+			<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+			<meta property="og:title" content="{% include "core/_page_title.html" %}" />
+			<meta name="twitter:card" content="summary">
+			<meta name="twitter:site" content="@littleweaverweb">
 		{% endblock %}
 
 		<title>{% include "core/_page_title.html" %}</title>
