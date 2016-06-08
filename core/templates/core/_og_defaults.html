@@ -1,0 +1,11 @@
+{% load wagtailimages_tags %}
+
+<meta property="og:type" content="website" />
+{% if settings.core.OpenGraphAndMetaSettings.open_graph_image %}
+    {% image settings.core.OpenGraphAndMetaSettings.open_graph_image original as og_image %}
+    <meta property="og:image" content="{{ og_image.url }}" />
+{% endif %}
+{% if settings.core.OpenGraphAndMetaSettings.meta_description %}
+    <meta property="og:description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
+    <meta name="description" content="{{ settings.core.OpenGraphAndMetaSettings.meta_description }}" />
+{% endif %}

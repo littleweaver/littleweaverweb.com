@@ -1,8 +1,13 @@
 {% extends "core/layouts/small_header.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_classes %}no-banner{% endblock %}
+
+{% block meta %}
+	{{ block.super }}
+	{% include "core/_og_defaults.html" %}
+{% endblock %}
 
 {% block main %}
 	<div class='container m-r-1-sm-only'>
