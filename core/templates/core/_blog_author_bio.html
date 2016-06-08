@@ -2,7 +2,9 @@
 {% load wagtailcore_tags %}
 
 <h4>
+  <a href="/author/{{ page.author.slug }}">
 	{{ page.author.name }}
+  </a>
 	{% if page.author.github_username or page.author.twitter_username %}
 		<small class="m-l-1">
 			{% if page.author.github_username %}

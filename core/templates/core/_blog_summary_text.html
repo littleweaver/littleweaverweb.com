@@ -5,7 +5,9 @@
 	<div class="blog-post-byline-dateline m-b-1">
 		<span class="color-black-almost">
 			{% if entry.author %}
+            <a href="/author/{{ entry.author.slug }}">
 				{{ entry.author.name }}
+            </a>
 			{% endif %}
 		</span>
 		<span class="dateline">

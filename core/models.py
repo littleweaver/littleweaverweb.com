@@ -1,6 +1,6 @@
 from django.db import models
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils.six import text_type
 from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
@@ -165,10 +165,10 @@ class WorkPage(Page):
 
 class AuthorPage(RoutablePageMixin, Page):
 
-    @route(r'^name/([A-Za-z]+)/$')
+    @route(r'^([A-Za-z]+)/$')
     def author_by_name(self, request, slug):
         context = super(AuthorPage, self).get_context(request)
-        author = AuthorProfile.objects.get(slug=slug)
+        author = get_object_or_404(AuthorProfile, slug=slug)
         context['author'] = author
         context['blog_posts'] = author.blogpage_set.order_by('-publication_date').all()
         return render(request, self.template, context)

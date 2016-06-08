@@ -35,7 +35,9 @@
 				<div>
 					<span class="color-black-almost">
 						{% if page.author %}
-							{{ page.author.name }}
+                            <a href="/author/{{ page.author.slug }}">
+                                {{ page.author.name }}
+                            </a>
 						{% endif %}
 					</span>
 					<span class="dateline">
