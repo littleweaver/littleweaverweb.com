@@ -1,9 +1,11 @@
 from django.db import models
 
+from django.shortcuts import render
 from django.utils.six import text_type
 from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
+from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.wagtailadmin.utils import send_mail
 from wagtail.wagtailcore import blocks
@@ -161,6 +163,17 @@ class WorkPage(Page):
     ]
 
 
+class AuthorPage(RoutablePageMixin, Page):
+
+    @route(r'^name/([A-Za-z]+)/$')
+    def author_by_name(self, request, slug):
+        context = super(AuthorPage, self).get_context(request)
+        author = AuthorProfile.objects.get(slug=slug)
+        context['author'] = author
+        context['blog_posts'] = author.blogpage_set.order_by('-publication_date').all()
+        return render(request, self.template, context)
+
+
 class AboutPage(Page):
     body = RichTextField()
     banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
@@ -303,6 +316,7 @@ class BlogIndexPage(Page):
 @register_snippet
 class AuthorProfile(models.Model):
     name = models.CharField(max_length=100)
+    slug = models.CharField(max_length=20, null=True)
     picture = models.ForeignKey("wagtailimages.Image", blank=True, null=True,
                                 on_delete=models.SET_NULL, related_name='+')
     bio = RichTextField(blank=True)
@@ -312,6 +326,7 @@ class AuthorProfile(models.Model):
 
     panels = [
         FieldPanel('name'),
+        FieldPanel('slug'),
         ImageChooserPanel('picture'),
         FieldPanel('bio'),
         FieldPanel('is_member'),
