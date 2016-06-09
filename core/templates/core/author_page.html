@@ -1,0 +1,28 @@
+{% extends "core/layouts/small_header.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block main %}
+
+	{% image page.banner_image fill-1650x500 as banner_image %}
+	<div class="banner-image m-b-3" style="background-image:url({{ banner_image.url }});background-position:top center;">
+		<div class="container banner-image-text">
+			<h1 class="color-white">{{ page.name }}</h1>
+		</div>
+	</div>
+
+	<div class="container m-y-3">
+	  <div class="lead">
+	    {{ page.bio|richtext }}
+	  </div>
+	</div>
+
+	<div class="container">
+	  {% for entry in blog_entries %}
+
+	  {% include "core/_blog_summary_text.html" %}
+	  <hr />
+
+	  {% endfor %}
+	</div>
+
+{% endblock %}

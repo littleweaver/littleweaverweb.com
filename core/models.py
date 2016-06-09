@@ -162,17 +162,28 @@ class WorkPage(Page):
         ], "Teaser Details"),
     ]
 
+class AuthorPage(Page):
+    name = models.CharField(max_length=100)
+    picture = models.ForeignKey("wagtailimages.Image", blank=True, null=True,
+                                on_delete=models.SET_NULL, related_name='+')
+    bio = RichTextField(blank=True)
+    is_member = models.BooleanField(default=False)
+    twitter_username = models.CharField(max_length=15, blank=True)
+    github_username = models.CharField(max_length=30, blank=True)
 
-class AuthorPage(RoutablePageMixin, Page):
-
-    @route(r'^([A-Za-z]+)/$')
-    def author_by_name(self, request, slug):
+    content_panels = Page.content_panels + [
+        FieldPanel('name'),
+        ImageChooserPanel('picture'),
+        FieldPanel('bio'),
+        FieldPanel('is_member'),
+        FieldPanel('twitter_username'),
+        FieldPanel('github_username'),
+    ]
+    
+    def get_context(self, request): 
         context = super(AuthorPage, self).get_context(request)
-        author = get_object_or_404(AuthorProfile, slug=slug)
-        context['author'] = author
-        context['blog_posts'] = author.blogpage_set.order_by('-publication_date').all()
-        return render(request, self.template, context)
-
+        context['blog_entries'] = BlogPage.objects.filter(author=self)
+        return context
 
 class AboutPage(Page):
     body = RichTextField()
@@ -186,7 +197,7 @@ class AboutPage(Page):
 
     def get_context(self, request):
         context = super(AboutPage, self).get_context(request)
-        context['members'] = AuthorProfile.objects.filter(is_member=True).order_by('?')
+        context['members'] = AuthorPage.objects.filter(is_member=True).order_by('?')
         return context
 
 
@@ -241,9 +252,8 @@ class TechnologySection(Orderable):
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('core.BlogPage', related_name='tagged_items')
 
-
 class BlogPage(Page):
-    author = models.ForeignKey('core.AuthorProfile', null=True, blank=True,
+    author = models.ForeignKey('core.AuthorPage', null=True, blank=True,
                                on_delete=models.SET_NULL,)
     publication_date = models.DateField(
         help_text="Past or future date of publication")
@@ -265,7 +275,7 @@ class BlogPage(Page):
                            related_name="+")
 
     content_panels = Page.content_panels + [
-        SnippetChooserPanel('author'),
+        PageChooserPanel('author'),
         FieldPanel('publication_date'),
         FieldPanel('summary'),
         StreamFieldPanel('body'),
@@ -311,31 +321,6 @@ class BlogIndexPage(Page):
         # Add extra variables and return the updated context
         context['blog_entries'] = entries
         return context
-
-
-@register_snippet
-class AuthorProfile(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.CharField(max_length=20, null=True)
-    picture = models.ForeignKey("wagtailimages.Image", blank=True, null=True,
-                                on_delete=models.SET_NULL, related_name='+')
-    bio = RichTextField(blank=True)
-    is_member = models.BooleanField(default=False)
-    twitter_username = models.CharField(max_length=15, blank=True)
-    github_username = models.CharField(max_length=30, blank=True)
-
-    panels = [
-        FieldPanel('name'),
-        FieldPanel('slug'),
-        ImageChooserPanel('picture'),
-        FieldPanel('bio'),
-        FieldPanel('is_member'),
-        FieldPanel('twitter_username'),
-        FieldPanel('github_username'),
-    ]
-
-    def __str__(self):              # __unicode__ on Python 2
-        return self.name
 
 
 class EmailFormField(AbstractFormField):
