@@ -11,7 +11,12 @@ def migrate_data(apps, schema_editor):
 
     BlogPage = apps.get_model("core", "BlogPage")
     AuthorProfile = apps.get_model("core", "AuthorProfile")
-    about_page = AboutPage.objects.get()
+    try:
+        about_page = AboutPage.objects.get()
+    except (AboutPage.DoesNotExist, AboutPage.MultipleObjectsReturned):
+        # we can only programmatically migrate this data if there is
+        # exactly one about page
+        return
 
     for snippet in AuthorProfile.objects.all():
         page = AuthorPage(name=snippet.name,
