@@ -29,11 +29,11 @@
 		<div class='container m-r-1-sm-only'>
 			<div class='row'>
 				<div class="hidden-xs-down col-sm-3 col-md-2 text-xs-right">
-					<span class="color-black-almost text-bold text-uppercase">Services</span>
+					<span class="color-black-almost text-bold text-uppercase pull-right">Services</span>
 				</div>
 				<div class='col-sm-9 col-md-10 col-lg-8'>
 					<ul class="list-comma">
-						<li class="hidden-sm-up list-inline-item color-black-almost text-bold text-uppercase pull-right">Services</li>
+						<li class="hidden-sm-up list-inline-item color-black-almost text-bold text-uppercase">Services</li>
 						{% for service in self.services.all %}
 						<li class="list-comma-item">{{ service }}</li>
 						{% endfor %}
