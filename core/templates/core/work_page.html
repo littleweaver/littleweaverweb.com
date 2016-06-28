@@ -28,15 +28,25 @@
 	<div class="pane--light-gray--top-shadow p-t-1 m-b-1">
 		<div class='container m-r-1-sm-only'>
 			<div class='row'>
-				<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
+				<div class="hidden-xs-down col-sm-3 col-md-2 text-xs-right">
+					<span class="color-black-almost text-bold text-uppercase">Services</span>
+				</div>
+				<div class='col-sm-9 col-md-10 col-lg-8'>
 					<ul class="list-comma">
-						<li class="list-inline-item color-black-almost text-bold text-uppercase">Services</li>
+						<li class="hidden-sm-up list-inline-item color-black-almost text-bold text-uppercase pull-right">Services</li>
 						{% for service in self.services.all %}
 						<li class="list-comma-item">{{ service }}</li>
 						{% endfor %}
 					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="hidden-xs-down col-sm-3 col-md-2 text-xs-right">
+					<span class="color-black-almost text-bold text-uppercase pull-right">Technologies</span>
+				</div>
+				<div class='col-sm-9 col-md-10 col-lg-8'>
 					<ul class="list-comma">
-						<li class="list-inline-item color-black-almost text-bold text-uppercase">Technologies</li>
+						<li class="hidden-sm-up list-inline-item color-black-almost text-bold text-uppercase">Technologies</li>
 						{% for technology in self.technologies.all %}
 						<li class="list-comma-item">{{ technology }}</li>
 						{% endfor %}
