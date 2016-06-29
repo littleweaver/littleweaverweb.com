@@ -1,10 +1,11 @@
 $colors-map: (gray: $gray, gray-mid: $gray-mid, gray-dark: $gray-dark, gray-light: $gray-light, green: $green, green-dark: $green-dark, white: white, black: black, black-almost: $black-almost, orange-bright: $orange-bright, red: $red)
 
+
 // Utility Color Classes
 @each $color-name, $color-hex in $colors-map
-	$color-contrast: contrast-color($color-hex, $black, $white)
-	@if	$color-name in ()
-		$color-contrast: $white
+	// $color-contrast: $gray-dark
+	// @if	$color-name in ()
+	// 	$color-contrast: $white
 
 	$color-alt: darken($color-hex, 10%)
 	@if lightness($color-alt) <= 10
@@ -15,13 +16,13 @@ $colors-map: (gray: $gray, gray-mid: $gray-mid, gray-dark: $gray-dark, gray-ligh
 	.background-#{$color-name}, .btn-#{$color-name},
 	.label-#{$color-name}
 		background-color: $color-hex
-		color: $color-contrast
+		// color: $color-contrast
 
 	// Button (and label link) Event Colors:
 	.btn-#{$color-name}:hover, .btn-#{$color-name}:active,
 	a:hover > .label-#{$color-name}, a:active > .label-#{$color-name}
 		background-color: $color-alt
-		color: $color-contrast
+		// color: $color-contrast
 
 	// For coloring text, e.g., .color-gray-dark, .color-facebook, &c.
 	.color-#{$color-name}

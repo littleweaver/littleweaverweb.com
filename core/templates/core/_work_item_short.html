@@ -2,21 +2,24 @@
 
 <div class="row">
 	<div class="col-md-6 col-lg-5 m-b-1">
-		<div class="img-bordered">
-			{% image item.screenshot width-900 class="img-fluid" %}
-		</div>
+		<a href="{% pageurl item %}">
+			<div class="img-bordered">
+				{% image item.screenshot width-900 class="img-fluid" %}
+			</div>
+		</a>
 	</div>
 	<div class="col-md-6 col-lg-7">
 		<h1><a href="{% pageurl item %}" class="color-black-almost">{{ item.client_name }}</a></h1>
-		<div class="m-b-1">
+		<div class="m-b-2">
 			<h4>{{ item.project_name }}</h4>
 			{{ item.teaser_description|richtext }}
-			<ul class="list-comma text-uppercase m-t-1 small">
+			<ul class="list-comma m-t-1 small">
+				<li class="list-inline-item color-black-almost text-bold text-uppercase">Services</li>
 				{% for service in item.services.all %}
-					<li class="list-comma-item">{{ service }}</li>
+					<li class="list-comma-item text-light">{{ service }}</li>
 				{% endfor %}
 			</ul>
 		</div>
-		<a href="{% pageurl item %}" class="btn btn-sm btn-secondary">See Work <i class="fa fa-chevron-right"></i></a>
+		<a href="{% pageurl item %}" class="btn btn-secondary text-uppercase">See Work &nbsp;<i class="fa fa-angle-right"></i></a>
 	</div>
 </div>
