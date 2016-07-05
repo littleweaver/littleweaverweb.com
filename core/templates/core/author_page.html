@@ -6,12 +6,13 @@
 	{% image page.banner_image fill-1650x500 as banner_image %}
 	<div class="banner-image m-b-3" style="background-image:url({{ banner_image.url }});background-position:top center;">
 		<div class="container banner-image-text">
-		  {% image page.picture fill-150x150 class="img-circle" %}
+
 			<h1 class="color-white">{{ page.title }}</h1>
 		</div>
 	</div>
 
 	<div class="container">
+	  <div class="col-md-10">
 	    <div class="lead">
 	      {{ page.bio|richtext }}
 	    </div>
@@ -24,21 +25,25 @@
 	      <a href="http://twitter.com/{{ page.twitter_username }}" class="link-no-underline fa fa-fw fa-twitter" title="Twitter profile"></a>
 	      {% endif %}
 	    </div>
+	  </div>
+	  <div class="col-md-2">
+	    {% image page.picture fill-200x200 class="img-circle" %}
+	  </div>
 	</div>
 
-	  <div class="pane--light-gray p-x-3 p-t-3">
-	    <div class="container">
-	      <div class="row">
-		<h1 class="text-xs-center">Blog Entries</h1>
-	      </div>
-	  {% for entry in blog_entries %}
-	  <div class="row">
-	  {% include "core/_blog_summary_text.html" %}
-	  <hr />
-	  </div>
-	  {% endfor %}
+	<div class="pane--light-gray p-x-3 p-t-3">
+	  <div class="container">
+	    <div class="row">
+	      <h1 class="text-xs-center">Blog Entries</h1>
 	    </div>
+	    {% for entry in blog_entries %}
+	    <div class="row">
+	      {% include "core/_blog_summary_text.html" %}
+	      <hr />
+	    </div>
+	    {% endfor %}
 	  </div>
+	</div>
 
 
-{% endblock %}
+	{% endblock %}
