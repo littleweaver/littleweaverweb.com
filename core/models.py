@@ -163,21 +163,21 @@ class WorkPage(Page):
     ]
 
 class AuthorPage(Page):
-    name = models.CharField(max_length=100)
     picture = models.ForeignKey("wagtailimages.Image", blank=True, null=True,
                                 on_delete=models.SET_NULL, related_name='+')
     bio = RichTextField(blank=True)
     is_member = models.BooleanField(default=False)
     twitter_username = models.CharField(max_length=15, blank=True)
     github_username = models.CharField(max_length=30, blank=True)
+    portfolio_link = models.CharField(max_length=50, blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('name'),
         ImageChooserPanel('picture'),
         FieldPanel('bio'),
         FieldPanel('is_member'),
         FieldPanel('twitter_username'),
         FieldPanel('github_username'),
+        FieldPanel('portfolio_link')
     ]
     
     def get_context(self, request): 
