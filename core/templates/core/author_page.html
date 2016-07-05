@@ -6,16 +6,16 @@
 	{% image page.banner_image fill-1650x500 as banner_image %}
 	<div class="banner-image m-b-3" style="background-image:url({{ banner_image.url }});background-position:top center;">
 		<div class="container banner-image-text">
-			<h1 class="color-white">{{ page.name }}</h1>
+		  {% image page.picture fill-150x150 class="img-circle" %}
+			<h1 class="color-white">{{ page.title }}</h1>
 		</div>
 	</div>
 
-	<div class="container author-summary">
-	  <div class="media-body">
-	    <div class="lead author-bio">
+	<div class="container">
+	    <div class="lead">
 	      {{ page.bio|richtext }}
 	    </div>
-	    <div class="media-links">	       
+	    <div class="media-links m-b-3">	       
 	      <hr />
 	      {% if page.github_username %}
 	      <a href="http://github.com/{{ page.github_username }}" class="link-no-underline fa fa-fw fa-github" title="Github profile"></a>
@@ -24,28 +24,21 @@
 	      <a href="http://twitter.com/{{ page.twitter_username }}" class="link-no-underline fa fa-fw fa-twitter" title="Twitter profile"></a>
 	      {% endif %}
 	    </div>
-	  </div>
-	  <div class="media-right">
-	      {% image page.picture fill-200x200 class="img-circle" %}
-	  </div>
 	</div>
 
-	<div class="container m-y-3">
-	  <div class="text-xs-center">
-
-	  </div>
-	  <div class="lead">
-
-	  </div>
-	</div>
-
-	<div class="container author-blogs">
+	  <div class="pane--light-gray p-x-3 p-t-3">
+	    <div class="container">
+	      <div class="row">
+		<h1 class="text-xs-center">Blog Entries</h1>
+	      </div>
 	  {% for entry in blog_entries %}
-
+	  <div class="row">
 	  {% include "core/_blog_summary_text.html" %}
 	  <hr />
-
+	  </div>
 	  {% endfor %}
-	</div>
+	    </div>
+	  </div>
+
 
 {% endblock %}
