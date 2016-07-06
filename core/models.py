@@ -170,6 +170,8 @@ class AuthorPage(Page):
     twitter_username = models.CharField(max_length=15, blank=True)
     github_username = models.CharField(max_length=30, blank=True)
     portfolio_link = models.CharField(max_length=50, blank=True)
+    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+                                     on_delete=models.SET_NULL)
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('picture'),
@@ -177,7 +179,8 @@ class AuthorPage(Page):
         FieldPanel('is_member'),
         FieldPanel('twitter_username'),
         FieldPanel('github_username'),
-        FieldPanel('portfolio_link')
+        FieldPanel('portfolio_link'),
+        ImageChooserPanel('banner_image'),
     ]
     
     def get_context(self, request): 
