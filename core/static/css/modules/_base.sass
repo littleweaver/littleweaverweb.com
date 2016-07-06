@@ -6,6 +6,12 @@ h1, h2, h3, h4, h5, h6
 	font-weight: $normal
 	color: $black-almost
 
+
+.lead--except-sm
+	@extend .lead
+	+media-breakpoint-only(sm)
+		font-size: inherit
+
 // Sticky Footer (https://getbootstrap.com/examples/sticky-footer/)
 html
 	position: relative
