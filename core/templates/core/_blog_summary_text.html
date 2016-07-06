@@ -5,7 +5,9 @@
 	<div class="blog-post-byline-dateline m-b-1">
 		<span class="color-black-almost">
 			{% if entry.author %}
-				{{ entry.author.name }}
+            <a href="/about/{{ entry.author.slug }}">
+				{{ entry.author.title }}
+            </a>
 			{% endif %}
 		</span>
 		<span class="dateline">
@@ -13,7 +15,7 @@
 		</span>
 	</div>
 </header>
-<div class="entry-summary">
+<div class="m-b-1">
 	{{ entry.summary }}
 </div>
 <footer>

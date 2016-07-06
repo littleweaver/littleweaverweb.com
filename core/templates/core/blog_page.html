@@ -35,7 +35,9 @@
 				<div>
 					<span class="color-black-almost">
 						{% if page.author %}
-							{{ page.author.name }}
+                            <a href="/about/{{ page.author.slug }}">
+                                {{ page.author.title }}
+                            </a>
 						{% endif %}
 					</span>
 					<span class="dateline">
@@ -74,7 +76,9 @@
 							<div class="media-left p-r-1">
 								{% if page.author.picture %}
 									{% image page.author.picture fill-150x150 as author_image %}
-									<img src="{{ author_image.url }}" alt="{{ page.author.picture.title }}" width=100 height=100 class="media-object img-circle"/>
+								<a href="/about/{{ page.author.slug }}">
+									<img src="{{ author_image.url }}" alt="{{ page.author.picture.title }}" width=100 class="img-circle media-object"/>
+								</a>
 								{% endif %}
 							</div>
 							<div class="media-body">
