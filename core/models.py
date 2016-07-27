@@ -167,11 +167,12 @@ class AuthorPage(Page):
                                 on_delete=models.SET_NULL, related_name='+')
     bio = RichTextField(blank=True)
     is_member = models.BooleanField(default=False)
+    name = models.CharField(max_length=200, blank=True)
     twitter_username = models.CharField(max_length=15, blank=True)
     github_username = models.CharField(max_length=30, blank=True)
-    portfolio_link = models.CharField(max_length=50, blank=True)
-    banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
-                                     on_delete=models.SET_NULL)
+    # portfolio_link = models.CharField(max_length=50, blank=True)
+    # banner_image = models.ForeignKey("wagtailimages.Image", null=True, blank=True,
+    #                                  on_delete=models.SET_NULL)
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('picture'),
@@ -179,11 +180,11 @@ class AuthorPage(Page):
         FieldPanel('is_member'),
         FieldPanel('twitter_username'),
         FieldPanel('github_username'),
-        FieldPanel('portfolio_link'),
-        ImageChooserPanel('banner_image'),
+        # FieldPanel('portfolio_link'),
+        # ImageChooserPanel('banner_image'),
     ]
-    
-    def get_context(self, request): 
+
+    def get_context(self, request):
         context = super(AuthorPage, self).get_context(request)
         context['blog_entries'] = BlogPage.objects.filter(author=self)
         return context
