@@ -18,16 +18,13 @@
 {% block body_classes %}no-banner{% endblock %}
 
 {% block main %}
-	<div class='container m-r-1-sm-only'>
-		<div class='row m-b-1'>
+	<div class='container m-y-1 m-r-1-sm-only'>
+		<div class='row'>
 			<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8'>
-				<h1 class="m-y-1 color-black">{{ self.teaser_title }}</h1>
-				<h2 class="color-gray-mid">{{ self.client_name }}</h2>
+				<h1 class="m-y-1 color-black">{{ self.client_name }}</h1>
+				<h2 class="m-b-2 color-gray-dark">{{ self.project_name }}</h2>
 			</div>
-		</div>
-
-		<div class="row m-b-3">
-			<div class='col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6 m-b-2'>
+			<div class='col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6'>
 				{% if page.screenshot %}
 					<div class="browser">
 						<div class="titlebar">
@@ -39,6 +36,40 @@
 					</div>
 				{% endif %}
 			</div>
+		</div>
+	</div>
+	<div class="pane--light-gray--top-shadow p-t-1 m-b-1">
+		<div class='container m-r-1-sm-only'>
+			<div class='row'>
+				<div class="hidden-xs-down col-sm-3 col-md-2 text-xs-right">
+					<span class="color-black-almost text-bold text-uppercase pull-right">Services</span>
+				</div>
+				<div class='col-sm-9 col-md-10 col-lg-8'>
+					<ul class="list-comma">
+						<li class="hidden-sm-up list-inline-item color-black-almost text-bold text-uppercase">Services</li>
+						{% for service in self.services.all %}
+						<li class="list-comma-item">{{ service }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="hidden-xs-down col-sm-3 col-md-2 text-xs-right">
+					<span class="color-black-almost text-bold text-uppercase pull-right">Technologies</span>
+				</div>
+				<div class='col-sm-9 col-md-10 col-lg-8'>
+					<ul class="list-comma">
+						<li class="hidden-sm-up list-inline-item color-black-almost text-bold text-uppercase">Technologies</li>
+						{% for technology in self.technologies.all %}
+						<li class="list-comma-item">{{ technology }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='container m-r-1-sm-only'>
+		<div class="row m-b-3">
 			{% for block in page.body %}
 				<div class='block-{{ block.block_type }}'>
 					{% if block.block_type == 'image' %}

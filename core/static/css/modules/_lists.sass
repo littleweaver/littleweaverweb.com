@@ -1,0 +1,25 @@
+.list-comma
+    @extend .list-inline
+.list-comma-item
+    @extend .list-inline-item
+
+.list-comma-item:not(:last-child)
+    margin-right: 2px
+    &::after
+        content: ", "
+
++media-breakpoint-down(xs)
+    // requires .list-untstyled
+    .list-comma-item-xs-down
+        display: inline-block
+    .list-comma-item-xs-down:not(:last-child)
+        margin-right: 2px
+        &::after
+            content: ", "
+
+
+.list--margin-separated
+    @extend .list-unstyled
+    > li
+        line-height: 1.2
+        margin-bottom: 0.3em
