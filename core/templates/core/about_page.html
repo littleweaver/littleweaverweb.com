@@ -28,9 +28,12 @@
 				<div class="grid-md-3 grid-sm-2">
 					{% for member in members %}
 						<div class="grid-item m-b-3">
-							{% if member.picture %}{% image member.picture fill-500x500 class="img-fluid img-circle" %}{% endif %}
-							<h3 class="text-xs-center m-t-1 color-gray">
-							  <a href="/about/{{ member.slug }}">
+							{% if member.picture %}
+							<a href="/about/{{ member.slug }}">
+								{% image member.picture fill-500x500 class="img-fluid img-circle" %}{% endif %}
+							</a>
+							<h3 class="text-xs-center m-t-1">
+							  <a href="/about/{{ member.slug }}" class="color-gray">
 							  {{ member.title }}
 							  </a>
 							</h3>
