@@ -10,6 +10,17 @@ DATABASES['default'] =  dj_database_url.config()
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
+AWS_IS_GZIPPED = True
+
+# Add missing content types to the list of types
+# that should be gzipped.
+GZIP_CONTENT_TYPES = (
+ 'text/css',
+ 'application/javascript',
+ 'application/x-javascript',
+ 'text/javascript'
+)
+
 AWS_STORAGE_BUCKET_NAME = os.environ.get("S3_BUCKET_NAME")
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
