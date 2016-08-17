@@ -3,3 +3,5 @@ db.sqlite3
 /media/
 /pillar/
 *.pyc
+littleweaverweb/settings/local.py
+*.dump
