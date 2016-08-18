@@ -186,7 +186,7 @@ class AuthorPage(Page):
 
     def get_context(self, request):
         context = super(AuthorPage, self).get_context(request)
-        context['blog_entries'] = BlogPage.objects.filter(author=self)
+        context['blog_entries'] = BlogPage.objects.filter(author=self).live()
         return context
 
 class AboutPage(Page):
