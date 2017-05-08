@@ -1,6 +1,7 @@
 import os
 from os.path import abspath, dirname, join
 
+import dj_database_url
 from django.conf import global_settings
 
 # Absolute filesystem path to the Django project directory:
@@ -70,27 +71,17 @@ WSGI_APPLICATION = 'littleweaverweb.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-# SQLite (simplest install)
-DATABASES = {
-    'default': {
+DATABASES = dict()
+# https://github.com/kennethreitz/dj-database-url
+db_configuration = dj_database_url.config()
+if db_configuration:
+    DATABASES['default'] = db_configuration
+else:
+    print('No DATABASE_URL specified, using sqlite.')
+    DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': join(PROJECT_ROOT, 'db.sqlite3'),
     }
-}
-
-# PostgreSQL (Recommended, but requires the psycopg2 library and Postgresql development headers)
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'littleweaverweb',
-#         'USER': 'postgres',
-#         'PASSWORD': '',
-#         'HOST': '',  # Set to empty string for localhost.
-#         'PORT': '',  # Set to empty string for default.
-#         'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
-#     }
-# }
 
 
 # Internationalization
