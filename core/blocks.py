@@ -28,7 +28,7 @@ class CodeBlock(blocks.StructBlock):
     class Meta:
         icon = 'code'
 
-    def render(self, value):
+    def render(self, value, **kwargs):
         src = value['code'].strip('\n')
         lang = value['language']
 
@@ -58,7 +58,7 @@ class MarkdownBlock(blocks.TextBlock):
     class Meta:
         icon = 'code'
 
-    def render_basic(self, value):
+    def render_basic(self, value, **kwargs):
         md = markdown(
             value,
             [
