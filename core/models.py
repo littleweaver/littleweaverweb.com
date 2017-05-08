@@ -2,7 +2,7 @@ from django.db import models
 
 from django.shortcuts import render, get_object_or_404
 from django.utils.six import text_type
-from modelcluster.fields import ParentalKey
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
@@ -132,8 +132,8 @@ class WorkPage(Page):
     link = models.URLField(max_length=255, null=True, blank=True,
                             help_text="External URL of the project.",
                             verbose_name="Client External URL")
-    services = models.ManyToManyField(Service, blank=True)
-    technologies = models.ManyToManyField(Technology, blank=True)
+    services = ParentalManyToManyField(Service, blank=True)
+    technologies = ParentalManyToManyField(Technology, blank=True)
 
     # Details for teasers on other pages:
     teaser_title = models.CharField(max_length=255, blank=True)
