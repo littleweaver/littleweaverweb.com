@@ -71,17 +71,10 @@ WSGI_APPLICATION = 'littleweaverweb.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-DATABASES = dict()
 # https://github.com/kennethreitz/dj-database-url
-db_configuration = dj_database_url.config()
-if db_configuration:
-    DATABASES['default'] = db_configuration
-else:
-    print('No DATABASE_URL specified, using sqlite.')
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': join(PROJECT_ROOT, 'db.sqlite3'),
-    }
+DATABASES = {
+	'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+}
 
 
 # Internationalization
