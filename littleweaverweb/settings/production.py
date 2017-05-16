@@ -1,12 +1,9 @@
 from .base import *
-import dj_database_url
 
 # Disable debug mode
 
 DEBUG = False
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
-
-DATABASES['default'] =  dj_database_url.config()
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 

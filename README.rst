@@ -55,6 +55,14 @@ The first time you run, you'll need to run migrations and create a superuser:
     python manage.py migrate           # Create/sync the database.
     python manage.py createsuperuser   # Create an initial user.
 
+``base.py`` will use sqlite3 by default.
+You can use postgres with the ``DATABASE_URL`` environment variable.
+
+.. code:: bash
+
+    createdb lww
+    DATABASE_URL=postgres:///lww python manage.py migrate
+
 Get it running
 --------------
 
