@@ -8,7 +8,7 @@ django-compressor==2.0
 django-compressor-autoprefixer==0.1.0
 django-libsass==0.6
 django-modelcluster==3.0.1
-django-storages==1.1.8
+django-storages==1.5.2
 django-taggit==0.22.1
 django-treebeard==4.0.1
 djangorestframework==3.3.3
