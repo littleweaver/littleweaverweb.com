@@ -11,6 +11,7 @@ from wagtail.wagtailadmin.utils import send_mail
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page, Orderable
+from wagtail.wagtailcore.rich_text import features
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, PageChooserPanel, StreamFieldPanel, InlinePanel
 from wagtail.wagtailforms.models import AbstractEmailForm, AbstractFormField
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
@@ -263,7 +264,28 @@ class BlogPage(Page):
         help_text="Past or future date of publication")
     summary = models.TextField(help_text="Intro or short summary of post")
     body = StreamField([
-        ('rich_text', blocks.RichTextBlock(icon='doc-full', label='Rich Text')),
+        ('rich_text', blocks.RichTextBlock(
+            icon='doc-full',
+            label='Rich Text',
+            features=[
+                # Default features
+                'h2',
+                'h3',
+                'h4',
+                'hr',
+                'link',
+                'bold',
+                'italic',
+                'ol',
+                'ul',
+                'document-link',
+                'embed',
+                'image',
+
+                # Extra features
+                'code',
+            ],
+        )),
         ('code', CodeBlock(icon='code')),
         ('quote', QuoteBlock(icon='openquote')),
         ('markdown', MarkdownBlock()),
