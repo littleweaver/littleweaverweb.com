@@ -7,8 +7,8 @@ import wagtail.wagtailcore.fields
 
 
 def migrate_data(apps, schema_editor):
-    from core.models import AuthorPage, AboutPage
-
+    AboutPage = apps.get_model('core', 'AboutPage')
+    AuthorPage = apps.get_model('core', 'AuthorPage')
     BlogPage = apps.get_model("core", "BlogPage")
     AuthorProfile = apps.get_model("core", "AuthorProfile")
     try:
