@@ -120,6 +120,18 @@ nginx:
     - require:
         - pkg: nginx
 
+
+nginx-restart-cron:
+  cron.present:
+    - name: service nginx restart
+    - month: '*'
+    - minute: random
+    - hour: random
+    - day: random
+    - identifier: nginx-restart-cron
+    - require:
+      - service: nginx
+
 nginx_conf:
   file.managed:
     - name: /etc/nginx/sites-available/default
