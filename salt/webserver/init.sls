@@ -127,7 +127,7 @@ nginx-restart-cron:
     - month: '*'
     - minute: random
     - hour: random
-    - day: random
+    - daymonth: random
     - identifier: nginx-restart-cron
     - require:
       - service: nginx
