@@ -25,21 +25,17 @@
 		</div>
 	{% endif %}
 
-	<div class="container">
-		{% include "core/_blog_summary_first.html" with extra_classes="blog-post--large m-t-3" entry=blog_entries.0 %}
-		<div class="row">
-			{% for entry in blog_entries|slice:"1:" %}
-				<div class="col-md-6 col-lg-4">
+	<div class="container m-y-3">
+		<div class="grid row" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "masonry" }'>
+			{% for entry in blog_entries %}
+				<div class="grid-item col-md-6 col-lg-4">
 					{% include "core/_blog_summary.html" with extra_classes="blog-post" %}
 				</div>
-				{# The following divs break up the grid rows at the right locations depending on screen size: #}
-				{% if forloop.counter|divisibleby:"3" %}
-					<div class="clearfix hidden-md-down"></div>
-				{% endif %}
-				{% if forloop.counter|divisibleby:"2" %}
-					<div class="clearfix hidden-lg-up"></div>
-				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
+{% endblock %}
+
+{% block extra_js %}
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 {% endblock %}

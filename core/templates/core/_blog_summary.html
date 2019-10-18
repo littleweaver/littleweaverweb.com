@@ -1,8 +1,30 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 <article class="m-b-3 {{ extra_classes }}">
-	{# {% if entry.teaser_image %}#}
-		{# {% image entry.teaser_image fill-500x250 class="img-fluid m-b-2" %}#}
-	{# {% endif %}#}
-	{% include "core/_blog_summary_text.html" %}
+	{% if entry.teaser_image %}
+		<a href="{{ entry.url }}">
+			{% image entry.teaser_image max-500x500 class="img-fluid m-b-1" %}
+		</a>
+	{% endif %}
+	<header class="blog-post-header m-b-0">
+		<h2 class="blog-post-title card-title">
+			<a href="{{ entry.url }}" class="color-black-almost">{{ entry.title }}</a>
+		</h2>
+		<div class="blog-post-byline-dateline m-b-1-tiny">
+			{% if entry.author %}
+				<span class="color-black-almost">
+					{{ entry.author.name }}
+				</span>
+			{% endif %}
+			<span class="dateline">
+				<time datetime="{{ entry.publication_date|date:"c" }}">{{ entry.publication_date|date:"N j, Y" }}</time>
+			</span>
+		</div>
+	</header>
+	<div class="entry-summary">
+		{{ entry.summary }}
+	</div>
+	<footer>
+		<a href="{{ entry.url }}" class="btn btn-sm btn-secondary m-t-1">Read <i class="fa fa-fw fa-chevron-right"></i></a>
+	</footer>
 </article>
