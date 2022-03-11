@@ -19,7 +19,7 @@ html5lib==0.999999999
 libsass==0.11.0
 markdown>=2.0,<3.0
 olefile==0.44
-Pillow==4.2.1
+Pillow==9.0.1
 psycopg2==2.7.1
 pygments>=2.0,<3.0
 python-http-client==1.2.3
